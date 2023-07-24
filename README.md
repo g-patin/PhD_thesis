@@ -4,6 +4,8 @@ This Github account describes the writing methodology of my PhD dissertation. I 
 
 Whatever your field of study, I believe that Latex is currently the best choice to write a PhD thesis. The complexity of such a tool may frighten most of us, but its efficiency and the quality of the final documents are far superior to other writing solutions. The aim of this repository is to provide you with a template that you can reuse and adapt according to your needs. 
 
+As a starting point, I would suggest to first create a folder strucutre dedicated to the writing of your manuscript. Then, you can reuse the *main.tex* file from this repository and adapting it to your environment (packages, layout, new commmands, folder names, etc.).  
+
 The following recommendations may prove useful:  
 
 * **Split your thesis**. Don't create a single file which contains the whole of your disseration. In my case, I have a central file, called *main.tex* in which I call for other latex files, such as the abstract, the preface, the various chapters, etc. Use *main.tex* to set-up the environment of the manuscript (packages, layout, commands, etc.) and write the content of the dissertation in seperate files. It will clarify the structure of the writing process and will ease the editing process.
