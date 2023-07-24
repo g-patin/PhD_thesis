@@ -1,0 +1,278 @@
+%%%%%%%%% DOCUMENT CLASS %%%%%%%%
+
+\documentclass[parskip=half,
+               fontsize=9pt,
+               % chapterprefix=true,
+               numbers=noenddot,
+               DIV = calc,                                          
+               bibliography=totoc]{scrbook}
+
+              
+%%%%%%%% IMPORT PACKAGES %%%%%%%%
+
+%% Page layout
+\usepackage[includemp,
+            paperwidth=19.54cm,
+            paperheight=25.22cm,
+            % showframe,
+            layoutwidth=18.90cm,
+            layoutheight=24.58cm,
+            layouthoffset=0.32cm,
+            layoutvoffset=0.32cm,
+            top=2.170cm,
+            bottom=3.510cm,
+            inner=2.1835cm,
+            outer=2.1835cm,
+            marginparwidth=4cm, % Fixed for now
+            marginparsep=0.4cm]{geometry}
+ 
+\usepackage{marginfix}            % Make marginpars float freely
+\usepackage{scrlayer-scrpage}     % Customise head and foot regions
+\usepackage{pdflscape}            % Change page orientation 
+\usepackage{setspace}             % Space between lines
+%\onehalfspacing
+%\doublespacing
+
+%% Colors
+\usepackage[dvipsnames]{xcolor}
+
+
+%% Titles and Toc
+\usepackage{sectsty}
+\chapterfont{\color{blue}}        % sets colour of chapters
+\sectionfont{\color{blue}}        % sets colour of sections
+\subsectionfont{\color{blue}}     % sets colour of subsections
+\subsubsectionfont{\color{blue}}  % sets colour of subsubsections
+\paragraphfont{\color{blue}}      % sets colour of subsubsections
+\usepackage[subfigure]{tocloft}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[per-mode=symbol]{siunitx}
+%\usepackage{chemformula}
+ 
+ 
+% Floats and captions
+\usepackage{floatrow}               % Set up captions of floats
+\extrafloats{100}
+\usepackage[hypcap=false, font=large, labelfont=bf]{caption}   % Correctly placed anchors for hyperlinks 
+
+  
+%% hyper references
+\usepackage[colorlinks=true, allcolors=blue, pdffitwindow=true, plainpages=false]{hyperref}
+\hypersetup{breaklinks=true} 
+\usepackage[all]{hypcap}
+  
+%% Tables
+\usepackage{booktabs,tabularx}
+\usepackage{multirow}               % Cells occupying multiple rows in tables
+\usepackage{multicol}               % Multiple columns in dictionary
+\setlength\columnseprule{.4pt}
+\usepackage{makecell}
+\usepackage{tablefootnote}
+
+\floatsetup[table]{margins=hangoutside,
+                   facing=yes,
+                   capposition=top,
+                   capbesideposition={center,outside},
+                   floatwidth=\textwidth}
+\floatsetup[widetable]{margins=hangoutside,
+                       facing=yes,
+                       capposition=top}
+
+
+%% Figures
+\usepackage{graphicx}               % Required for inserting images
+%\usepackage{subfig}
+\usepackage{subfigure}
+
+\floatsetup[figure]{margins=hangoutside,
+                    facing=yes,
+                    capposition=beside,
+                    capbesideposition={center,outside},                    
+                    floatwidth=\textwidth}
+\floatsetup[widefigure]{margins=hangoutside,
+                        facing=yes,
+                        capposition=bottom}
+
+
+%% Blank pages
+\usepackage{afterpage}
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}         
+            
+%% Import pdf
+\usepackage{pdfpages}   
+
+
+%% Appendices
+\usepackage{appendix}
+
+ 
+%% Sidenotes
+\usepackage{sidenotes}
+
+
+
+%% Bibliography
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\setcitestyle{authoryear,open={(},close={)}}
+\setcitestyle{notesep={: }}
+
+
+%% Acronyms
+\usepackage[savewrites,nopostdot,symbols,nogroupskip]{glossaries}
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\setlength\glsdescwidth{0.8\hsize}
+\input{acronyms}
+\makeglossaries 
+
+
+%% Diverse packages
+\usepackage{amsmath}
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage{ccicons}                % Creative Commons icons
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{blindtext}
+%\usepackage{showlabels}             % Show labels
+\usepackage{listings}  
+
+
+\DeclareUnicodeCharacter{2212}{-}
+\DeclareUnicodeCharacter{0313}{\"{U}}
+
+
+%%%%%%%% NEW COMMANDS %%%%%%%%
+
+% text
+\newcommand{\ie}{i.e. }
+\newcommand{\eg}{e.g. }
+
+%% equations
+\newcommand{\listequationsname}{List of Equations}
+\newlistof{myequations}{equ}{\listequationsname}
+\newcommand{\myequations}[1]{
+\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+
+%% colorimetric commands
+\newcommand{\dEab}{$\Delta{E}^{*}_{ab}$ }
+\newcommand{\dEOO}{$\Delta{E}^{*}_{00}$ }
+\newcommand{\dR}{$\Delta{R}$ }
+\newcommand{\dRvis}{$\Delta{R}_{\textrm{VIS}}$ }
+\newcommand{\dE}{$\Delta{E}$ }
+\newcommand{\dL}{$\Delta{L}^{*}$ }
+\newcommand{\da}{$\Delta{a}^{*}$ }
+\newcommand{\db}{$\Delta{b}^{*}$ }
+\newcommand{\dC}{$\Delta{C}^{*}$ }
+
+%% tables
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+%% colours
+\definecolor{mygray}{gray}{0.9}
+
+
+%%%%%%%% CREATE DOCUMENT STRUCTURE %%%%%%%%
+  
+            
+\begin{document}
+
+%% Front cover
+\includepdf[pages=1]{Covers/cover-front.pdf}
+
+%% Title pages
+\input{pre}
+
+%% TOC - Figures - Tables - Equations - Acronyms
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\listofmyequations 
+\newpage
+\printglossary[style=long, title=Acronyms]
+\newpage
+\input{abstract}
+
+
+%\newgeometry{top=2.170cm,
+%            inner=2.1835cm,
+%            outer=2.1835cm,
+%            bottom=3.510cm,
+%            ignoremp}
+\restoregeometry
+
+
+%% Chapters
+
+\newpage
+\input{Chapters/Chapter1_General_Introduction/ch1_general-introduction}
+\afterpage{\blankpage}
+\afterpage{\blankpage}
+\input{Chapters/Chapter2_Microfadeometry/ch2_microfadeometry}
+\afterpage{\blankpage}
+\afterpage{\blankpage}
+\input{Chapters/Chapter3_MFT_Advances/ch3_MFT-advances}
+\afterpage{\blankpage}
+\afterpage{\blankpage}
+\input{Chapters/Chapter4_Comparison/ch4_comparison-light-ageing}
+\afterpage{\blankpage}
+\afterpage{\blankpage}
+\input{Chapters/Chapter5_Applications/ch5_MFT-application}
+\input{Chapters/Chapter6_Conclusion/ch6_conclusion}
+
+
+
+\newgeometry{top=2.170cm,
+            bottom=3.510cm,
+            inner=2.1835cm,
+            outer=2.1835cm,
+            ignoremp}
+            
+\floatsetup[table]{margins=centering}
+
+\floatsetup[figure]{margins=centering,
+                    facing=no,
+                    capposition=bottom,
+                   % capbesideposition={center,outside},                    
+                    floatwidth=\textwidth}
+
+%% Appendices
+\input{Appendices/appendices}
+
+%% Bibliography
+\bibliography{Library}
+
+%% Acknowledgements
+\input{acknowledgements}
+
+%% Curriculum vitae
+\input{CV}
+
+%% Back cover
+\afterpage{\blankpage}
+\includepdf[pages=1]{Covers/cover-back.pdf}
+
+
+
+\end{document}         
+            
