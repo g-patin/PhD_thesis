@@ -7,20 +7,20 @@
             ignoremp}
 
 
-\begin{titlepage}
-   \begin{center}
-       \vspace*{4cm}
+%\begin{titlepage}
+%   \begin{center}
+%       \vspace*{4cm}
 
-       \textbf{\Huge Improved microfading device for risk assessment of colour change in Van Gogh's works}
+ %      \textbf{\Huge Improved microfading device for risk assessment of colour change in Van Gogh's works}
 
            
-       \vspace{7cm}
+%       \vspace{7cm}
 
-       \textbf{\Large Gauthier Patin}          
+ %      \textbf{\Large Gauthier Patin}          
   
             
-   \end{center}
-\end{titlepage}
+  % \end{center}
+%\end{titlepage}
 
 
 
@@ -30,8 +30,8 @@
 
 
 
-\clearpage
-\thispagestyle{empty}
+%\clearpage
+%\thispagestyle{empty}
 \null%
 \label{thesis:colophon}
 \vfill
@@ -56,7 +56,7 @@ The source code of this thesis is available at: \url{https://github.com/g-patin/
 
 A digital version of this dissertation is available on the Digital Academic Repository of the University of Amsterdam (\url{https://dare.uva.nl}) as well on my PhD website (\url{https://microfadingphd.wordpress.com}). 
 
-The data that have been used to create the figures in Chapters 3, 4, and 5 have been stored on a Zenodo repository (). \\
+The data that have been used to create the figures in Chapters 3, 4, and 5 have been stored on a Zenodo repository (\url{https://zenodo.org/record/8216110}). \\
 
 \textbf{Cover} \\
 The front and back covers are based on the results of light ageing experiments conducted during this PhD using the methodology described in Chapter 4 (section \ref{sec:DL_methodology}) of this dissertation. Both covers display the results of daylight exposure on an eosin paint-out (PO098). The front cover shows visualization of colour patches as the light dose increases from 0 to 120 MJ/m\textsuperscript{2}, while the back cover shows differences in the reflectance spectra as the light dose increases from 0 to 120 MJ/m\textsuperscript{2}. A value of 120 MJ/m\textsuperscript{2} roughly corresponds to 50 years of continuous exposure in the galleries of the Van Gogh Museum (10 hours per day at 50 lux).
@@ -65,87 +65,105 @@ The front and back covers are based on the results of light ageing experiments c
 
 
 % Official title
-\begin{titlepage}
-\begin{center}
-    \vspace*{3cm}
+%\begin{titlepage}
+%\begin{center}
+%    \vspace*{3cm}
 
-    \textbf{\Huge Improved microfading device}\\
-    \vspace{1cm}
-    \textbf{\Huge for risk assessment of colour change}\\
-    \vspace{1cm}
-    \textbf{\Huge in Van Gogh's works}
+%    \textbf{\Large Improved microfading device}\\
+%    \vspace{1cm}
+%    \textbf{\Large for risk assessment of colour change}\\
+%    \vspace{1cm}
+%    \textbf{\Large in Van Gogh's works}
 
            
-    \vspace{5cm}
+%    \vspace{4cm}
     
 
 %% Skip space as in half-title
-\vspace*{4\baselineskip}
+%\vspace*{4\baselineskip}
 
 
 
-{\LARGE ACADEMISCH PROEFSCHRIFT}
+%{\Large ACADEMISCH PROEFSCHRIFT}
 
-\medskip
-\large
-{ter verkrijging van de graad van doctor aan de Universiteit van Amsterdam \\
-op gezag van de Rector Magnificus \\
-prof. dr. ir. P.P.C.C. Verbeek \\
-ten overstaan van een door het College voor promoties ingestelde commissie, \\
-in het openbaar te verdedigen op vrijdag XX XXXX 2024, te XX:00 uur \\
-}
+%\medskip
+%\large
+%{ter verkrijging van de graad van doctor aan de Universiteit van Amsterdam \\
+%op gezag van de Rector Magnificus \\
+%prof. dr. ir. P.P.C.C. Verbeek \\
+%ten overstaan van een door het College voor promoties ingestelde commissie, \\
+%in het openbaar te verdedigen op vrijdag XX XXXX 2024, te XX:00 uur \\
+%}
 
-\medskip
+%\medskip
 
-door
+%door
 
-\medskip
+%\medskip
 
 %% Print the full name of the author.
-\makeatletter
-{\Large Gauthier {\scshape Patin}}
-\makeatother
+%\makeatletter
+%{\Large Gauthier {\scshape Patin}}
+%\makeatother
 
-\medskip
+%\medskip
 
-geboren te Grande-Synthe, Frankrijk.
+%geboren te Grande-Synthe, Frankrijk.
 
-\end{center}
-\end{titlepage}
+%\end{center}
+%\end{titlepage}
 
 
 % Official verso
-\clearpage
-\thispagestyle{empty}
-\null%
-\label{thesis:committee}
-\vfill
-\pdfbookmark[1]{Doctoral committee}{thesis:committee}
+%\clearpage
+%\thispagestyle{empty}
+%\null%
+%\label{thesis:committee}
+%\vfill
+%\pdfbookmark[1]{Doctoral committee}{thesis:committee}
 
-\LARGE
+\afterpage{\blankpage}
+\newpage
+{\Large\textbf{Promotiecommissie}}
 
-\noindent This dissertation has been approved by the
+\vspace{1cm}
+
 
 \medskip\noindent
-\begin{tabular}{@{}ll@{}}
-  \quad{}promotor: & prof.\ dr.\ E.\ Hendriks \\
-  \quad{}copromotor: & prof.\ dr.\ K.J.\ van den Berg \\
-  \quad{}copromotor: & prof.\ dr.\ R.G.\ Erdmann \\
-\\
-\multicolumn{2}{@{}l@{}}{Composition of the doctoral committee:} \\
-\\
-  \quad{}prof.\ dr.\ M.R.\ van Bommel & Universiteit van Amsterdam \\
-  \quad{}prof.\ dr.\ S.\ Woutersen & Universiteit van Amsterdam \\
-  \quad{}prof.\ dr.\ K.\ Keune & Universiteit van Amsterdam  \\  
-  \quad{}prof.\ dr.\ S.\ Woutersen & Universiteit van Amsterdam \\
-  \quad{}prof.\ dr.\ J.\ Dik & TU Delft \\
-  \quad{}dr.\ J.\ del Hoyo-Meléndez & National Museum Krakow \\
-  \quad{}dr.\ A.\ Bülow & Stedelijk Museum Amsterdam\\
+\begin{tabular}{@{}lll@{}}
+  Promotor: & prof.\ dr.\ E.\ Hendriks &  Universiteit van Amsterdam\\
+  & & \\
+  Copromotores: & prof.\ dr.\ K.J.\ van den Berg &  Universiteit van Amsterdam\\  
+  & prof.\ dr.\ R.G.\ Erdmann &  Universiteit van Amsterdam\\
+  & & \\
+  Overige leden: & prof.\ dr.\ M.R.\ van Bommel & Universiteit van Amsterdam \\  
+  & prof.\ dr.\ S.\ Woutersen & Universiteit van Amsterdam \\
+  & prof.\ dr.\ K.\ Keune & Universiteit van Amsterdam  \\  
+  & prof.\ dr.\ S.\ Woutersen & Universiteit van Amsterdam \\
+  & prof.\ dr.\ J.\ Dik & TU Delft \\
+  & dr.\ J.\ del Hoyo-Meléndez & National Museum Krakow \\
+  & dr.\ A.\ Bülow & Stedelijk Museum Amsterdam\\
 \\
 
 \end{tabular}
 
-This research was supported by the AXA Research Fund and the Van Gogh Museum-ASML Partnership in Science, the Rijksdienst voor het Cultureel Erfgoed, and the Rijksmuseum Amsterdam. 
+\vspace{0.5cm}
+Faculteit der Geesteswetenschappen
 
 
 
+\newpage
+
+{\Large\textbf{Funding}}\\
+
+The research for this thesis received financial assitance from the AXA Research Fund, the Van Gogh Museum-ASML Partnership in Science, the Rijksdienst voor het Cultureel Erfgoed, and the Rijksmuseum Amsterdam. 
+
+\vspace{1.5cm}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.75\textwidth]{Logo_institutions.png}
+\label{fig:colours_description}
+\end{figure}
+
+\newpage

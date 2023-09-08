@@ -1,7 +1,7 @@
 %%%%%%%%% DOCUMENT CLASS %%%%%%%%
 
 \documentclass[parskip=half,
-               fontsize=9pt,
+               fontsize=10pt,
                % chapterprefix=true,
                numbers=noenddot,
                DIV = calc,                                          
@@ -39,9 +39,9 @@
 
 %% Titles and Toc
 \usepackage{sectsty}
-\chapterfont{\color{blue}}        % sets colour of chapters
-\sectionfont{\color{blue}}        % sets colour of sections
-\subsectionfont{\color{blue}}     % sets colour of subsections
+\chapterfont{\Large\color{blue}}        % sets colour of chapters
+\sectionfont{\large\color{blue}}        % sets colour of sections
+\subsectionfont{\normalsize\color{blue}}     % sets colour of subsections
 \subsubsectionfont{\color{blue}}  % sets colour of subsubsections
 \paragraphfont{\color{blue}}      % sets colour of subsubsections
 \usepackage[subfigure]{tocloft}
@@ -61,7 +61,7 @@
 % Floats and captions
 \usepackage{floatrow}               % Set up captions of floats
 \extrafloats{100}
-\usepackage[hypcap=false, font=large, labelfont=bf]{caption}   % Correctly placed anchors for hyperlinks 
+\usepackage[hypcap=false, font=normalsize, labelfont=bf]{caption}   % Correctly placed anchors for hyperlinks 
 
   
 %% hyper references
@@ -101,14 +101,7 @@
                         facing=yes,
                         capposition=bottom}
 
-
-%% Blank pages
-\usepackage{afterpage}
-\newcommand\blankpage{%
-    \null
-    \thispagestyle{empty}%
-    \addtocounter{page}{-1}%
-    \newpage}         
+ 
             
 %% Import pdf
 \usepackage{pdfpages}   
@@ -141,6 +134,7 @@
 
 
 %% Diverse packages
+\usepackage{afterpage}
 \usepackage{amsmath}
 \usepackage[hyphenbreaks]{breakurl}
 \usepackage{ccicons}                % Creative Commons icons
@@ -184,6 +178,13 @@
 \newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
 \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 
+%% blankpage
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage} 
+
 %% colours
 \definecolor{mygray}{gray}{0.9}
 
@@ -206,12 +207,13 @@
 \listoffigures
 \newpage
 \listoftables
-\newpage
-\listofmyequations 
-\newpage
+
+\listofmyequations
+
 \printglossary[style=long, title=Acronyms]
-\newpage
-\input{abstract}
+
+\include{abstract}
+\afterpage{\blankpage}
 
 
 %\newgeometry{top=2.170cm,
@@ -225,20 +227,12 @@
 %% Chapters
 
 \newpage
-\input{Chapters/Chapter1_General_Introduction/ch1_general-introduction}
-\afterpage{\blankpage}
-\afterpage{\blankpage}
-\input{Chapters/Chapter2_Microfadeometry/ch2_microfadeometry}
-\afterpage{\blankpage}
-\afterpage{\blankpage}
-\input{Chapters/Chapter3_MFT_Advances/ch3_MFT-advances}
-\afterpage{\blankpage}
-\afterpage{\blankpage}
-\input{Chapters/Chapter4_Comparison/ch4_comparison-light-ageing}
-\afterpage{\blankpage}
-\afterpage{\blankpage}
-\input{Chapters/Chapter5_Applications/ch5_MFT-application}
-\input{Chapters/Chapter6_Conclusion/ch6_conclusion}
+\include{Chapters/Chapter1_General_Introduction/ch1_general-introduction}
+\include{Chapters/Chapter2_Microfadeometry/ch2_microfadeometry}
+\include{Chapters/Chapter3_MFT_Advances/ch3_MFT-advances}
+\include{Chapters/Chapter4_Comparison/ch4_comparison-light-ageing}
+\include{Chapters/Chapter5_Applications/ch5_MFT-application}
+\include{Chapters/Chapter6_Conclusion/ch6_conclusion}
 
 
 
@@ -257,10 +251,13 @@
                     floatwidth=\textwidth}
 
 %% Appendices
-\input{Appendices/appendices}
+\include{Appendices/appendices}
 
 %% Bibliography
 \bibliography{Library}
+
+%% Bibliography
+\input{co-authors_contribution}
 
 %% Acknowledgements
 \input{acknowledgements}
