@@ -1,17 +1,16 @@
 # PhD_thesis
 
-This Github account describes the writing methodology of my PhD dissertation. I wrote my PhD manuscript with Latex on a local machine. Compared to a cloud environment, such as Overleaf, it has pros and cons. A cloud environment is relevant for collaborative projects or when you manuscript needs to be reviewed. But the compilation process has a timeout limit which can be too short to fully compile a PhD thesis. 
+This GitHub repository outlines the writing methodology I employed for my PhD dissertation. I composed my doctoral manuscript using LaTeX on a local machine, a choice that comes with its own set of advantages and disadvantages in comparison to cloud-based environments like Overleaf. While a cloud environment is particularly beneficial for collaborative projects and manuscript reviews, it does impose a compilation process timeout limit that may be too restrictive for the comprehensive compilation required by a PhD thesis.
 
-Whatever your field of study, I believe that Latex is currently the best choice to write a PhD thesis. The complexity of such a tool may frighten most of us, but its efficiency and the quality of the final documents are far superior to other writing solutions. The aim of this repository is to provide you with a template that you can reuse and adapt according to your needs. 
+Irrespective of your field of study, LaTeX stands out as the optimal tool for crafting a PhD thesis. Although its complexity might initially appear daunting, its efficiency and the exceptional quality of the final documents it produces far surpass other writing solutions. The primary purpose of this repository is to furnish you with a template that you can readily adapt to meet your specific requirements.
 
-As a starting point, I would suggest to first create a folder strucutre dedicated to the writing of your manuscript. Then, you can reuse the *main.tex* file from this repository and adapt it to your environment (packages, layout, new commmands, folder names, etc.). Since I could not load the figures related to each chapter, the *main.tex* in this repository cannot be compiled. But you can at least reuse it for your own project. 
+To commence, I recommend establishing a dedicated folder structure for your manuscript. Subsequently, you can utilize the main.tex file from this repository as a foundation, customizing it to suit your particular needs, including packages, layout, new commands, folder names, and more. Please note that, due to limitations, the figures associated with each chapter cannot be loaded into the main.tex in this repository. Nonetheless, you can certainly repurpose it for your individual project.
 
-The following recommendations may prove useful:  
+Here are some valuable recommendations to consider:
+1. **Divide your thesis**: Avoid consolidating your entire dissertation into a single file. Instead, adopt a modular approach. In my case, I have a central file named main.tex, from which I reference other LaTeX files such as the abstract, preface, individual chapters, and so forth. Use main.tex to configure the manuscript environment (packages, layout, commands, etc.) and compose the dissertation content in separate files. This approach enhances the clarity of the writing process and streamlines editing.
+   
+2. **File Naming Conventions**: When naming your files, opt for a naming convention that eliminates spaces. Employ underscores to distinguish main categories and dashes for subcategories.
+   
+3. **Leverage the Community**: If you encounter errors during the LaTeX document compilation or struggle to achieve a specific output, rest assured that online solutions and community support are readily available. Don't hesitate to explore online resources or seek assistance in relevant forums.
 
-* **Split your thesis**. Don't create a single file which contains the whole of your disseration. In my case, I have a central file, called *main.tex* in which I call for other latex files, such as the abstract, the preface, the various chapters, etc. Use *main.tex* to set-up the environment of the manuscript (packages, layout, commands, etc.) and write the content of the dissertation in seperate files. It will clarify the structure of the writing process and will ease the editing process.
-
-* **Adequate filenaming**. Don't use spaces in your file names, use underscores for each main category and dashes for subcategories.
-
-* **Community-driven**. If an error occurrs when compiling the tex document or if you don't know how to obtain a desired output, it is highly likely that a solution will be available online. Don't hesitate to search through the web or to ask your questions in a forum.
-
-Goodluck ! 
+Best of luck with your project!
