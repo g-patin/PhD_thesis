@@ -197,7 +197,7 @@
 %% Front cover
 \includepdf[pages=1]{Covers/cover-front.pdf}
 
-%% Title pages
+%% Preambule pages
 \input{pre}
 
 %% TOC - Figures - Tables - Equations - Acronyms
@@ -207,9 +207,8 @@
 \listoffigures
 \newpage
 \listoftables
-
 \listofmyequations
-
+\afterpage{\blankpage}
 \printglossary[style=long, title=Acronyms]
 
 \include{abstract}
@@ -268,7 +267,6 @@
 %% Back cover
 \afterpage{\blankpage}
 \includepdf[pages=1]{Covers/cover-back.pdf}
-
 
 
 \end{document}         
