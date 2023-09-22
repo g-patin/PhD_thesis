@@ -1,6 +1,6 @@
 This repository: [![DOI](https://zenodo.org/badge/637725497.svg)](https://zenodo.org/badge/latestdoi/637725497)
 
-Figures & data: ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8216110.svg)
+Figures & data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8216110.svg)](https://doi.org/10.5281/zenodo.8216110)
 
 # PhD_thesis
 
