@@ -1,0 +1,409 @@
+% !TEX root = main.tex
+
+%%%% Title Page
+
+\newgeometry{top=2.170cm,
+            bottom=3.510cm,
+            inner=2.1835cm,
+            outer=2.1835cm,
+            ignoremp}
+
+\pagecolor{mygray}
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{3cm}
+       {\fontsize{40pt}{46pt}\selectfont \textbf{Chapter 5}}\\       
+       \vspace*{3cm}
+       {\fontsize{30pt}{36pt}\selectfont \textbf{Applications}} \\[1cm]    
+       {\fontsize{30pt}{36pt}\selectfont \textbf{of the}} \\[1cm]
+       {\fontsize{30pt}{36pt}\selectfont \textbf{stereo-MFT}} \\ 
+   \end{center}
+\end{titlepage}
+
+\restoregeometry
+\pagecolor{white}
+
+%%%% Main text
+
+\chapter{ Applications of the stereo-MFT}
+\label{ch:ch5_applications-MFT}
+
+This section deals with the application of the stereo-MFT through the presentation of two examples. While briefly presenting the results obtained with the stereo-MFT, the main objective is to identify technical and methodological limitations related to the device, which are reviewed in the last section of this chapter.
+
+\section{ The \textit{Sunflowers} reconstruction}
+
+\subsection{Introduction}
+
+In the context of the exhibition \textit{Van Gogh and the Sunflowers}\sidenote{Temporary exhibition held at the Van Gogh Museum 21 June–1 September 2019.}, the Van Gogh Museum in Amsterdam organised a symposium on 21 June 2019. The symposium and the exhibition\sidenote{Along with the symposium, the first issue of the series Van Gogh Museum Studies focused on the Sunflowers \citep{hendriks_van_2019}.} were intended to present to the public the latest research and findings about two of the \textit{Sunflowers} paintings: the version painted in August 1888 and currently in the collection of the National Gallery in London\sidenote{F-number: F0454. Inventory n$^\circ$: NG3863.} and that painted in January 1889 held at the Van Gogh Museum in Amsterdam\sidenote{F-number: F0458. Inventory n$^\circ$: s0031V1962.}. One aspect of the research focused on the darkening of chrome yellow pigments due to light exposure and whose degradation mechanisms have been studied by Letizia Monico \citep{monico_degradation_2011,monico_degradation_2013,monico_degradation_2013-1,monico_disclosing_2019} and Vanessa Otero \citeyearpar{otero_historically_2018}. Chrome yellow pigments were used extensively by Van Gogh in these two Sunflowers paintings (\citealp{higgitt_methods_2019}; \citealp[107]{hendriks_methods_2019}). As part of the exhibition, the Van Gogh Museum commissioned the artist Charlotte Caspers to make a partial reconstruction of the Amsterdam Sunflowers painting (Figure  \ref{fig:SF_original-rec}). This reconstruction is an attempt to reconstruct the ‘original colours’, allowing us to visualise the impact of colour changes. In collaboration with scientists from the \gls{RCE} and the NOVA University of Lisbon, Charlotte Caspers was able to use historically accurate pigments for a part of the reconstruction, enabling her to not only reproduce the visual aspect of the painting but also its materiality. \\
+
+This section describes the microfading analyses that were performed on the Sunflowers reconstruction\sidenote{A report by the current author is kept in the Van Gogh Museum conservation department and is available upon request from the author.}. The objective of these analyses was to characterise the light sensitivity of the object in order to assess the risk of colour change. \\
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter5_Applications/Figures/SF_original-rec_subplots_lowres.png}
+\caption[\hspace{0.3cm}The \textit{Sunflowers} paintings: original vs reconstruction]{The \textit{Sunflowers} paintings: detail of the Amsterdam \textit{Sunflowers} painting (a) ; reconstructed painting made by Charlotte Caspers (b). (\copyright Van Gogh Museum, Amsterdam (Vincent van Gogh Foundation))}
+\label{fig:SF_original-rec}
+\end{figure*}
+
+
+\subsection{Methodology}
+
+
+The reconstructed \textit{Sunflowers} painting was divided into 16 areas (Figure \ref{fig:SF_MFT-spots}), each area representing a paint of specified composition  (see Table \ref{tab:SF_info_area}). Three to four microfading measurements were made in each area. The provenance of each pigment used by Charlotte Caspers to create this reconstruction can be found in her report\sidenote{Charlotte Caspers, Reconstuctie Zonnebloemen, unpublished report, 2019. \label{fn:SF_caspers_report}}.\\
+
+The microfading analyses were performed with the stereo-MFT (see Chapter 3, section \ref{sec:stereo-MFT}) and the parameters of these analyses are given in Table \ref{tab:SF_info_MFT}. Two fading lamps were used to analyse the painting: a high-power xenon lamp (HPX) from Ocean Optics and a warm white LED lamp from Thorlabs (LED). A UV/IR cut-off filter was applied in front of the xenon light source so that in all cases, the painting was irradiated with radiation ranging from 400 to 750 nm. Since the LED lamp is less powerful than the HPX lamp, the analyses with the LED lasted a little longer in order to reduce the difference in light energy doses (in \unit{\kilo\lux\hour} or \unit{\mega\joule\per\square\metre}) between the two lamps. 
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter5_Applications/Figures/SF-rec_MFT_spots-photo_lowres.png}
+\caption[\hspace{0.3cm}Micro-fading spots on the \textit{Sunflowers} reconstruction]{Location of the microfading analyses on the Sunflowers reconstruction (a) ; photograph showing the Sunflowers reconstruction painting being analysed with the stereo-MFT (b).}
+\label{fig:SF_MFT-spots}
+\end{figure*}
+
+
+
+
+
+
+\begin{table*}
+\centering
+\caption[\hspace{0.3cm}General parameters of the microfading analyses.]{General parameters of the microfading analyses.}
+\begin{tabular}{p{0.25\linewidth}C{0.35\linewidth}C{0.35\linewidth}}    
+\toprule[0.4mm]
+\multicolumn{3}{c}{DEVICE PARAMETERS} \\\midrule
+\textbf{Device} & \multicolumn{2}{c}{Stereo-MFT} \\
+\textbf{Mode} & Co-axial & Traditional \\
+\textbf{Geometry (ill:coll)} & 0$^\circ$:(45$^\circ$:0$^\circ$)& 0$^\circ$:45$^\circ$\\ 
+\textbf{Fading lamp} & Ocean Optics, HPX-2000-HP-DUV (HPX) & Thorlabs, High-power warm white MWWHF2 (LED) \\
+\textbf{Colour measurement lamp} & Ocean Optics, HL-2000-FHSA-LL (HAL) & none \\
+\textbf{Filter} & Linos CalflexTM-C Heat protection (VIS-25-01) & none \\\midrule
+& & \\
+\multicolumn{3}{c}{ANALYSES PARAMETERS} \\\midrule
+\textbf{Integration time (ms)} & 140 & 6.3 \\
+\textbf{Average n$^\circ$ of spectra} & 25 & 30 \\
+\textbf{Duration (min)} & 20 & 30 \\
+\textbf{Interval (sec)} & \multicolumn{2}{c}{20} \\
+\textbf{N$^\circ$ of measurements} & 51 & 12 \\
+\textbf{Observer} & \multicolumn{2}{c}{10$^\circ$} \\
+\textbf{Illuminant} & \multicolumn{2}{c}{D65} \\ \midrule
+& & \\
+\multicolumn{3}{c}{FADING BEAM PARAMETERS} \\\midrule
+\textbf{FWHM (\unit{um})} & 583 $\mp$ 15 & 680 \\
+\textbf{Illuminance (\unit{\mega\lux})} & 1.967 $\mp$ 0.06 & 0.95 \\
+\textbf{Irradiance (\unit{\watt\per\square\metre})} & 7282 $\mp$ 206 & 2611 \\
+\textbf{Exposure dose (\unit{\kilo\lux\hour})} & 656 & 475 \\
+\textbf{Radiant exposure (\unit{\mega\joule\per\square\metre})} & 8.74 & 4.7 \\\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:SF_info_MFT}
+\end{table*}
+
+
+\begin{table*}
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Information on each microfading area]{Information on each microfading area.}
+\begin{tabular}{C{1cm}C{1cm}C{3cm}C{2cm}C{1.5cm}C{1.5cm}}
+\toprule[0.4mm]
+\textbf{Colour} & \textbf{Area Id}  & \textbf{Pigment}\textsuperscript{*}  & \textbf{Description}  & \textbf{n$^\circ$ MF analyses (HPX)} &  \textbf{n$^\circ$ MF analyses (LED)} \\\midrule
+ White & A01 & ZW + lithophone & Ground layer & 0 & 0 \\ \hline
+ \multirow{2}{*}{Red} & A09 & Eo & Flower heart & 4 & 3 \\
+ & A12 & RL + Ck & Petals flower & 3 & 0\\ \hline
+\multirow{4}{*}{Orange} & A04 & CY1 + Oc + ZW & Petals heart & 3 & 0 \\
+ & A11 & RL + CY2 + Ck & Hear flower & 3 & 0 \\
+ & A13 & \gls{CYL2b} + Ve & Petals flower & 4 & 0 \\
+ & A14 & CY2 + RL + Ck & Petals flower & 4 & 3 \\ \hline
+\multirow{4}{*}{Yellow} & A02 & \gls{CYL2b} + ZW  & Background 1 & 3 & 0 \\
+ & A03 & \gls{CYL2b} + ZW + VG & Background 2 & 3 & 3 \\
+ & A15 & CY1 + ZW & Petals flower & 5 & 0 \\
+ & A16 & \gls{CYL2b} + Ck & Petals flower & 4 & 0 \\ \hline
+\multirow{3}{*}{Green} & A05 & EG + CY1+ ZW & Stem flower & 3 & 0 \\
+ & A06 & EG + CY1 + Ck + VG & Stem flower & 3 & 0 \\
+ & A08 & ZW + EG + CY1 & Heart flower & 3 & 0 \\\hline
+\multirow{2}{*}{Purple} & A07 & UM + ZW + Al & Heart flower & 3 & 3 \\
+ & A10 & UM + Eo & Heart flower & 3 & 0 \\\cline{4-6}
+ & & & \textbf{TOTAL} & \textbf{51} & \textbf{12} \\
+\multicolumn{4}{l}{\textsuperscript{*} Estimation of the pigment was done in accordance with} & &  \\
+\multicolumn{6}{l}{  the information provided by Charlotte Caspers in her report: see note \ref{fn:SF_caspers_report}.} \\
+\multicolumn{3}{l}{\textbf{Al}: Alizarine}  & & &  \\
+\multicolumn{3}{l}{\textbf{Ck}: Chalk} & & &  \\
+\multicolumn{4}{l}{\textbf{CY1}: Chrome yellow light from Natural Pigments}  & &  \\
+\multicolumn{6}{L{13cm}}{\textbf{CY2}: Chrome yellow \gls{REVIGO} project (PbCrO\textsubscript{4} from Sigma) \citep{geldof_reconstructing_2018}}\\ 
+\multicolumn{6}{L{13cm}}{\textbf{\gls{CYL2b}}: Chrome yellow made in Lisbon with the help of Vanessa Otero \citep{patin_historically_2019,patin_chrome_2019}} \\ 
+\multicolumn{6}{l}{\textbf{EG}: Emerald green}  \\
+\multicolumn{6}{l}{\textbf{Eo}: Eosin}  \\
+\multicolumn{6}{l}{\textbf{Oc}: Ochre}  \\
+\multicolumn{6}{l}{\textbf{RL}: Red lead}  \\
+\multicolumn{6}{l}{\textbf{UM}: Ultramarine, \gls{REVIGO} project \citep{geldof_reconstructing_2018}}  \\
+\multicolumn{6}{l}{\textbf{Ve}: Vermilion}  \\
+\multicolumn{6}{l}{\textbf{VG}: Viridian green}  \\
+\multicolumn{6}{l}{\textbf{ZW}: Zinc white}  \\\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:SF_info_area}
+\end{table*}
+
+
+\newpage
+\subsection{Results}
+
+Processing of the raw data followed a standardized procedure described in Figure \ref{fig:MFT_processing_steps}. The first step was to interpolate the raw data over time and wavelength, giving us what is referred to as \textit{interim data}. The latter are then stored within three distinct files and five different figures\sidenote{An example of these figures applied to one analysis (MF.rec-A07.02) is given in Appendix \ref{app:ch5_MFT_SF-rec_MF.rec-A07.02}. The files for each analyses is available on the following repository \url{https://zenodo.org/record/8216110}.}:
+
+
+\begin{itemize}
+    \item \_SP.csv\sidenote{This indicates the last part of the filename.}: file that contains the reflectance spectra.
+    \item \_dE.csv: file that contains the colourimetric data.
+    \item \_INFO.txt: file that stores the information related to the analyses.
+\end{itemize}
+
+\marginpar{
+\captionsetup{type=figure}
+\includegraphics[width=4cm]{Chapters/Chapter5_Applications/Figures/MFT_data_processing.png}
+\caption[\hspace{0.3cm}Processing steps of the microfading data]{Processing steps of the microfading data.}
+\label{fig:MFT_processing_steps}
+}
+
+\vspace{2mm}
+
+\begin{itemize}
+    \item \_SP.png: figure that shows the reflectance spectra.
+    \item \_dE.png: figure that shows the $\Delta E$ curves as a function of increasing light energy values.
+    \item \_Lab.png: figure that shows changes in $L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*}$ as a function of increasing light energy values.
+    \item \_CIELAB.png: figure that shows changes in $L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*}$ inside the CIELAB colour space.
+    \item \_CP.png: figure that shows colour patches as a function of increasing light energy values.
+\end{itemize}
+
+To begin with, an overview of the results is showed with the help of bar charts, where each bar corresponds to a specific area (Figure \ref{fig:SF_dE00_hist}). When adding the values for the blue wool samples, one can assess the light sensitivity of each area by ranking it according to the blue wool scale. These visualisations compare colourimetric changes at a defined light energy value (in \unit{\kilo\lux\hour} or \unit{\mega\joule\per\square\metre}), which ultimately influences the light fastness assessment of the samples. For example, if a value of 400 \unit{\kilo\lux\hour}\sidenote{This value has been taken within the range of exposure dose reached during the microfading analysis (see Table \ref{tab:SF_info_MFT}).} is selected, most samples appear more light sensitive than when a value of 2000 \unit{\kilo\lux\hour}\sidenote{This value requires extrapolation of the interim data since it goes beyond the total light dose sent during the microfading analyses (see Appendix \ref{app:ch5_MFT_SF-rec_dE00-curves}).} is chosen (Figure \ref{fig:SF_dE00_hist}). When one replaces the $\Delta E^*{00}$ values on the $y$-axis by changes in the colourimetric coordinates, \ie $\Delta L^*, \Delta a^*$, etc., it enables us to outline in which direction the colours evolve. For example, observations of the $L\textsuperscript{*}$ and $C\textsuperscript{*}$ colourimetric coordinates show a decrease for most colours which means that the colour will darken and lose saturation as a consequence of light exposure (Figures \ref{fig:SF_dL_hist} and \ref{fig:SF_dC_hist}). Except for one area (A10), the $h$ coordinate presents the least variations indicating that the hue of the colour is relatively stable (See Appendix \ref{app:ch5_MFT_delta_h}). \\
+
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter5_Applications/Figures/2021-12-07_SF-rec_MFT_HPX-LED_dE00-pho_bar.png}
+\caption[\hspace{0.3cm}\textit{Sunflowers} reconstruction - MFT results, \dEOO values]{\dEOO values after a light exposure of 400 \unit{\kilo\lux\hour} (a) and 2000 \unit{\kilo\lux\hour} (b). More information about the creation of these figures is given in Appendix \ref{app:ch5_MFT_SF-rec_dE00-curves}.}
+\label{fig:SF_dE00_hist}
+\end{figure*}
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter5_Applications/Figures/2021-12-07_SF-rec_MFT_HPX-LED_dL-rad_bar.png}
+\caption[\hspace{0.3cm}\textit{Sunflowers} reconstruction - MFT results, \dL values]{\dL values after a light exposure of 4 \unit{\mega\joule\per\square\metre}.}
+\label{fig:SF_dL_hist}
+\end{figure*}
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter5_Applications/Figures/2021-12-07_SF-rec_MFT_HPX-LED_dC-rad_bar.png}
+\caption[\hspace{0.3cm}\textit{Sunflowers} reconstruction - MFT results, \dC values]{\dC values after a light exposure of 4 \unit{\mega\joule\per\square\metre}.}
+\label{fig:SF_dC_hist}
+\end{figure*}
+
+\newpage
+
+Since the comparison with blue wool samples is subject to noticeable variations, another method to assess light sensitivity of samples has been proposed. This method combines a number of ideas and concepts previously developed, such as the notion of just noticeable difference (\acrshort{JND}) \citep{pesme_presentation_2016,crawford_just_1973} or the use of colour change rates \citep{prestel_classification_2017, giles_observations_1968}. First, a series of mathematical transformations is applied to the interim data. This starts by extrapolating and fitting\sidenote{Fitting consists of finding a mathematical expression that best fits the data} the $\Delta E^*_{00}$ values taken from the interim data. Subsequently the extrapolated curves for each area are grouped together for which the average curve is calculated (Figure \ref{fig:SF_MF-rec-A07_dE00} - a). Afterwards, the first derivative for each curve is computed (Figure \ref{fig:SF_MF-rec-A07_dE00} - b) and the average of the last derivative values for each area is taken and compiled inside a bar graph (Figure \ref{fig:SF_MFT_fading-rates}). The latter can be viewed as the rate of colour change. When combined with exposure parameters, such as the illuminance value (in lux) and the duration of exposure, the rate of colour change can be converted in terms of amount of $\Delta E^*_{00}$ increase per year (Figure \ref{fig:SF_fading_yearly-rate}). This means that for a given paint layer with similar properties, the colour of this layer can be expected to change every year by a certain amount when exposed to defined illumination conditions\sidenote{It is assumed that over short period of time, \ie less than 10 years, the rate of change is constant. Though in reality, it slowly decreases over light exposure.}. For example, if the painting is exposed to 50 lux, 10 hours per day, 360 days per year, then the colour change of area A13 (CYL2b + Ve) will increase every year by a value of 0.065 \dEOO (Figure \ref{fig:SF_fading_yearly-rate}). \\
+
+\vspace{1cm}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter5_Applications/Figures/MF.rec-A07_dE00-rate.png}
+\caption[\hspace{0.3cm}\textit{Sunflowers} reconstruction - MFT results on area A07]{\textit{Sunflowers} reconstruction - MFT results on area A07 - \dEOO curves and fading rates.}
+\label{fig:SF_MF-rec-A07_dE00}
+\end{figure*}  
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter5_Applications/Figures/SF-rec_HPX_all_rate-bars.png}
+\caption[\hspace{0.3cm}\textit{Sunflowers} reconstruction - MFT results - Final fading rates]{\textit{Sunflowers} reconstruction - MFT results - Final fading rate for all samples.}
+\label{fig:SF_MFT_fading-rates}
+\end{figure*} 
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter5_Applications/Figures/SF-rec_HPX_all_YearlyRate-bars.png}
+\caption[\hspace{0.3cm}\textit{Sunflowers} reconstruction - MFT results, colour change rate]{Colour change rate for each area.}
+\label{fig:SF_fading_yearly-rate}
+\end{figure*}
+
+\newpage
+\subsection{Colour change risk assessment}
+
+Assessing the risk of colour change involves quantifying the change over a period of time, which is equivalent to defining the rate of colour change. Alternatively, the amount of time necessary for the colours of the object to reach one \gls{JND} can be characterised, as shown in Figure \ref{fig:SF_time-1JND}\sidenote{The values shown in Figure \ref{fig:SF_time-1JND} were obtained by following the steps given in Figure \ref{fig:MFT_processing_steps}.}. Calculating a single average value for all areas enables us to characterise in a simple way the overall light sensitivity of the object, but it also hides the diversity of sensitivity from one area to another. Indeed, although the average value for the painting is much higher than the preservation target set by \citet{hendriks_valuing_2017}, a more detailed observation of the results reveals that six colours in the painting may reach one \gls{JND} before the duration set by \citet{hendriks_valuing_2017}, \ie 30 years. With such a wide range of light sensitivity, finding a reasonable compromise is a difficult task, and at present there is no detailed methodology that can guide museum professionals in resolving this issue in a satisfactory manner. \\
+
+
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=0.9\linewidth]{Chapters/Chapter5_Applications/Figures/SF-rec_HPX_all_time-1JND.png}
+\caption[\hspace{0.3cm}Number of years necessary to reach one \gls{JND}]{Number of years necessary to reach one \gls{JND}.}
+\label{fig:SF_time-1JND}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter5_Applications/Figures/Rate-cc_frequency_hist.png}
+\caption[\hspace{0.3cm}Number of areas per amount of time to reach one JND]{Number of areas per amount of time to reach one JND.}
+\label{fig:SF_frequency-JND}
+\end{figure*}
+
+Once the light-sensitive colours are established, the next step is to find out how much information and value we lose as these colours change. This amounts to establishing a colour-value function (detailed in Chapter \ref{ch:ch1_general-intro}). A precise description of such a function and its influencing parameters is still an ongoing work. Nonetheless, it can already be established that the value of each colour is dependent on the visible surface area of the colour as well as its position on the object. If the most light-sensitive colour only covers a small fraction of the total surface area of the painting and if it does not hold important information – such as texts, highlights, etc. – then colour changes in that area might be accepted more easily. To evaluate this requires the use of digital visualisation software that allows each colour to be changed independently. To reconstruct the colours of \textit{The Bedroom} painting by Van Gogh \citep{berns_digital_2019} and the painting by Georges Seurat, \textit{Un dimanche après-midi à l'île de la Grande Jatte} \citep{berns_rejuvenating_2006}, Roy Berns calculated various spectral curves for segmented portions of the paintings, which an interdisciplinary team of museum professionals could then use to visually estimate the original appearance of the works of art, determining the chosen result. By reversing this procedure to look forward in time, rather than recreating the ’original’ colours, digital predictions of future colour change on works of art can be made.\\
+
+
+
+
+\subsection{Conclusion}
+
+
+This section focused on the microfading analyses carried out on the \textit{Sunflowers} reconstruction painted by Charlotte Caspers in 2019. While illustrating the application of the stereo-MFT on real objects (albeit a reconstruction and not an original painting), the objective of these analyses was to characterise the light sensitivity of the painting and evaluate the risk of light-induced colour change. The risk of colour change was quantified by defining the amount of time before each colour reaches one \gls{JND}. The data showed a large variety of sensitivity towards light, where six colours may reach one \gls{JND} within 30 years when submitted to continuous museum illumination\sidenote{Illumination of 50 lux during 10 hours per day.}; four of these colours will reach one \gls{JND} within a period of 10 years. \\
+
+Van Gogh's original paintings are now over 130 years old and most have been exposed to large doses of light energy. As colour change is a phenomenon that slows down with time, the colours of the original paintings are likely less sensitive than those of the \textit{Sunflowers} reconstruction. The usefulness of the present results to estimate the colour change of original works by Van Gogh is therefore limited. Only in-situ analyses can reliably estimate the risk of colour change on Van Gogh’s original works.\\
+
+Based on the microfading data acquired, a next step should aim at defining the importance of the light-sensitive areas with regard to the values of the object. In other words, the issue is to define to what extent the colour changes in these areas matter or are found to be acceptable. The creation of colour change prediction images of the whole object will be a valuable tool to help museum professionals when making decisions about the lighting conditions of collections. Further research is still needed to extrapolate pointwise microfading data to the overall surface of the images. \\
+
+
+
+\newpage
+
+\section{Study on the lightfastness of synthetic organic pigments}
+
+\subsection{Introduction}
+
+This second application focuses on the lightfastness methodology developed by the German scientist Hans Wagner in the 1920s and whose work was taken up in the following decade by the Dutch paint manufacturer Talens for evaluating the light stability of their \gls{SOP}. In the first half of the 20\textsuperscript{th} century, synthetic organic pigments were produced in large quantities in wide-ranging qualities. As these pigments were initially produced and developed for the textile industry, the qualitative tests did not necessarily apply to their use as artists' materials \citep[174]{eibner_untersuchungen_1905}. Thus, new methods had to be developed to investigate the application of synthetic organic pigments in artists' materials. A focus was placed on assessing their lightfastness in various binders in order to understand how lightfastness tests correlate with application within artists' paints. The intense discussions around this issue were published throughout the first half of the 20\textsuperscript{th} century in the journal, \textit{Technische Mitteilungen für Malerei}\sidenote{Translation: Technical Bulletin for Paintings. A summary of these discussions has been written by Rika Pause in the framework of her PhD.}. At the time, most experimental set-ups to evaluate the lightfastness properties of these new pigments were not standardised, and the description of the results relied on individual and subjective observations. This problem was recognised as early as the first half of the 20\textsuperscript{th} century and numerous attempts were made to address it. Some artists’ material manufacturers published their lightfastness standards as well as their methodologies \citep{schmincke__co_neuen_1912, kerdijk_kunstschildersmaterialen_1932,winsor__newton_few_1948}. For instance, on behalf of Talens, Kerdijk published several books in which he described lightfastness assessments and results of Talens paints and also provided recommendations regarding their application \citep{kerdijk_kunstschildersmaterialen_1932,kerdijk_kunstschildersmaterialen_1937}. Comparison of Talens’ experimental approaches with publications on lightfastness assessment from the same time, revealed that Talens had performed extensive literature research to develop their methodology, which was based mainly on the work of Hans Wagner \citep{van_den_berg_making_2016, pause_synthetic_2019}. As head of the Research Institute for Colour Technology at the Stuttgart Art Academy, Wagner developed one of the first standardised methods for assessing lightfastness with the help of a colourimetric system based on the work of Wilhelm Ostwald (1853–1932) \citep{ostwald_farbenfibel_1917}. His methodology, described in his book \textit{Die K\"{o}rperfarben} (The Body Colourant) \citep{wagner_korperfarben_1928}, relies on a lightfastness scale which he developed to classify samples according to their degree of light sensitivity. A description of the classification is given in Table \ref{tab:Wagner_classes}, which has been translated from the original German text in Die Körperfarben \citep[p.33]{wagner_korperfarben_1928}. This classification is divided into 10 categories, ranking materials from the least light sensitive (class I) to the most light sensitive (class X).\\
+
+\begin{table*}[!h]
+\caption[\hspace{0.3cm}Description of the lightfastness classes developed by H. Wagner]{Lightfastness classes developed by \citet[p.33]{wagner_korperfarben_1928} (Translated by Rika Pause).}
+\centering
+\begin{tabular}{p{2cm}p{12cm}}
+\toprule[0.4mm]
+\textbf{Classes} & \textbf{Description} \\\midrule
+Class I & No colour change observed after 1000 sun-hours  \\ 
+Class II & “Barely noticeable” colour change after 1000 sun-hours, comparable to one step of Ostwald’s colour triangle \\
+Class III & “Noticeable” colour change after 1000 sun-hours, stronger as in class II, but not more than 4 steps of Ostwald’s colour triangle \\
+Class IV & Colour change after 1000 sun-hours, stronger as in class III, until complete fading or darkening and reaching Ostwald’s grey scale of the colour triangle \\
+Class V & Colour change like in class IV, but after 750 sun-hours at the earliest and 1000 sun hours at the latest \\
+Class VI & Colour change like in class IV, but after 500 sun-hours at the earliest and 750 sun hours at the latest \\
+Class VII & Colour change like in class IV, but after 250 sun-hours at the earliest and 500 sun hours at the latest\\
+Class VIII & Colour change like in class IV, but after 100 sun-hours at the earliest and 250 sun hours at the latest \\
+Class IX & Colour change like in class IV, but after 20 sun-hours at the earliest and 100 sun hours at the latest \\
+Class X & Colour change like in class IV, but after less than 20 sun-hours \\\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:Wagner_classes}
+\end{table*}
+
+From today's technical art history and conservation perspectives, a thorough characterisation of these tests and the resulting material assessments would be helpful to study the ageing behaviour of early \gls{SOP}s. However, the lightfastness assessments conducted by Talens in the 1930s differ from current methodologies based on present-day ISO standards \citep{international_organization_for_standardization_textiles_2014} and the CIELAB colour space \citep{schanda_colorimetry_2007}. In that regard, how can the indications on lightfastness provided by Talens be correlated to current methodologies of colour change? More precisely, to what extent can the lightfastness information provided by Talens be useful for decision-making regarding the conservation and exhibition of paintings made with \gls{SOP}s?\\
+
+Before proceeding into investigations on Talens’ lightfastness data, the aim of this research is to understand to what extent the methodology established by Wagner can or does correlate to modern lightfastness assessments using the blue wool standards scale. Based on the information and samples contained in Wagner’s \citeyear{wagner_korperfarben_1928} book on pigments, the objective is to convert his lightfastness assessment methodology in terms of current ISO norms. Reflectance and solar irradiance measurements provided the basis to implement a theoretical conversion of Wagner’s methodology. Subsequently, microfading analyses were performed on Wagner's samples and the results compared with the theoretical conversion of Wagner’s data. This section focuses on the microfading analyses leaving aside the rest of the analyses that were performed in the context of this research. A detailed version of this research is expected to be published in 2023-2024. \\
+
+
+\subsection{Materials}
+
+Microfading analyses were performed on two types of samples. Eight synthetic organic paint-outs from a 1928 edition of Wagner’s \textit{Die Körperfarben} were selected (Figure \ref{fig:SOP_photo_samples}) and the pigments identified using Raman analyses (Table \ref{tab:Wagner_samples_CI}). Blue wool samples (BW1 to BW4), purchased in 2019 from Beuth Verlag GmbH, were used so that the aforementioned paint samples could be ranked according to the blue wool scale.
+
+\begin{table}[!h]
+\centering
+\caption[\hspace{0.3cm}Identification of Wagner's samples according to Colour Index definitions]{Identification of Wagner's samples according to Colour Index definitions.}
+\begin{tabular}{ll}    
+\toprule[0.4mm]
+\textbf{Trivial name} & \textbf{CI definition}\textsuperscript{a} \\\midrule
+Hansagelb 5G & PY5 \\
+Hansagelb 10G & PY3 \\
+Hansagelb G & PY1 \\
+Hansagelb GR & PY2 \\
+Litholrot R & PR49 \\
+Heliorot RMT extra & PR51 \\
+Helioechtviolett AL & Acid dye CI 60735 \\
+Fanalbremerblau & PB8 \\
+\bottomrule[0.4mm]
+\end{tabular}
+\footnotesize{\\ \textsuperscript{a} Based on the literature and micro-Raman analyses. Spectra were matched with references from SOPRANO (\href{https://soprano.kikirpa.be/index.php?lib=sop}{SOPRANO website} (accessed on 26/04/2023))  and the \gls{RCE} references collection.}
+\label{tab:Wagner_samples_CI}
+\end{table}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.3\linewidth]{Chapters/Chapter5_Applications/Figures/Wagner_samples_photos.png}
+\caption[\hspace{0.3cm}Photographs of the synthetic organic paint samples]{Photographs of the \gls{SOP} samples from \textit{Die Körperfarben} \citep[401 ; 449]{wagner_korperfarben_1928}.}
+\label{fig:SOP_photo_samples}
+\end{figure*}
+
+\subsection{Methods}
+
+
+Microfading analyses were performed on the paint-outs with the stereo-MFT (see Chapter 3, section \ref{sec:stereo-MFT}). For each sample mentioned in the materials section, four microfading analyses were performed (see Table \ref{tab:SOP_params-MFT} for the experimental parameters). To compare the microfading results with Wagner’s data, the microfading data are given for a light energy value equivalent to 1000 sun-hours, \ie approximately 1580\unit{\mega\joule\per\square\metre}. This value is much greater than typical microfading analyses, which usually vary between 10 and 40\unit{\mega\joule\per\square\metre}, thus requiring extrapolation of the microfading data. This step was taken inside Jupyter notebook environments \citep{kluyver_jupyter_2016} with the help of Numpy, Matplotlib, Scikit-Learn and the PySR package \citep{harris_array_2020, pedregosa_scikit-learn_2011, hunter_matplotlib_2007, cranmer_pysr_2020}.\\
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}\acrshort{SOP}s - Parameters of the microfading analyses.
+]{\gls{SOP}s - Parameters of the microfading analyses.}
+\begin{tabular}{L{6cm}L{7cm}}
+\toprule[0.4mm]
+\textbf{Parameters} &  \\\cline{0-0}
+\textbf{MFT system} & stereo-MFT \\
+\textbf{Spectrometer} & J\&M Analytik AG - Tidas S MSP 400 \\
+\textbf{Operational mode} & Traditional \\
+\textbf{Fading lamp} & Ocean Optics HPX-2000-HP-DUV (HPX1) \\
+\textbf{Filter} & none \\
+\textbf{Geometry (illumination : collection)} & \ang{0} : \ang{45} \\
+\textbf{Zoom} & 5.0x \\
+\textbf{Illumination distance (\unit{\milli\metre})} & 25 \\
+\textbf{Collection distance (\unit{\milli\metre})} & 23 \\
+\textbf{Fading optical fibre} & Avantes, UVIR400-ME-2 \\
+\textbf{Collection optical fibre} & Avantes, UVIR600-ME-1 \\
+\textbf{Duration (min)} & 30 \\
+\textbf{Measurement interval (sec)} & 20 \\
+\textbf{Fading beam size - \acrshort{FWHM} (\unit{\um})} & 1010 $\pm$ 21 \\
+\textbf{Avg illuminance (\unit{\mega\lux})} & 4.5 $\pm$ 0.5 \\
+\textbf{Avg irradiance (\unit{\watt\per\square\metre})} & 20435 $\pm$ 2500 \\
+\textbf{Avg exposure dose (\unit{\mega\lux\hour})} & 2.25 $\pm$ 0.25 \\
+\textbf{Avg Radiant exposure (\unit{\mega\joule\per\square\metre})} & 37 $\pm$ 4 \\
+\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:SOP_params-MFT}
+\end{table*}
+
+\newpage
+\subsection{Results and discussion}
+
+The microfading results related to the paint samples are shown in Figure \ref{fig:SOP_MFT_results}, for which \gls{BWSE} values were calculated using the \dEOO values at 1000 sun-hours. A theoretical conversion between Wagner’s classes and the blue wool scale is given in Figure \ref{fig:SOP_MFT_results}-b. A comparison between the theoretical \gls{BWSE} values and measured \gls{BWSE} presents mixed results (Figure \ref{fig:SOP_MFT_results} - b). Clearly, both systems classify Fanalbremerblau and Helioechtviolet AL as the most light sensitive, but there are some discrepancies in the data, as shown by the crossed lines giving a different relative lightfastness ranking of the samples. While Wagner considered the two red samples, Heliorot RMT and Litholrot R, more light sensitive than Hansagelb 5G and 10G, the microfading analyses show the opposite. Additionally, the microfading analyses reveal that the rate of colour change decreases from exposure to light, meaning that the paints become less sensitive as they are exposed to light and that the measured \gls{BWSE} values should be equal or higher than the theoretical \gls{BWSE}. While most samples follow this pattern, the two samples belonging to class II, \ie Hansagelb 5G and 10G, contradict it. Given the current state of knowledge, it is not possible to explain the reasons for these discrepancies but there may be several hypothetical reasons – indeed, several factors may have influenced our study. Firstly, it is possible that some samples have degraded naturally over time, resulting in a decrease or increase of sensitivity to light. For example, this could be the case for the lithol red, which is known to be chemically unstable and to darken from light exposure \citep{standeven_history_2008}, but has relatively good light stability according to the microfading data. A second source of deviation lies in the microfading technique, for which failure of the reciprocity principle may have occurred as a consequence of exposure to high intensity levels \citep{del_hoyo-melendez_investigation_2011}. Additionally, microfading analysis locally heats up the sample \citep[405]{whitmore_predicting_1999}, which can ultimately affect the lightfastness properties of the sample. This is particularly relevant for the lithol red sample, which is also known to be chemically sensitive to heat.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter5_Applications/Figures/Wagner_Samples_MFT-extrapolated_line-par_02.png}
+\caption[\hspace{0.3cm}Synthetic organic pigments - MFT results]{Microfading results: (a) extrapolated \dEOO curves and (b) parallel plot.}
+\label{fig:SOP_MFT_results}
+\end{figure*}
+
+
+\subsection{Conclusion}
+
+This subsection focused on the lightfastness assessment developed by Hans Wagner in the 1920s, for which an attempt to transpose Wagner's data into current scientific terms and scales has been proposed. Along with other analytical techniques, microfading analyses were performed on synthetic organic paint samples from Wagner’s book published in 1928. Despite the uncertainties encountered in this project, it turns out that for half of the samples studied, the microfading results are relatively close to the information established by Wagner. While supporting the hypothesis that the data from the methodology developed by Wagner may be useful, it also invites us to be cautious. Natural ageing of the samples over the past 90 years certainly influenced their light sensitivity but observations made by Wagner in the 1920s might not be correct as the samples aged. Moreover, this project focused on specific samples which are not fully representative of Wagner's classes, broadening the corpus of examination to include samples attributed by him to other classes would be helpful to confirm or refute the outcomes of this present study.\\
+
+Wagner's attempt to communicate his results graphically was a great step forward at the time and should be appreciated as such. However, this study of his methodology revealed inherent ambiguity in the interpretation of his results, especially when only the lightfastness class of the sample was given. Ultimately, this complicates further understanding of his data by current users. In the context of light-induced colour change risk assessment on objects where \gls{SOP}s have been identified, being able to relate the light-sensitive information provided by Wagner and Talens with the \gls{BWS} scale enables a first estimation of the risk of colour change and can be used as a guide to perform further measurements.\\
+
+This study successfully illustrates the use of microfadeometry in a scientific research project. Although the technique presents some issues that, in some cases, hinder proper interpretation of the data, it is clear to us that the technique holds many advantages for research purposes that are yet to be developed. \\
+
+
+
+
+\section{Limitations of the stereo-MFT}
+
+
+The application of the stereo-MFT enabled us to identify drawbacks and limitations of the system which are listed below:
+
+\begin{itemize}
+
+\item Transport of the stereo-MFT outside of the laboratory is possible but cumbersome. The number of parts and the size of the spectrometer and the fading lamp do not facilitate transportation. Optimising the volume of the stereo-MFT would improve its ability to perform in-situ analysis but making it as compact as the Fotonowy or the ball lens devices does not seem possible unless the stereomicroscope is replaced by a more compact optical system.
+
+\item Measurements on large objects are not possible without the use of a microscope arm in order to reach the centre of objects. Although the stereomicroscope can be attached to a microscope arm quite easily, it becomes difficult to precisely manipulate the whole system. A better solution would be to create a computer-controlled motion system that would allow users to control the position of the device in the $x$, $y$ and $z$ directions. 
+
+\item Although the camera can take images of the objects, there is no methodology to precisely locate microfading spots on objects. 
+
+\item Computational interactive interfaces were developed in this PhD project to automate the visualisation of single microfading analysis. The development of IT tools should continue and focus on the ability to compare multiple analyses selected on the basis of parameters from the objects (colour, pigments, thickness, etc.) or from the microfading analysis (intensity, dose, etc.). Additionally, the development of databases and automated reports could be useful tools for post-processing tasks.
+
+\item In the co-axial mode of the stereo-MFT, there is no possibility to perform images of the colour measurement spots. Replacing the mirror, located in the phototube S part of the stereomicroscope, by a beam splitter would be a solution to obtain images of colour measurement spots. As a consequence, it would reduce the signal reaching the spectrometer, which can be compensated by increasing the integration time of the measurement.
+
+\item The power density is not distributed homogeneously within the fading beam. A more homogeneous fading beam would increase the precision of the total radiant energy projected on the object.
+
+\end{itemize}
