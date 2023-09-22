@@ -1,0 +1,937 @@
+%!TEX root = main.tex
+
+%%%% Title Page
+
+\newgeometry{top=2.170cm,
+            bottom=3.510cm,
+            inner=2.1835cm,
+            outer=2.1835cm,
+            ignoremp}
+
+\pagecolor{mygray}
+
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{3cm}
+       {\fontsize{40pt}{46pt}\selectfont \textbf{Chapter 3}}\\       
+       \vspace*{3cm}
+       {\fontsize{30pt}{36pt}\selectfont \textbf{Advances} \\[1cm]
+        \fontsize{30pt}{36pt}\selectfont \textbf{in} \\[1cm]
+        \fontsize{30pt}{36pt}\selectfont \textbf{microfadeometry}} \\          
+   \end{center}
+\end{titlepage}
+
+
+\restoregeometry
+\pagecolor{white}
+
+%%%%%%% Advances in microfadeometry %%%%%%%
+
+\chapter{ Advances in microfadeometry}
+\label{ch:ch3_MFT-advances}
+
+This chapter presents the advances in microfadeometry accomplished through my PhD research. It is structured in three sections, each focussing on a different aspect of my research. The first part describes and evaluates the new microfading system developed during this project. The sections that follow focus on topics related to microfadeometry, such as the temperature behaviour of irradiated materials and the testing of the reciprocity principle on paint layers.\\
+
+
+\section{Microfadeometry improvements}
+\label{sec:stereo-MFT}
+
+
+Within the framework of lighting policy, the main function of microfading analyses is to assess the colour stability of materials towards light exposure (see Figure \ref{fig:lighting_policy_framework}, vulnerability parameter). This step is crucial in regard to the creation of digital visualisations that predict the future appearance of objects. While the assessment of vulnerability has been well defined, the link between vulnerability and digital visualisation has not yet been fully characterised. Currently, there is no clear, transparent and satisfying methodology for the creation of digital light-induced colour change visualisations\sidenote{This issue was discussed in more detail in Chapter 1, section \ref{sec:predict}}. Establishing such a methodology is beyond the scope of this PhD project and probably requires a few more years of research. Still the data acquired during my research could be useful when applying such a method. Therefore, a main objective of the methodology of this PhD is to facilitate future use of this data. To accomplish this, the data and its processing must meet the following conditions, inspired by the FAIR guiding principles \citep{wilkinson_fair_2016}\sidenote{For more information visit: \url{https://www.go-fair.org/fair-principles/} (accessed 30/03/2022).}:\\
+
+\begin{itemize}
+    \item Ensure as much as possible long-term access to the files that contain the data.
+    \item Establish a clear and strong link between data and metadata.
+    \item Process raw data in a transparent and repeatable manner with standardised output files.
+\end{itemize}
+
+\begin{figure*}
+\centering
+\includegraphics[width=12cm]{Chapters/Chapter3_MFT_Advances/Figures/Cookiecutter_folder_structure.png}
+\caption[\hspace{0.3cm}Folder structure]{Folder structure of each single project within this PhD research project.}
+\label{fig:folder_structure}
+\end{figure*}
+
+Due to the obsolescence of some file formats as computational technology evolves, the researcher is sometimes confronted with the impossibility to access past data, simply because they have been stored in a specific proprietary format that can only be opened with software designed by the company who created the device. The best option to guarantee that files can still be opened in the long term, is to use the simplest open-source file format. This consists of text files (.txt) or comma-separated values files (.csv) for data and portable network graphic (.png) or tagged image file format (.TIFF or .TIF) for images. Long-term access to the data also implies that files can easily be found which is achieved with an efficient and logical organisation of folders and files. As a consequence, a standardised folder structure was employed for each sub-project within this PhD using the Cookiecutter data science tool\sidenote{More information on the Cookiecutter data science tool, see \url{https://www.cookiecutter.io/}, accessed on 11/06/2023}. The creation of a standardised and logical folder structure, as shown in Figure \ref{fig:folder_structure}, facilitated the retrieval of files and information.\\
+
+%\label{par:file_formats}
+
+The connection between data and metadata was achieved through the use of a unique identifier for each analysis, to be included in the filenames. A standard naming convention was used for every data file created\sidenote{More information about naming convention within the PhD project is given in Appendix \ref{app:ch3_naming_conventions}}. For example, the results of microfading analyses were stored in three files – a reflectance data file (\_SP.csv), a colourimetric file (\_dE.csv) and an information file (\_INFO.txt, i.e. the metadata) – with specific filenames as shown and explained in Figure \ref{fig:MFT_filenaming}. Encoding some of the parameters inside filenames enabled folders to be used as a database where each file corresponds to an entry. Consequently, it was possible to perform queries on filenames in order to retrieve the desired analyses.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=14.5cm]{Chapters/Chapter3_MFT_Advances/Figures/MFT_files_naming.png}
+\caption[\hspace{0.3cm}Naming of microfading analyses files]{Naming of microfading analyses files.}
+\label{fig:MFT_filenaming}
+\end{figure*}
+
+In order to process raw data in a transparent and repeatable manner, programming tools written in Python were used in combination with Jupyter notebooks \citep{kluyver_jupyter_2016}\sidenote{ For more information on the Jupyter notebook environment see: \url{https://jupyter.org/} (accessed 30/03/2022).} with the help of the Colour Science package \citep{mansencal_colour_2022} in addition to other common packages such as Numpy \citep{harris_array_2020}, Pandas \citep{mckinney_data_2010} and Scikit-Learn \citep{pedregosa_scikit-learn_2011}. Similarly, data visualisations were created inside Jupyter notebooks with the Matplotlib \citep{hunter_matplotlib_2007} and Seaborn \citep{waskom_seaborn_2021} libraries.\\
+
+
+
+
+\subsection{An enhanced optical microfading system: the stereo-MFT}
+
+This PhD research project led to the construction of a new microfading device referred to herein as a \textit{stereo-microfading tester} (stereo-MFT). This section\sidenote{Parts of this section have been published by \citet{patin_enhanced_2022} and a video describing the stereo-MFT is available (\url{https://www.youtube.com/watch?v=FoW4cjhHpM8}).} provides a detailed description of the device as well as the results of analyses on blue wool samples (DIN EN ISO 105-B02, \cite{deutsches_institut_fur_normung_ev_din_2014}) in order to demonstrate its microfading abilities. This device was developped with the close collaboration of the \gls{RCE}\sidenote{Frank Ligterink and Johan G. Neevel from the RCE have been working in the field of microfadeometry since 2006 and provided guidance throughout the development of this new system.}.  \\
+
+%\url{https://microfadingphd.wordpress.com/articles/}  \url{https://www.youtube.com/watch?v=FoW4cjhHpM8}. \\
+
+
+\subsubsection{Description}
+
+The central element of this new device is a stereomicroscope\sidenote{The idea of incorporating a microscope in microfading systems was first implemented around 2011 at the Centre de Recherche sur la Conservation des Collections by Bertrand Lavédrine (see \cite{lavedrine_development_2011}).} \citep{zeiss_sv6_2000} through which three main processes occur: fading, colour measurement and imaging (Figure \ref{fig:sMFT_description}). The set-up comprises four types of components – light sources, detectors, optics and connectors – where 3D printed technology has been used to manufacture the required connecting pieces with the help of an open-source software, \textit{FreeCad} \citep{riegel_freecad_2021} (Table \ref{tab:sMFT_components} and Figure \ref{fig:sMFT_3Dprints})\sidenote{A description of each 3D print is given in Appendix \ref{app:ch3_3D-prints}.}. Figures \ref{fig:sMFT_description} and \ref{fig:sMFT_2D} illustrate the set-up with 3D and 2D schematic representations respectively. \\
+
+\vspace{1.2cm}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_3Dprints.png}
+\caption[\hspace{0.3cm}Description of the 3D prints used for the binocular tubes]{Description of the 3D prints used for the binocular tubes.}
+\label{fig:sMFT_3Dprints}
+\end{figure}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=14.5cm]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_photo-3D.png}
+\caption[\hspace{0.3cm}Description of the stereo-MFT in the co-axial mode]{Description of the stereo-MFT in the co-axial mode: (a) photograph and (b) 3D representation.}
+\label{fig:sMFT_description}
+\end{figure*}
+
+
+
+Most microfading devices have been created using a 0$^\circ$:45$^\circ$ geometry, where the fading (first value) happens vertically, and the colour measurement (second value) is performed at a 45$^\circ$ angle. With this new set-up, the user can choose between two different geometries. Indeed, in addition to the ‘traditional’ 0$^\circ$:45$^\circ$ geometry, the system can be modified in order to perform measurements with a 0$^\circ$:(45$^\circ$:0$^\circ$) geometry, referred to as \textit{co-axial} geometry\sidenote{The term \textit{co-axial} indicates that the fading light source and the spectrometer are both situated on a vertical axis above the sample.}. To switch from one geometry to another, only the position of the spectrometer has to be changed. In the co-axial mode (Figure \ref{fig:sMFT_2D} - a), it is connected to the right binocular of the stereomicroscope, while in the traditional configuration (Figure \ref{fig:sMFT_2D} - b) it is attached to the focusing head. In both cases, the fading light source remains in the same position: it is connected to the left binocular of the stereomicroscope by an optical fibre. However, due to the optics of the stereomicroscope, the fading beam does not quite fall perpendicular to the object's surface but at a small angle ($\theta$) (approximately 12.7$^\circ$)\sidenote{The value of $\theta$ was calculated using the following equation: $NA=n sin(\theta)$ where the numerical aperture $NA=0.22$ and the refractive index of air ($n$) equals to one.} relative to the normal. This, however, was found to have a negligible impact on the colour measurement. In addition, the position of the camera does not change from one geometry to another as it remains connected to the phototube S.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_2D.png}
+\caption[\hspace{0.3cm}2D representation of the stereo-MFT]{2D representation of the stereo-MFT: (a) co-axial mode and (b) traditional mode.}
+\label{fig:sMFT_2D}
+\end{figure*}
+
+On the technical side, the stereo-MFT was created such that most elements can easily be accessed or replaced. The device was built to increase modularity which can be achieved by separating the fading and colour measurement processes. The lack of interdependence between the two processes enables the user to modify one without influencing the other. First of all, it means that colour measurements can be performed on the object without having to fade it\sidenote{In the current version of the set-up, comparison of colour measurements at different moments cannot be done with a high level of precision since it is not possible to find the exact same spot on the object once the latter is moved.}, but it also opens up new possibilities for research, such as experimenting with the shutter of the fading light source in order to investigate colour reversion phenomena. Alternatively, the use of different light sources for fading could be compared as well as the use of various types of incident radiation to monitor changes. In the co-axial mode, a halogen source is used to perform colour measurements, but it could be replaced with a different lamp that is better suited to investigating changes that occur outside of the visible spectrum.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_processes-cycle_2.png}
+\caption[\hspace{0.3cm}Processes performed during a microfading analysis]{Processes performed during a microfading analysis with the co-axial mode: (a) and (b) schematic representation and (c) cycle of actions.}
+\label{fig:sMFT_processes}
+\end{figure*}
+
+
+The 0$^\circ$:(45$^\circ$:0$^\circ$) notation explicitly states that the colour measurement process (values in parenthesis) involves a \gls{CML} coupled with a focusing head that is placed to the side at a 45$^\circ$ angle while the spectrometer is positioned above the normal. In this configuration, the \gls{FL} is still positioned above the sample hence projecting a vertical beam (Figure \ref{fig:sMFT_processes} - a) and the 0$^\circ$ value on the left side of the notation. This means that when the fading lamp is left unshuttered, its light beam interferes with the colour measurement process. In other words, the reflected radiation of the fading beam cannot be directly collected by the spectrometer in order to monitor changes. Therefore, in this arrangement the fading beam needs to be blocked, \ie shuttered, and a separate light source (the \gls{CML}) is required in order to correctly perform colour measurements (Figure \ref{fig:sMFT_processes} - b). In contrast with regular \gls{MFT} devices where the fading and colour measurement processes happen simultaneously, the stereo-MFT has been designed to alternate between these two processes, which requires controlling the interval shutter of both light sources (\gls{FL} and \gls{CML}). The \gls{TTL} function on both lamps enables them to be controlled by an external spectrometer. In the present configuration, the software of the spectrometer (Tidas DAQ3) enables the user to write programming scripts that control the two light sources and the spectrometer, hence defining a cycle of actions that can be repeated as often as needed (Figure \ref{fig:sMFT_processes} - c).\\
+
+
+
+
+\begin{table*}
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Components of the stereo-MFT.]{Components of the stereo-MFT.}
+\begin{tabular}{C{1.2cm}C{2.5cm}C{3cm}C{6cm}}
+\toprule[0.4mm]
+\textbf{Category} & \textbf{Type} & \textbf{Company} & \textbf{Description} \\\midrule
+\multirow{3}{1.2cm}{\centering Light source} & \multirow{2}{*}{\centering \gls{FL}} & Ocean Optics & HPX-2000-HP-DUV (HPX1) \\
+& & Thorlabs & MWWHF2 (LED5) \\
+& \gls{CML} & Ocean Optics & HL-2000-FHSA-LL (HAL3) \\\hline
+\multirow{3}{1.2cm}{\centering Detector} & Spectrometer & J\&M Analytik AG & Tidas S MSP 400 \\
+& Power meter & Thorlabs & PM100 USB + sensor S405C \\
+& Camera & The Imaging Source & DFK 33UX183 \\\hline
+\multirow{5}{1.2cm}{\centering Optics} & Stereomicroscope & Zeiss & Stemi SV11 \\
+& \multirow{3}{2.5cm}{\centering Focusing head} & \multirow{3}{3cm}{\centering Edmund Optics} & 10mm aperture VIS/NIR Fibre optic collimator (\#88-180) \\
+& & & 10mm aperture, 38mm focal length VIS/NIR fibre refocusing (\#88-184) \\
+\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:sMFT_components}
+\end{table*}
+
+Lack of precision regarding the characterisation and control of the beam’s dimensions and power hinders reliable monitoring of colour change as a function of energy. In the stereo-MFT, this issue has been overcome by combining the optics of the stereomicroscope with a high-quality imaging system and a power meter. The incorporation of a camera connected to the phototube S enables the user to capture photographs of the fading beam from which its dimensions can easily be calculated (Figure \ref{fig:sMFT_beams} - a and c). Combining photographs of the beam with total power values enables an estimation of the power density distribution within the fading beam (Figure \ref{fig:sMFT_beams} - b), from which a mean irradiance value can be calculated and multiplied by the duration of the analysis in order to provide a radiometric energy scale in joules per square metre (\unit{\joule\per\square\metre}), ultimately used to monitor colour change. In addition, photographs of the colour measurement spot in the traditional mode can be taken, so that the precise distribution of the light energy density within the colour measurement spot can be determined (Figure \ref{fig:sMFT_beams} - d and e)\sidenote{Unfortunately, this feature is currently only available for the traditional mode of the stereo-MFT.}. Coupling the camera with the stereomicroscope optics also facilitates the alignment and optimisation of the beams which can be done by focusing the stereomicroscope through the camera. In other words, when the image is sharp, the fading beam spot and the colour measurement spot are aligned so that the spectrometer measures the colour exactly where the fading process occurs. Finally, photographs of the samples could potentially provide useful information regarding interpretation of the data.\\
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_Photographs-Beams.png}
+\caption[\hspace{0.3cm}Beams characterisation]{Beams characterisation: (a) photograph of the fading spot; (b) power density distribution; (c) profile of the power density distribution; (d) photograph of the colour measurement spot; (e) power density distribution within the colour measurement spot.}
+\label{fig:sMFT_beams}
+\end{figure*}
+
+
+Control over the beams' dimensions and power is achieved by changing the zoom setting on the stereomicroscope or by modifying the illumination distance ($d_{ill}$), \ie the distance between the output of the optical fibre and the objective of the left binocular (Figure \ref{fig:sMFT_3Dprints}). The ability to vary the dimensions of the fading beam spot and its power enables the user to adjust them according to experimental needs so that optimal values can be used. For example, for analyses on cultural heritage objects, the user might choose to minimise damage, thus prioritising a smaller spot size and requesting the ability to stop the analysis before any visible change occurs, while for experiments on mock-up samples, a larger spot size could be favoured in order to maximise features related to the spectral information collected.
+
+
+
+
+\subsubsection{Characterisation}
+
+\underline{\textit{Light sources}}
+
+As mentioned, the stereo-MFT contains two light sources: one for the colour measurement process (\gls{CML}) and another for the fading process (\gls{FL}). For the colour measurement, a \gls*{HAL} was chosen as a suitable light source \citep[6]{johnston-feller_color_2001}. The relative \gls{SPD} for all light sources were measured with an Ocean Optics spectrometer (USB4000 VIS-NIR-ES) and a cosine corrector (Figure \ref{fig:sMFT_SP})\sidenote{Parameters of the measurements are provided in Appendix \ref{app:ch3_lamps_measurements}.}. Two fading light sources were tested in the framework of this project, both representative of museum lighting conditions: one is a high-power xenon light source from Ocean Optics which represents daylight conditions in museums with the possibility of blocking the \gls{UV} and \gls{IR} radiation with a filter (Linos Calflex\textsuperscript{TM}-C, G380 220 032), while the other is a high-power warm white \gls{LED} (4000 \unit{\kelvin}) from Thorlabs (Table \ref{tab:sMFT_components}). The latter is taken to represent a more recent source of illumination frequently adopted by museums\sidenote{Museums usually use warmer \gls{LED} lamps, \ie with a \gls*{CCT} around 3000 \unit{\kelvin}, but it proved too difficult to find a high-power \gls{LED} with a \gls{CCT} of 3000 \unit{\kelvin}.}. Using different types of light sources that reflect actual museum practice is preferable when applying microfading data to conservation challenges as performing microfading analyses with a high-power xenon lamp on objects that are exhibited with \gls{LED} light sources can limit interpretation of the acquired data.\\
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_lamps_SP.png}
+\caption[\hspace{0.3cm}Spectral power distribution of the light sources]{Spectral power distribution of the light sources used in the stereo-MFT.}
+\label{fig:sMFT_SP}
+\end{figure*}
+
+\underline{\textit{Power values}}
+
+Quantification of light energy received by an object during microfading analyses with the stereo-MFT can be estimated with the use of a power meter (Table \ref{tab:sMFT_components})\sidenote{A similar power meter has already been used by \citet{lojewski_note_2011}}, either positioned below the stereomicroscope (Figure \ref{fig:sMFT_power_metre} - a) or directly connected to the fading light source with one ‘leg’ of a bifurcated optical fibre (Figure  \ref{fig:sMFT_power_metre} - b). \\
+
+\begin{figure*}
+\centering
+\includegraphics[width=11cm]{Chapters/Chapter3_MFT_Advances/Figures/MFT_power-measurements.png}
+\caption[\hspace{0.3cm}Power measurement with the stereo-MFT]{Power measurement with the stereo-MFT: prior to analyses (a) ; during microfading analyses (b).}
+\label{fig:sMFT_power_metre}
+\end{figure*}
+
+In the first case, the power is measured prior to the microfading analysis, thereby assuming that the power of the lamp remains relatively constant over a few hours. Indeed, previous researchers demonstrated that the signal of fading light sources remains relatively stable over short periods of time (usually a day or less) while slowly decreasing over a long period as the power of the light bulb gradually decreases with use \citep[106, Figure II.35]{del_hoyo-melendez_survey_2010}. In the case of the stereo-MFT, Figure \ref{fig:sMFT_lamp_power} shows the power behaviour of the fading light sources over the first 90 minutes. It can be seen that after a warming period of approximately 30 minutes, the power is relatively constant, although a drop in the long term is observed.\\
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/Fading-lamps_direct_noFilter_warming.png}
+\caption[\hspace{0.3cm}Power values of the fading light sources]{Power values of the fading light sources (see Table \ref{tab:sMFT_components} for more information).}
+\label{fig:sMFT_lamp_power}
+\end{figure*}
+
+In the second case, a bifurcated optical fibre splits the initial beam from the lamp into two equal beams (Figure \ref{fig:sMFT_2D}, dashed line ‘optional’) which enable the user to simultaneously measure the power while performing a microfading analysis. In cases where the energy output of the fading light source is unstable over time, the user would want to record the power levels during a microfading analysis. By knowing the influence of each component (optical fibre, filter and microscope) on the power, it is possible to back calculate the total amount of radiant power received by the object from the recorded values given by the power meter.\\
+
+In order to assess the influence of each component, the power of the fading beam has been characterised at four different positions within the system (Figure \ref{fig:sMFT_power_values} - a, positions A–D). The first location, spot A, consists of placing the power meter just outside of the fading light source. At location B, the influence of the optical fibre is assessed, whereas at location C the effect of the \gls{UV}/\gls{IR} filter is evaluated. Finally, position D characterises the fading beam received by the object and allows us to establish the influence of the microscope's optics.\\
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_Power_bar-schema_01.png}
+\caption[\hspace{0.3cm}Variations of power values]{Variations of power according to the position within the stereo-MFT: (a) location of each position; (b) power values for each position.}
+\label{fig:sMFT_power_values}
+\end{figure*}
+
+The results of the power indicate a strong decrease as light travels through the device for both types of light source (Figure \ref{fig:sMFT_power_values} - b). In the best-case scenario, only about 9 and 12\% of the initial light energy arrives on the sample’s surface for the \gls{LED} and \acrshort{HPX} lamps respectively (Figure \ref{fig:sMFT_power_values} - b, ratio A/D). A loss of energy first occurs when the emitted light enters the optical fibre (Figure \ref{fig:sMFT_power_values} - b, ratio A/B). A larger fibre diameter would increase the amount of energy transmitted but would also result in a larger beam size. The filter has a greater influence on the xenon light source than the \gls{LED} one. Looking at Figure \ref{fig:sMFT_SP}, it can be seen that all wavelengths below 400nm and above 750nm are cut off by the filter, explaining the decrease in power (ratio B/C). The multiple lenses contained in the stereomicroscope also reduce the light energy by an approximate factor of 1.6 (ratio C/D).\\
+
+\vspace{0.5cm}
+
+\underline{\textit{Influence of the illumination distance}}
+
+
+As mentioned in the description of the stereo-MFT, the illumination distance ($d_{ill}$) influences several qualities of the fading spot, such as the size, power and the power density. In order to characterise the influence of $d_{ill}$, power values and images were taken at different dill ranging from 12.5 to 40mm\sidenote{Information on the power and camera are given in Table \ref{tab:sMFT_components}}, while the other parameters of the set-up remain constant (Table \ref{tab:sMFT_params_d-ill}). The \gls{FW10M} has been chosen as an approximation of the beam diameter and was calculated from photographs of the fading beam reflected by the surface of a perfect reflecting diffuser (barium sulphate pressed powder). The power density values were deduced from the combination of the beam spot photographs and the power meter values as shown in Figure \ref{fig:sMFT_beams}.\\
+
+
+The influence of the illumination distance can be seen in Figure \ref{fig:sMFT_influence_d-ill}. The results show that the illumination distance significantly influences both the power and the \gls{FW10M} simultaneously and in a similar way, although the variations in power are clearly more affected by changes in the illumination distance than the \gls{FW10M} (Figure \ref{fig:sMFT_influence_d-ill} - a). On the contrary, the power density is more or less constant across the illumination distance range, at least between 12.5 and 31mm.\\
+
+\vspace{1cm}
+
+\begin{table*}[!h]
+    \centering 
+    \caption[\hspace{0.3cm}Parameters of the stereo-MFT when assessing the influence of $d_{ill}$.]{Parameters of the stereo-MFT when assessing the influence of $d_{ill}$.}
+    \begin{tabular}{C{4cm}C{7cm}}
+    \toprule[0.4mm]
+    \textbf{Parameters} & \\\midrule
+    Lamp & Ocean Optics, HPX-2000-HP-DUV (HPX1) \\
+    Filter & Linos Calflex\textsuperscript{TM}-C Heat protection (VIS-25-01) \\
+    Optical fibre (fading) & Avantes, UVIR400-ME-2 \\
+    Zoom & 6.6x \\
+    \bottomrule[0.4mm]
+    \end{tabular}
+    \label{tab:sMFT_params_d-ill}
+\end{table*}
+
+\vspace{1cm}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_influence_d-ill.png}
+\caption[\hspace{0.3cm}High-power xenon lamp]{High-power xenon lamp: (a) influence of the illumination distance over the power and \acrshort{FW10M} and (b) over the power density.}
+\label{fig:sMFT_influence_d-ill}
+\end{figure*}
+
+
+\subsubsection{Colour measurement assessment}
+
+The assessment of the spectrometer to perform colour measurement consisted of evaluating the device in terms of repeatability, reproducibility and accuracy of the colour measurements, which have been previously defined (Chapter \ref{ch:ch2_MFT}). The repeatability was determined by performing successive measurements, without changing any parameters of the experimental conditions, on six different samples: four standard colour charts (BS381C: n$^\circ$309, 107, 262 and 564), and two ceramic tiles (black and white) available in most equipment stores. The whole set-up was configured in the co-axial mode where the fading light source was not used (Figure \ref{fig:sMFT_2D} - b)\sidenote{A detailed methodology of the measurements is available in Appendix \ref{app:ch3_colour_measurements}}. Of the various parameters to characterise the repeatability \citep{wyble_evaluation_2007}, the standard deviation and the \gls{MCDM} with the \dEOO formula (\ref{eq:MCDM}) were used as the main parameters. Although both metrics present some limitations \citep[126]{berns_billmeyer_2019}, their relative simplicity of use and their common use in the heritage science field led us to select them.\\
+
+\vspace{0.8cm}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_Precision_MCDM.png}
+\caption[\hspace{0.3cm}Precision assessment of the stereo-MFT]{Precision assessment of the stereo-MFT: \acrshort{MCDM} values.}
+\label{fig:sMFT_precision}
+\end{figure*}
+
+\vspace{0.5cm}
+
+Looking at the \gls{MCDM} values for repeatability, all are lower than 0.04, which is far below the human perception threshold of 1.6–1.8 \dEOO \citep[21]{cie_technical_committee_3-22_control_2004} (Figure \ref{fig:sMFT_precision} - a). Moreover, the standard deviation values of the reflectance spectrum for each sample measured is consistently low, less than 0.0005 between 400 and 800nm (Figure \ref{fig:sMFT_repeatability_SP} - b). These results indicate that the stereo-MFT is highly repeatable. In the context of microfading analyses, it implies that the influence of the spectrometer's variability in regards to the reflectance factor values is negligible. In other words, any colour changes greater than 0.06 \dEOO cannot be due to variability within the system.\\
+
+
+\vspace{0.8cm}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2021-06-04_Repeatability_Tidas_HAL3_SP.png}
+\caption[\hspace{0.3cm}Repeatability assessment of the stereo-MFT]{Repeatability assessment of the stereo-MFT: reflectance factors.}
+\label{fig:sMFT_repeatability_SP}
+\end{figure*}
+
+\vspace{0.8cm}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2021-06-04_Reproducibility_Tidas_HAL3_SP.png}
+\caption[\hspace{0.3cm}Reproducibility assessment of the stereo-MFT]{Reproducibility assessment of the stereo-MFT: reflectance factors.}
+\label{fig:sMFT_reproducibility_SP}
+\end{figure*}
+
+
+The same six samples were also used for assessing the reproducibility of the spectrometer. The experimental conditions were similar to those used for the repeatability, except that between each measurement, the position of the measured spot on the sample’s surface was changed. In other words, $n$ measurements were performed at $n$ different locations on the samples. As previously, the standard deviation and \gls{MCDM} values were calculated in order to evaluate the reproducibility of the device. The results show greater variability than those in the repeatability assessment (Figure \ref{fig:sMFT_reproducibility_SP}), but still fall below the human perception threshold (Figure \ref{fig:sMFT_precision} - b). On the practical side, when comparing several microfading analyses on the same sample, colour differences above 0.4 \dEOO will not be due to variability in the device.\\
+
+While the gold standard for assessing the accuracy of colour measurement devices requires the use of reference certified materials, such as the BCRA ceramic tiles or the Spectralon colour diffuse reflectance standards \citep[128-34]{berns_billmeyer_2019}, the price of these materials prompted the search for another solution. The chosen approach involved measuring the spectrum of monochromatic light, such as lasers, and comparing the measured wavelength peak with the data provided by the manufacturer. A green laser (Starlight lasers) and a red laser (Edmund Optics, item \#52-840) were attached consecutively at an angle of \ang{45} to the side of the stereomicroscope and projected a beam on a perfect reflecting diffuser material. The reflected signal was recorded through the stereomicroscope to the spectrometer (Table \ref{tab:sMFT_components}) connected to the right binocular with an optical fibre (Avantes, FC-UV400-2). Although the measured wavelength values of the peak are not precisely in agreement with the data provided by the manufacturers, especially for the red laser, they still fall within their respective manufacturers’ designated intervals (Figure \ref{fig:sMFT_accuracy}). As a consequence, the difference between the measured and the referred wavelength values can be viewed as negligible, and the accuracy of the device to perform colour measurements is considered sufficient for the purpose of this study. 
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/Fig10_Accuracy_laser.png}
+\caption[\hspace{0.3cm}Spectral signal for the green and red lasers]{Spectral signal for the green and red lasers.}
+\label{fig:sMFT_accuracy}
+\end{figure*}
+
+
+
+\subsection{Analyses on blue wool standards}
+\label{sec:sMFT_BWS}
+
+
+In order to demonstrate the microfading ability of this new device, measurements on blue wool standards (Beuth Verlag GmbH, BW1, BW2 and BW3) were performed. These standards were chosen because they enabled us to compare results with those of benchmark devices, such as the Oriel-MFT, that can be found in the literature \citep{tse_microfade_2018,ford_reality_2017, pesme_development_2016, morales-merino_micro-fading_2016}. The aim is not so much to perform deep and accurate comparison between microfading results obtained on different devices\sidenote{A number of parameters – such as the type of the \gls{BWS} or differences in the experimental methods – can potentially cause differences in the fading behaviours which then limit valid interpretation of the results and comparison of analyses performed with different devices.} as to illustrate the microfading ability of the stereo-MFT on samples that are regularly faded by \gls{MFT} users.\\
+
+
+Each type of blue wool was analysed with four different configurations of the system: for each mode (traditional and co-axial), two different fading lamps were used (HPX1 and LED5) (Figure \ref{fig:sMFT_BWS_tree-view}). Technical information on the parameters of the microfading device used for each round is given in Appendix \ref{app:ch3_MFT_BWS_params}. For each round of analyses, the blue wool standards were measured three consecutive times on four different days, resulting in a total of 12 analyses per round; mean and standard deviation values were subsequently calculated. Reflectance data were processed with the Colour Science Python package \citep{mansencal_colour_2022} inside a Jupyter notebook environment \citep{harris_array_2020, kluyver_jupyter_2016, mckinney_data_2010, hunter_matplotlib_2007} in order to obtain the CIE $L^*a^*b^*$ and the \dEOO values \citep{luo_development_2001}. This latter colour difference equation was chosen because it is widely used among researchers studying colour change phenomena and is currently recommended by the \gls{CIE} \citep{cie_technical_committee_1-55_recommended_2016}.\\
+
+\marginpar{
+\captionsetup{type=figure}
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/MFT_BWS_options_2.png}
+\caption[\hspace{0.3cm}Tree view of the microfading analyses on BWS.]{Tree view of the microfading analyses on BWS.}
+\label{fig:sMFT_BWS_tree-view}
+}
+
+Observation of the microfading results (Figures \ref{fig:sMFT_BWS-results_modes}- \ref{fig:sMFT_BWS_comparison_HPX-LED}) enables us to draw several conclusions. First of all, the results show fading behaviours that are in agreement with the indication of the manufacturer reporting a factor of approximately two between each subsequent blue wool category\sidenote{\href{https://www.james-heal.co.uk/essentials-blue-wool-standards-how-to-use/}{link to the James Heal website} (accessed 17/06/2021).}. Secondly, no significant differences in the \dEOO values between the two modes of operation (co-axial vs traditional; both modes used the HPX lamp) have been observed (Figure \ref{fig:sMFT_BWS-results_modes}), which is consistent with the fact that the fading process is similar from one mode to another: in other words, the amount of energy received by the samples is identical in both modes. Nonetheless, there seems to be a pattern between the co-axial and traditional data which is more obvious when looking at the first derivative curves of the \dEOO values (Figure \ref{fig:sMFT_BWS-results_modes_deriv}). The rate of colour change is always higher at the very beginning of the analyses in the co-axial mode and then quickly decreases just below the rate of colour change in the traditional mode. This could be due to differences in the technical and operating characteristics of both modes\sidenote{In the co-axial mode, the first spectrum is recorded prior to any exposure whereas in the traditional mode, the fading beam is needed to record the first spectrum and usually there is often a short time gap between the lamp being turned on and the measurement of the first spectrum.}. Figure \ref{fig:sMFT_BWS-results_modes_deriv} also suggests that looking at microfading data from a colour change rate perspective seems to be a relevant approach, previously looked into by \citet{prestel_classification_2017}. At first glance, the spectral power distribution of the light source does not seem to affect the colour change behaviours, which are comparable from one lamp to another when a radiometric scale is used (Figure \ref{fig:sMFT_BWS_comparison_HPX-LED} - a)\sidenote{A graph of Figure \ref{fig:sMFT_BWS_comparison_HPX-LED} using a photometric scale (\unit{\kilo\lux\hour}) is provided in Appendix \ref{app:ch3_MFT_BWS-data_photometric}}. Likewise, the CIE $L^*a^*b^*$ values vary in similar proportion whether using a high-power xenon light source or a high-power \gls{LED} (Figure \ref{fig:sMFT_BWS_comparison_HPX-LED} - b).\\
+
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_BWS_Coaxial-vs-trad_dE-Lab.png}
+\caption[\hspace{0.3cm}MFT data - traditional vs co-axial mode]{Microfading results ; comparing the traditional vs the co-axial mode: (a) \dEOO curves; (b) variations in the CIE $L^*a^*b^*$ coordinates.}
+\label{fig:sMFT_BWS-results_modes}
+\end{figure*}
+
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_BWS_Coaxial-vs-trad_dE00dH.png}
+\caption[\hspace{0.3cm}MTF data - traditional vs co-axial mode - 1\textsuperscript{st} derivative]{Microfading results comparing the traditional vs the co-axial mode - 1\textsuperscript{st} derivative values of Figure \ref{fig:sMFT_BWS-results_modes} - a.}
+\label{fig:sMFT_BWS-results_modes_deriv}
+\end{figure*}
+
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_comparison_HPX-LED.jpg}
+\caption[\hspace{0.3cm}MFT data traditional mode - HPX vs LED]{Microfading results with the traditional mode ; comparison between the HPX and the LED lamp: \dEOO curves (a); variations in the CIE $L^*a^*b^*$ coordinates (b).}
+\label{fig:sMFT_BWS_comparison_HPX-LED}
+\end{figure*}
+
+
+Three main outcomes can be identified from these observations:
+\begin{itemize}
+    \item The data acquired demonstrate the ability of the stereo-MFT to monitor light-induced colour changes.
+    \item The results outline the importance of using a radiometric scale when comparing light-induced colour change data where several types of light source have been used.
+    \item As long as the \gls{UV} and \gls{IR} radiation are filtered, the influence of the light source on the microfading behaviour of the material is somewhat limited, at least for the blue wool samples; wavelength dependency has been shown for several materials found in works of art \citep{lerwill_micro-fading_2015, saunders_light-induced_1994}.\\
+\end{itemize}
+
+
+
+Comparing our data against those found in the literature can be quite challenging because of the many differences in terms of methodology and technological aspects. Proper comparisons should involve a similar colour change unit, \dEOO in this case, expressed as a function of radiant exposure in \unit{\joule\per\square\metre}. However, the use of a radiometric scale in the cultural heritage field, especially in microfadeometry, is rarely observed. Consequently, we turned instead to compare data from two different sources according to the exposure dose in \unit{\mega\lux\hour} (Figure \ref{fig:sMFT_BWS_comparison_past-studies}). The first set of data was deduced from \cite[Figures 2, 5, 6, and 7]{ford_reality_2017}, while the second set was provided by the Rathgen Forschungslabor, Berlin. In all three datasets, the \dEOO values are clearly distinct according to the blue wool category. In addition, the ratio between subsequent blue wool categories is comparable across the three datasets. This demonstrates the ability of microfading devices to distinguish the fading properties of blue wool standards and also indicates that the blue wool scale is a lightfastness ranking system that works fairly well. However, the data provided by the stereo-MFT in addition to our own experience with microfadeometry suggests that the ability of these blue wool standards to reach comparable \dEOO values when submitted to a similar exposure dose is rather low. In other words, the \gls{BWS} lack reproducibility in the context of microfading analyses. As previously mentioned (Chapter 2, section \ref{sec:dosimeter}), the intertwining of perpendicular chaining and filling threads creates an uneven surface alternating between bump and hollow spaces with dimensions comparable to the diameter of the fading beam. Depending on the location of the beam spot on the \gls{BWS} sample – bump, hollow or in between – the $L^*a^*b^*$ and \dE values will differ \citep{prestel_alternative_2016}. Consequently, the use of these standards as a dosimeter system is limited\sidenote{A dosimeter system relates a dose value, either in terms of photometric (\unit{\lux\hour}) or radiometric units (\unit{\joule\per\square\metre}), to a specific amount of change, either in terms of spectral or colourimetric units. On the other hand, a lightfastness ranking system provides a standardised scale within which the results of lightfastness analyses on objects can be compared.}. In the context of dose-response studies, alternatives to the \gls{BWS} would be worth investigating; photometric inks\sidenote{Unpublished but promising results on the use of photochromic inks have been obtained by Johan G. Neevel at the \gls{RCE} (personal communication).} or actinometers could be potential options but further research will be required before establishing their use in the field of cultural heritage science.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_comparison_BWS.jpg}
+\caption[\hspace{0.3cm}Microfading data comparison with past studies on blue wool standards.]{Microfading data comparison with past studies on blue wool standards.}
+\label{fig:sMFT_BWS_comparison_past-studies}
+\end{figure}
+
+
+%%%%%%% Temperature behaviour during microfading analyses %%%%%%%
+\newpage
+
+\section{Temperature behaviour during microfading analyses}
+\label{sec:MFT-Temp}
+
+\subsection{Introduction}
+
+The power density of the fading beam during a microfading analysis usually varies between 1 and 10 \unit{\mega\lux} or 4000 and 40000 \unit{\watt\per\square\metre} approximately. This high concentration of energy raises concerns regarding the temperature inside the material because a rise of temperature usually increases chemical activity which can then foster degradation processes and influence thermodynamic equilibrium. Several researchers have addressed this topic (for a summary of their results see Chapter \ref{ch:ch2_MFT}, section \ref{sec:temperature_issues}). In view of this past research, the objective of this investigation is not to look into the potential damage on objects due to temperature rise but to obtain data regarding the temperature's behaviour for model paint-outs, so that preliminary answers to the following questions can be provided:
+
+\begin{itemize}
+    \item To what extent can we estimate the surface temperature of paint-outs irradiated by a microfading beam? 
+    \item How long does it take to reach thermal equilibrium?
+    \item To what extent does the reflectance spectrum of the material influence the surface temperature?
+    \item What is the steady-state temperature profile in the sample for a given set of illumination and material properties?
+\end{itemize}
+
+Two different, but complementary, approaches were implemented in the framework of this project. On the one hand, a mathematical model was developed in order to simulate temperature changes within a material lit from above. On the other, experiments were carried out on paint-outs, measuring their surface temperature levels while illuminating the samples from above. The measurements were performed on several paint-outs as well as with different irradiance levels.\\
+
+\newpage
+\subsection{Methodology}
+
+\subsubsection{Mathematical model}
+
+In rigorous scientific terms, the model is defined as a cylindrically symmetric thermal model of transient temperature evolution in a substrate lit from above\sidenote{A thorough mathematical description of the model is available on the following repository: \url{https://github.com/g-patin/Temperature_model}.}. It is a thermal model because it tracks the movement of heat in space and time. In other words, we want to model temperature as a function of position and time, which can be written mathematically as: 
+$$ T(t,\theta,z,t) $$              
+
+where $r$, $\theta$ and $z$ describe the position of a point in cylindrical coordinates (Figure \ref{fig:T_mesh} - b) and $t$ indicates the time at which the temperature $T$ is assessed. \\
+
+\vspace{0.5cm}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/Finite_mesh.png}
+\caption[\hspace{0.3cm}Schematic representation of the thermal model.]{Schematic representation of the cylindrically symmetric thermal model.}
+\label{fig:T_mesh}
+\end{figure*}
+
+The model assumes an isotropic material, which enables it to be symmetric around the vertical axis $z$. This means that the modelled temperature values can be applied to the whole material by performing a rotational translation around the $z$ axis. Consequently, the parameter $\theta$ can be ignored and the model only looks at a single plane through the material, \ie the mesh (Figure \ref{fig:T_mesh} - a), where each location within the mesh can be described by two parameters – $r$ and $z$ – at any given time $t$:
+$$ T(t,z,t) $$
+
+
+\marginpar{
+\captionsetup{type=figure}
+\includegraphics[width=\marginparwidth]{Chapters/Chapter3_MFT_Advances/Figures/Neighbouring_cells.png}
+\caption[\hspace{0.3cm}Thermal model - Neighbouring cells]{Neighbouring cells relative to a centred cell $T_C$ at a defined timestep $k$.}
+\label{fig:neighbour_cells}
+}
+
+The mesh has been divided into small volumes, grouped within nine different areas (A1–A9, Figure \ref{fig:T_mesh} - a): the four corners, the four edges and the centre. Each cell of these areas is characterised by a row number $i$ and column number $j$ and is assigned a temperature value $T$ at a defined timestep $k$, which is encompassed in the notation: $T^k_C$ , where the index $C$ (for centre) is defined by the $i$ and $j$ values. Cardinal points (north, south, west, east) have been used to define the neighbouring cells for any given cell (Figure \ref{fig:neighbour_cells}). \\
+
+
+Two types of conditions need to be defined: the initial conditions that define the system at $t=0$, prior any light exposure, and the boundary conditions that characterise the behaviour of the system on its edges. The initial conditions of the model assume that the far field temperature ($T_\infty$) is equal to the temperature of the surrounding air ($T_{\mathrm{air}}$) and that the initial temperature across the material is equal to the far field temperature:
+
+\begin{equation}
+T_\infty = T_{\mathrm{air}}
+\end{equation}
+\myequations{\hspace{0.7cm}Far field temperature, $T_\infty$}  
+ 
+\begin{equation}
+T(r,z,0) = T_\infty
+\end{equation}
+\myequations{\hspace{0.7cm}Initial temperature of the mesh}
+
+
+
+Boundary conditions have been defined at the four edges of the mesh. At the bottom and outer edges (Figure \ref{fig:T_mesh}, south edge of cells in areas A\textsubscript{4}, A\textsubscript{5}, A\textsubscript{6}, and east edge of cells in areas A\textsubscript{2}, A\textsubscript{5}, A\textsubscript{8}), the Dirichlet boundary condition was applied which stipulates, in the context of thermodynamic applications, that the temperature at the margins is a fixed known value. In our case, it means that the temperature in those edges is equal to the far field temperature. At the inner edge – west edge of cells in areas A\textsubscript{3}, A\textsubscript{6}, and A\textsubscript{9} – the heat flux is zero. And finally, at the surface of the mesh (north edge of cells A\textsubscript{7}, A\textsubscript{8}, and A\textsubscript{9}), the heat flux along the $z$ direction ($q_z$) is constituted by the sum of natural convection heat ($q_{\mathrm{conv}}$) and radiation heat ($q_{\mathrm{rad}}$), as shown in equation (\ref{eq:q_z}). 
+
+\begin{equation}
+q_z = q_{\mathrm{conv}} + q_{\mathrm{rad}}
+\label{eq:q_z}
+\end{equation}
+\myequations{\hspace{0.7cm}Heat flux along the $z$ direction, $q_z$}
+
+
+The natural convection heat component is defined via equation (\ref{eq:q_conv}) which indicates that the rate of heat accumulation is proportional to the temperature difference between the material and its surrounding environment.
+
+\begin{equation}
+q_{\mathrm{conv}} = h(T_{z|z=0} - T_\infty)
+\label{eq:q_conv}
+\end{equation}
+\myequations{\hspace{0.7cm}Natural convection heat component}
+
+where $h$ is the heat transfer coefficient from the top-facing surface in \unit{\watt\per\square\metre\per\kelvin} and $T_{z|z=0}$ is the temperature at the surface of the material. \\
+
+The radiation heat component is induced by the light source illuminating the sample from above and is defined at the incoming intensity flux ($I_{\mathrm{in}}$) minus the proportion of $I_{\mathrm{in}}$ reflected by the surface, as shown in equation (\ref{eq:I_in}). 
+
+\begin{equation}
+I(r) = I_{\mathrm{in}}(r) - f I_{\mathrm{in}}(r) = I_{\mathrm{in}} (1-f)
+\label{eq:I_in}
+\end{equation}
+\myequations{\hspace{0.7cm}Radiation heat component}
+
+where $f$ is the average reflectance value at the surface of the material.
+
+By combining equations (\ref{eq:q_conv}) and (\ref{eq:I_in}), $q_z$ can ultimately be written as:
+
+\begin{equation}
+q_z = h(T_{z|z=0} - T_\infty) + I_{\mathrm{in}} (1-f)
+\end{equation}
+\myequations{\hspace{0.7cm}Heat flux along the $z$ direction, $q_z$}
+                          
+
+The model is based on two main principles: a constitutive law and the law of conservation of energy. In this context, the constitutive law is Fourier's law of heat transfer (\ref{eq:Fourier_law}) and is combined with equation (\ref{eq:thermodynamic_law}). The law of conservation of energy states that the rate of accumulated energy is equal to the rate of energy entering the system minus the rate of energy leaving the system. 
+
+\begin{equation}
+    q = -k \nabla T
+\label{eq:Fourier_law}
+\end{equation}
+\myequations{\hspace{0.7cm}Fourier's law of heat transfer}
+where $q$ is the heat flux (\unit{\watt\per\square\metre}), $k$ the thermal conductivity (\unit{\watt\per\metre\per\kelvin}) and $\nabla T$ the temperature gradient (\unit{\kelvin\per\metre}).
+
+\begin{equation}
+    \Delta T = \frac{Q}{C_p M}
+\label{eq:thermodynamic_law}
+\end{equation}
+\myequations{\hspace{0.7cm}Thermodynamic law}	  
+                   
+where $Q$ is the heat (\unit{\joule}), $C_p$ the specific heat capacity of the material (\unit{\joule\per\kg\per\kelvin}), M the mass of the material (\unit{\kg}), and $\Delta T$ the temperature difference (\unit{\kelvin}).\\
+
+
+In simple terms, the model monitors the temperature of each single cell through time and is mathematically described by the following equation:
+
+$$T^{k+1} = T^k + M T^k + C$$   
+                       
+where $T$ is an N-dimensional vector of temperature degrees of freedom for which $k$ indicates the timestep number, $M$ is an $N \times N$ matrix, and $C$ is a constant term arising from Dirichlet boundary conditions.
+
+\newpage
+\subsubsection{Experiments}
+
+This section describes the materials and methods that were used to perform temperature measurements on paint-out samples irradiated by a microfading beam. A set of nine oil \gls{PO} (Table \ref{tab:T-exp_info_PO}) were used as samples where each paint-out was created by applying the paint, without any addition of oil, on a black and white Leneta chart\textsuperscript{\textregistered} with a drawdown bar of 100 or 50\unit{\micro\metre}. Photographs of the paint-outs can be found in Appendix \ref{app:ch3_T-exp_photos_PO}. Reflectance spectra of each paint-out have been taken using the stereo-MFT (Figure \ref{fig:T-exp_PO_RS}), from which absorbance (Figure \ref{T-exp_PO_absp-SP}) was deduced as follows:
+Absorption = 100 - (Reflection + Transmission)\sidenote{Since no transmission of the light through the samples occurred, the transmittance was assumed to be 0. Parameters of the reflectance measurements are available in Appendix \ref{app:ch3_T-exp_RS_PO}.}
+
+
+\begin{table*}
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Temperature experiments - Characteristics of the samples.]{Temperature experiments - Characteristics of the samples.}
+\begin{tabular}{C{1.5cm}C{6.5cm}C{2.5cm}C{1.5cm}}
+\toprule[0.4mm]
+\textbf{Sample Id} & \textbf{Provenance} & \textbf{Pigment} & \textbf{Thickness (\unit{\um})} \\\midrule
+PO.002 & Norma Professional – Zinc white 112 & PW4 & 100 \\
+PO.003a & Daler-Rowney Georgian Ivory black 034 & PBk9 & 100 \\
+PO.019 & Lefranc \& Bourgeois extra fine Cadmium yellow lemon 156 & PY35 cadmium zinc sulphide & 100 \\
+PO.088 & Custom-made with Vanessa Otero (NOVA)\textsuperscript{a} & Lead chromate - Lead sulphate & 100 \\
+PO.090 & Custom-made with Art Proa\~{n}o Gaibor at the \gls{RCE}\textsuperscript{b} & Sigma lead(II) chromate & 100 \\
+PO.095 & Custom-made at the \acrshort{UA} by Alba Alvarez-Martin and Teresa Scovacricchi\textsuperscript{c} & Sigma eosin Y & 100 \\
+PO.099 & Custom-made at the \gls{RCE}, \gls{REVIGO} project \citep[Table 4]{geldof_reconstructing_2018} & Custom-made eosin & 100 \\
+PO.132 & Winsor \& Newton – Viridian green 692 & PG18 & 100 \\
+PO.133 & Lefranc \& Bourgeois extra fine Armor green 512 & PG7 & 50 \\ \bottomrule[0.4mm]
+\end{tabular}
+\footnotesize{\\ \textsuperscript{a} Reports on the fabrication of the chrome yellow pigment and paint can be found in Appendices \ref{app:ch4_making_CYL2b_pigments} and \ref{app:ch4_making_CYL2b_paints} respectively. \\ \textsuperscript{b} A description of the making process is given in Appendix \ref{app:ch4_making_CYL2b_paints}. \\ \textsuperscript{c} A description of the making process is given in Appendix \ref{app:ch4_making_eosin}.}
+\label{tab:T-exp_info_PO}
+\end{table*}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.9\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2022-12-15_Paint-outs_SP-RS.png}
+\caption[\hspace{0.3cm}Temperature experiments - Reflectance spectrum of the paint-outs.]{Temperature experiments - Reflectance spectrum of the paint-outs.}
+\label{fig:T-exp_PO_RS}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.9\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2022-12-15_Paint-outs_SP-Abs.png}
+\caption[\hspace{0.3cm}Absorption spectra of the samples]{Absorption spectra of the samples.}
+\label{fig:T-exp_PO_absp-SP}
+\end{figure*}
+
+
+Two types of experiments were performed, referred to as \textit{static} and \textit{dynamic}. In both cases, the temperature was measured with an infrared sensor from Micro-Epsilon (CTL-CF1-C3). This device was attached on the side of the stereo-MFT with 3D prints and positioned at an angle of approximately \ang{60} (Figure \ref{fig:T-exp_MFT_setup}). Except for the fading light source and the filter, the other parameters of the stereo-MFT remained similar for both experiments and are given in Table \ref{tab:T-exp_params-MFT}. In total, two light sources and five filters were used in diverse combinations, for which information is shown in Figure \ref{fig:T-exp_lamps_filters} and Table \ref{tab:T-exp_lamps_filters}. Due to the fact that the smallest area obtained with the \gls{IR} sensor was larger than typical microfading beam's size\sidenote{The diameter of the fading beam in most microfading devices is usually between 400 and 600\unit{\um}.}, the size of the microfading spot was increased to match the size of the \gls{IR} sensor spot (Figure \ref{fig:T-exp_beam_spots}). The latter has to be covered by the fading beam spot otherwise unexposed areas will be taken into account, reducing the mean temperature values recorded by the sensor. As a consequence, the fading spot is not truly representative of a typical microfading analysis. An emissivity value of 0.94 was used as recommended by a website on infrared thermography measurement\sidenote{\url{http://infrared-thermography.com/material-1.htm}, emissivity value for 'Paint, oil: average of 16 colors' (accessed 04/08/2021).}. \\
+
+\vspace{1cm}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_IR-sensor_2D.png}
+\caption[\hspace{0.3cm}Set-up for the temperature measurements.]{Set-up for the temperature measurements.}
+\label{fig:T-exp_MFT_setup}
+\end{figure}
+
+\vspace{1cm}
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Temperature experiments - Parameters of the stereo-MFT set-up.]{Temperature experiments - Parameters of the stereo-MFT set-up.}
+\begin{tabular}{L{4cm}L{4cm}}
+\toprule[0.5mm]
+\textbf{Parameters} &  \\\cline{0-0}
+Operational mode & Co-axial \\
+Zoom & 4.0x \\
+Illumination distance (\unit{\milli\metre}) & 25\\
+Fading optic fibre & Avantes, UVIR400-ME-2 \\\bottomrule[0.5mm]
+\end{tabular}
+\label{tab:T-exp_params-MFT}
+\end{table*}
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/HPX1-LED5_Filters.png}
+\caption[\hspace{0.3cm}Characteristics of the fading lamps and optical filters]{Characteristics of the fading lamps and optical filters: (a) relative spectral power distribution of the light sources and (b) transmittance of the optical filters.}
+\label{fig:T-exp_lamps_filters}
+\end{figure*}
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Temperature experiments - Information on light sources and filters.]{Information on the light sources and filters.}
+\begin{tabular}{C{1.1cm}C{2cm}C{2.5cm}C{7cm}}
+\toprule[0.5mm]
+ & \textbf{Designation} & \textbf{Company} & \textbf{Name} \\\midrule
+\multirow{2}{*}{Lamps} & HPX1 & Ocean Optics & HPX-2000-HP-DUV \\
+ & LED5 & Thorlabs & MWWHF2 \\\hline
+\multirow{5}{*}{Filters} & VIS-25-01 & Linos & Calflex\textsuperscript{TM}-C, G380 220 032, UV/IR cut-off filter \\
+ & ND-25-03 & \multirow{3}{*}{Edmund Optics} & Hoya ND-70 (\#63-460), OD = 0.1 ; T = 79\% \\
+ & ND-25-02 &  & Hoya ND-50 (\#46-212), OD = 0.3 ; T = 51\% \\
+ & ND-25-01 &  & Hoya ND-25 (\#48-089), OD = 0.5 ; T = 32\% \\
+ & ND-22.4-05 & Linos & Neutral density filter, OD = 1 ; T = 10\% \\\bottomrule[0.5mm]
+\end{tabular}
+\label{tab:T-exp_lamps_filters}
+\end{table*}
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2022-12-15_Beam_spots_2.png}
+\caption[\hspace{0.3cm}Spot characterisation of the \gls{IR} sensor and the fading beam.]{Spot characterisation of the \gls{IR} sensor and the fading beam.}
+\label{fig:T-exp_beam_spots}
+\end{figure*}
+
+
+
+In the static experiment, one sample (PO.003a) was used and exposed to two different light sources in association with various optical filters in order to modify the irradiance values (Table \ref{tab:T-exp_light-energy}). This experiment aims to outline the influence of irradiance levels on the surface temperature of the sample. Although the sample (ivory black oil paint-out) is not really representative of most microfading analyses\sidenote{Microfading analyses on black materials are rarely performed because these materials are usually lightfast.}, it allows us to define the upper limit of the phenomenon; in other words, it can be viewed as a worst-case scenario. Additionally, it also facilitates comparison with past studies in which black materials have often been used as research materials. For each combination of a light source and a filter, the temperature values were recorded for three minutes, after irradiating the sample for about three minutes to reach a steady state. Characterisation of the irradiance values was performed by combining photographs of the fading beam with their respective radiant power values (Figure \ref{fig:sMFT_beams} - a and b)\sidenote{The mean irradiance values at the full width at half maximum were chosen as an approximation of the irradiance values of the beams.}. The latter values were recorded with a power meter from Thorlabs (PM100USB combined with sensor S405C), while photographs of the fading beam spot on a perfect reflecting diffuser (barium sulphate pressed powder) were taken with a camera from The Imaging Source (DFK 33UX183).\\
+
+
+In the dynamic experiments, the temperature behaviour for all samples mentioned in Table \ref{tab:T-exp_info_PO} was measured according to a sequence of actions (Figure \ref{fig:T-exp_dynamic_seq}) that involves the presence and absence of a cut-off \gls{UV}/\gls{IR} filter (VIS-25-01). The objective was to study the influence of colour and evaluate how fast the temperature at the surface varies upon changes in light energy. While the effect of the VIS-25-01 filter was assessed, only the \gls{HPX} lamp was used. The other microfading parameters are similar to those given in Table \ref{tab:T-exp_params-MFT}. In a similar way as mentioned above, the power density distribution was estimated for each combination.\\
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.7\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/T_actions.png}
+\caption[\hspace{0.3cm}Sequence of actions followed during temperature measurements.]{Sequence of actions followed during temperature measurements.}
+\label{fig:T-exp_dynamic_seq}
+\end{figure*}
+
+%\vspace{2cm}
+
+\begin{table*}
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Static and dynamic experiments - Light energy values.]{Static and dynamic experiments - Light energy values.}
+\begin{tabular}{C{0.5cm}C{1.5cm}C{1.2cm}C{4cm}C{2cm}C{2cm}}
+\toprule[0.5mm]
+ & \textbf{Samples} & \textbf{Lamps} & \textbf{Filters} & \textbf{Mean irradiance (\unit{\watt\per\square\metre})} & \textbf{Mean illuminance (\unit{\kilo\lux})} \\\midrule
+\parbox[t]{0.5mm}{\multirow{15}{*}{\rotatebox[origin=c]{90}{STATIC}}} & \multirow{15}{*}{PO.003a} & \multirow{10}{*}{\thead{(always ON) \\ HPX1}} & None & 12600 & 2600 \\
+ &  &  & VIS-25-01 & 6300 & 1710 \\
+ &  &  & ND-25-01 & 3100 & 730 \\
+ &  &  & ND-25-02 & 5500 & 1220 \\
+ &  &  & ND-25-03 & 9400 & 2220 \\
+ &  &  & ND-22.4-05 & 780 & 167 \\
+ &  &  & VIS-25-01 + ND-25-01 & 1940 & 530 \\
+ &  &  & VIS-25-01 + ND-25-02 & 3100 & 840 \\
+ &  &  & VIS-25-01 + ND-25-03 & 4900 & 1400 \\
+ &  &  & VIS-25-01 + ND-22.4-05 & 410 & 108 \\\cline{3-6}
+ &  & \multirow{5}{*}{\thead{(always ON) \\ LED5}} & None & 1650 & 600 \\
+ &  & & ND-25-01 & 490 & 178 \\
+ &  & & ND-25-02 & 780 & 283 \\
+ &  & & ND-25-03 & 1260 & 460\\
+ &  & & ND-22.4-05 & 92 & 33.4 \\\hline
+\parbox[t]{0.5mm}{\multirow{9}{*}{\rotatebox[origin=c]{90}{DYNAMIC}}} & PO.002 &\multirow{9}{*}{\thead{(Alternate ON/OFF) \\ HPX1}} & \multirow{9}{*}{\thead{None \\ VIS-25-01}} & \multirow{9}{*}{\thead{12600 \\ 6300}} & \multirow{9}{*}{\thead{2600 \\ 1710}} \\
+ & PO.003 &  &  &  &  \\
+ & PO.007 &  &  &      &       \\
+ & PO.011 &  &  &      &        \\
+ & PO.014 &  &  &      &       \\
+ & PO.019 &  &  &     &       \\
+ & PO.128 &  &  &      &       \\
+ & PO.158 &  &  &      &       \\
+ & PO.163 &  &  &      &    \\ \bottomrule[0.5mm]
+\end{tabular}
+\label{tab:T-exp_light-energy}
+\end{table*}
+
+
+
+\newpage
+\subsection{Results and discussion}
+
+The mathematical model was written inside a Python script which can be executed in a Jupyter notebook environment. After defining several parameters (Figure \ref{fig:T-model_screenshot_params}), the Python script can be run, resulting in the display of three graphs (Figure \ref{fig:T-model_screenshot_figures}) and three digital values, \ie the maximum and minimum temperature values within the mesh, and the depth at which the temperature is equal to the minimum temperature. This latter value is used to estimate how deep the temperature changes as a result of irradiation from above.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/Screenshot_thermal_model_nb.png}
+\caption[\hspace{0.3cm}Thermal model - Screenshot of the Jupyter notebook - Parameters]{Screenshot of the Jupyter notebook where the parameters of the thermal model are to be defined.}
+\label{fig:T-model_screenshot_params}
+\end{figure*}
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/Screenshots_thermal_model_figures.png}
+\caption[\hspace{0.3cm}Thermal model - Screenshot of the output figures]{Figures rendered by the thermal model: (a) temperature along the depth; (b) temperature at the surface of the sample; (c) thermal heat map of the mesh.}
+\label{fig:T-model_screenshot_figures}
+\end{figure*}
+
+
+The experimental results on sample PO.003a have been used as input to optimise the mathematical model by implementing a loss function with the help of the Python package Scipy \citep{virtanen_scipy_2020}, for which a detailed description is given in Appendix \ref{app:ch3_T-model_optimisation}. This enabled us to calculate the optimal values for three parameters ($\sigma$, $k$, $C_p$), so that the outcomes of the model match the experimental results (Table \ref{tab:T-model_optimisation}). Some of the assumptions for the boundary conditions or the isotropic property of the material could explain the differences observed between the optimised values and the values found in the literature for black paints. Ultimately, the best solution to assess the validity of the model and its optimisation is to measure the values of these three parameters for sample PO.003a. Unfortunately, this could not be done within the timeframe of this PhD.\\
+
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Optimisation of the thermal model's parameters for sample PO.003a.]{Optimisation of the thermal model's parameters for for sample PO.003a.}
+\begin{tabular}{C{1cm}C{3.5cm}C{1.5cm}C{3cm}C{2cm}}
+\toprule[0.5mm]
+\textbf{Symbol} & \textbf{Parameter} & \textbf{Unit} & \textbf{Optimised value} & \textbf{Literature}\\\midrule
+ $k$ & thermal conductivity & \unit{\watt\per\metre\per\kelvin} & $3.47 \times 10^{-2}$ & 0.1-0.2\textsuperscript{a} \\
+ $\rho$ & paint density & \unit{\kilogram\per\cubic\metre} & $5.43 \times 10^{2}$ & 1160–1330\textsuperscript{b} \\
+ $C_p$ & specific heat capacity & \unit{\joule\per\kilogram\per\kelvin} & $2.273 \times 10^{3}$ & 1670–5180\textsuperscript{c} \\ \bottomrule[0.5mm]
+\end{tabular}
+\footnotesize{\\ \textsuperscript{a} Value found on \url{https://www.otm.sg/thermal-conductivity-of-thin-materials-paint-coating-metal-sheet} (accessed on 10/03/2023). \\ \textsuperscript{b} Values from \citet[2948, Table 1]{raghu_thermal_2006}. \\ \textsuperscript{c} \textit{Ibid}.}
+\label{tab:T-model_optimisation}
+\end{table*}
+
+
+Although the model has limitations in estimating the absolute temperature rise, it can be approached from a relative perspective, where the objective is to be able to tune certain parameters in order to outline their influence on the temperature. For instance, in the context of microfadeometry, the user might want to characterise the influence of the fading beam – dimensions and power – on the temperature of materials. With the help of the mathematical model, the influence of the fading beam’s size can be estimated for two cases\sidenote{The input values given to the model are available in Appendix \ref{app:ch3_T-model_optimisation}.}. In the first case, the power of the beam is fixed. This means that varying the beam’s size will directly modify the power density of the beam; as the size of the beam increases, then the power density decreases. And since we have established that the rise of temperature is proportional to the power density of the illumination beam, we can conclude that increasing the size of the beam will lead to lower temperature increase (Figure \ref{fig:temp-model_results_1} - a). In the second case, the power density of the beam is fixed, which implies that as the size of the beam increases, then the power of the beam also increases. However, in that case, the temperature reaches a plateau, so that further increases of the beam’s size does not induce higher temperature (Figure \ref{fig:temp-model_results_1} - b).\\
+
+The depth value at which the temperature is equal to the far field temperature can be retrieved from the model and used as an approximate estimation to the penetration of heat through the paint layer. When fixing the power of the beam (1\textsuperscript{st} case), the model predicts that the penetration of heat decreases as the beam increases (Figure \ref{fig:temp-model_results_2} - a). When fixing the power density (2\textsuperscript{nd} case), the results given by the model show that the influence of the fading beam size reaches a plateau after which it does not affect the increase of temperature nor the temperature depth (Figure \ref{fig:temp-model_results_2} - b). However, these depth values should be considered as an approximate estimation outlining general trends rather than defining exact, absolute values. Further studies are needed to give a more comprehensive picture of this issue. \\
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/FWHM_T-Pd-P_modelled_subplots.png}
+\caption[\hspace{0.3cm}Variations of temperature according to the size of the fading beam]{Modelled variations of the temperature according to the size of the fading beam: (a) when the power is fixed and (b) when the power density is fixed.}
+\label{fig:temp-model_results_1}
+\end{figure*}
+
+\vspace{1cm}
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/FWHM_T-depth_modelled_subplots.png}
+\caption[\hspace{0.3cm}Variations of the penetration depth of heat according to the size of the fading beam]{Modelled variations of the penetration depth of heat according to the size of the fading beam: (a) when the power is fixed and (b) when the power density is fixed.}
+\label{fig:temp-model_results_2}
+\end{figure*}
+
+\newpage
+
+The results for the dynamic experiments are displayed in Figures \ref{fig:temp_pd_HPX-LED_subplots}–\ref{fig:temp_UVIR-filter_T}, for which three general observations can be made. First of all, there is a linear relationship between the temperature rise and the power density, which corresponds with the model. Since the size of the light beam of each lamp differs, it is not possible to represent the results of both lamps in a single graph where the $x$-axis corresponds to the power density. A more correct way is to use dimensionless groups, as shown in Figure \ref{fig:temp_pd_HPX-LED}. Secondly, the temperature values approach the observation previously made by \citep[405]{whitmore_predicting_1999} and are much higher than reported in most studies. A maximum increase of about 27\unit{\degreeCelsius} was measured on a black paint sample corresponding to a local surface temperature of approximately 51\unit{\degreeCelsius}. And finally, the use of a filter blocking the \gls{UV} and \gls{IR} radiation (VIS-25-01) significantly reduces the mean irradiance values and consequently the rise of temperature. On a black oil paint sample, the rise of temperature is approximately divided by two when this filter is used (Figure \ref{fig:temp_UVIR-filter_T}).\\
+
+\vspace{1cm}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2022-12-15_HPX1-LED5_PO.003a_wbg_T_subplots.png}
+\caption[\hspace{0.3cm}Increase of temperature a function of power density]{Increase of temperature as a function of power density, obtained on ivory black oil paint sample (PO.003a): (a) \acrshort{HPX} lamp and (b) \gls{LED} lamp.}
+\label{fig:temp_pd_HPX-LED_subplots}
+\end{figure*}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.9\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2022-12-15_HPX1-LED5_PO.003a_wbg_T_plot.png}
+\caption[\hspace{0.3cm}Increase of temperature as a function of a dimensionless group]{Increase of temperature on a black oil paint-out as a function of a dimensionless group.}
+\label{fig:temp_pd_HPX-LED}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.85\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2022-12-15_HPX1_PO.003a_wbg_T_hist.png}
+\caption[\hspace{0.3cm}Influence of the UV/IR cut-off filter on temperature]{Influence of the UV/IR cut-off filter on the temperature increase.}
+\label{fig:temp_UVIR-filter_T}
+\end{figure*}
+
+\newpage
+
+The data related to the influence of the materials’s colour are shown in Figures \ref{fig:T-exp_dynamic_seq_T} and \ref{fig:T-exp_PO_mean-abs}. A clear distinction according to the colour of the materials can be observed; while some colours are clearly affected by the fading beam (black and green), others are barely influenced by the beam (white and yellow). It can also be noticed that the samples reacted differently to the use of the \gls{UV}/\gls{IR} cut-off filter (VIS-25-01). While the removal of the filter induces a temperature increase of about 30\% for the black sample (PO.003a), the same action only causes a rise of approximately 8\% for the white sample (PO.002). This can be explained by the absorption properties of the samples in the \gls{IR} regions (Figure \ref{fig:T-exp_PO_absp-SP}). For example, once the \gls{UV}/\gls{IR} filter is removed for samples PO.132 and PO.133 on Figure \ref{fig:T-exp_dynamic_seq_T}, the temperature increases to a greater extent for samples PO.133 than for PO.132, because the former absorbs much more radiation in the \gls{IR} region than PO.132. Furthermore, when the temperature differences are plotted against the average absorption of each sample, calculated from data shown in Figure \ref{fig:T-exp_PO_absp-SP}, a linear relationship can be noticed between temperature and absorption (Figure \ref{fig:T-exp_PO_mean-abs}). This ultimately suggests that it would be theoretically possible to roughly estimate the increase of surface temperature during microfading analyses based on the absorption spectrum of the sample and the spectral power distribution of the fading beam. 
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.75\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2022-12-15_HPX1_POs_wbg_T.png}
+\caption[\hspace{0.3cm}Surface temperature behaviour on paint-out samples]{Surface temperature behaviour on paint-out samples when submitted to different lighting conditions.}
+\label{fig:T-exp_dynamic_seq_T}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/2022-12-15_Abs-vs-T_UV-VIS-IR_subplots.png}
+\caption[\hspace{0.3cm}Relationship between absorption and temperature rise]{Relationship between absorption and temperature rise: (a) when the fading lamp does not contain \gls{IR} radiation and (b) when the fading lamp contains \gls{IR} radiation.}
+\label{fig:T-exp_PO_mean-abs}
+\end{figure*}
+
+
+
+
+\subsection{Conclusion}
+
+This section reports on observations of surface temperature of materials irradiated by an intense microfading beam. An infrared sensor was used to measure the surface temperature and proved to be an adequate technique to study temperature changes of irradiated surfaces. The results showed that the surface temperature of all the samples was affected by the microfading beam, although to various degrees depending on the power characteristics of the beam and on the absorption properties of the material. The higher the irradiance value of the beam or the higher the absorption percent of the sample, the more the temperature will increase as a consequence of microfading illumination. The measurements also reveal that in all cases, temperatures at the surface reach an equilibrium after a few minutes. \\
+
+A mathematical model has been created to simulate temperature changes and heat transfer inside irradiated materials, for which an optimisation process revealed output values relatively close to values found in the literature. However, a better characterisation of the sample properties is needed to validate the accuracy of the model.\\
+
+The main conclusion of this section is that, at a microscale level, microfading analyses induce temperature rise on the object’s surface higher than we expected and is an issue that should not be underestimated. Temperature increase is inevitable and consequently implies a risk for the object. Nevertheless, the small size of microfading spots as well as the fact that the majority of colours analysed are yellow, red and green tend to minimise the potential damage due to the temperature rise. The issue can be placed within a risk assessment framework where the main question is whether we are willing to accept this risk. In other words, is the information provided by microfadeometry worth the damage caused?
+
+
+%%%%%%% Reciprocity failure experiments %%%%%%%
+\newpage
+
+\section{Reciprocity failure experiments}
+\label{sec:MFT-reciprocity}
+
+
+\subsection{Introduction}
+
+The reciprocity principle constitutes the theoretical basis on which our ability to correlate accelerated light-ageing experiments with reality relies. When the rate of colour change measured during microfading analysis differs from what happens under normal conditions, the reciprocity principle does not hold. We are then talking about failure of the reciprocity principle. As mentioned in Chapter 2 (section \ref{sec:RP_failure}), failures of the reciprocity principle during microfading analyses have been reported in the literature. The experiments carried out in this PhD project report observations when conducting reciprocity failure experiments and can be viewed as a continuation of past research. In other words, the aim of this section is to gather additional information on the behaviour of materials when illuminated with a high-power xenon light source at five different intensities. These observations will enable us to provide preliminary answers to the following questions:\\
+\begin{itemize}
+    \item To what extent do the samples obey the reciprocity principle?
+    \item Are there common features outlined in the data between the samples that follow/deviate from the reciprocity principle?
+    \item Can we define a set of conditions for which the reciprocity principle holds?
+\end{itemize}
+ 
+ 
+\subsection{Materials}
+
+Reciprocity failure experiments were carried out on two broad categories of samples that are described briefly in Table \ref{tab:rp_info_samples}. First, blue wool standards (BW1, BW2, and BW3) purchased in 2019 from Beuth Verlag GmbH were usedd. It was decided to repeat the experiments for BW1 on another sample (Table \ref{tab:rp_info_samples}, Id n$^\circ$ 0101) in order to confirm the results obtained on sample 0089. Secondly, model paint-outs applied on black and white Leneta charts\textsuperscript{\textregistered} with a 100\unit{\um} thickness metallic drawdown bar were created\sidenote{Photographs of the samples are available in Appendix \ref{app:ch3_T-exp_photos_PO}.}. Four different pigments were prepared to make the paint-outs: two chrome yellow as well as two eosin pigments. A lemon chrome yellow pigment, designated as \gls{CYL2b}, was prepared at the NOVA University of Lisbon with the assistance of Vanessa Otero according to a 19\textsuperscript{th} century recipe found in the archives of Winsor \& Newton \citep{otero_historically_2018, otero_nineteenth_2017}\sidenote{Reports about the fabrication of the two chrome yellow pigments and paint tubes can be found in Appendices \ref{app:ch4_making_CYL2b_pigments} and \ref{app:ch4_making_CYL2b_paints} respectively.}. The second chrome yellow paint (\acrshort{CYSig}) was prepared by mixing lead(II) chromate pigment (PbCrO\textsubscript{4}) purchased from Sigma Aldrich with custom-made linseed oil made during the \gls{REVIGO} project \citep[3-6]{geldof_reconstructing_2018}. The eosin pigment used to create the sample PO095 was made by Alba Alvarez-Martin and Teresa Scovacricchi at the University of Antwerp using eosinY pigment purchased from Sigma Aldrich\sidenote{A description of the fabrication process is given in Appendix \ref{app:ch4_making_eosin}.}. The second eosin pigment \acrshort{Rev-Eo-1A}, precipitated on an aluminium substrate and mixed with the same linseed oil used for the \gls{CYL2b} and \gls{CYSig} pigments, was made in 2014 during a workshop led by Maarten van Bommel (Programme Conservation and Restoration of Cultural Heritage, University of Amsterdam, The Netherlands) and Jo Kirby (independent scholar, formerly National Gallery, London, United Kingdom) \citep[7]{geldof_reconstructing_2018}.
+
+
+\begin{table*}
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Reciprocity failure experiments - Characteristics of the samples.]{Samples used in the reciprocity failure experiments.}
+\begin{tabular}{C{1.1cm}C{2cm}C{2cm}C{2cm}C{5cm}}
+\toprule[0.4mm]
+\textbf{Category} & \textbf{Sample Id} & \textbf{Code paint}\textsuperscript{a} & \textbf{Name} & \textbf{Pigment} \\\midrule
+\multirow{4}{*}{\centering BWS} & 0089 & \multirow{4}{*}{\centering n.a} & BW1 & C.I. Acid Blue 104 \\
+ & 0090 & & BW2 & C.I. Acid Blue 109 \\
+ & 0091 & & BW3 & C.I. Acid Blue 83 \\
+ & 0101 & & BW1 & C.I. Acid Blue 104 \\\hline
+ \multirow{4}{*}{\centering \gls{PO}} & PO088 & P100 & \gls{CYL2b} & Lead chromate-Lead sulphate \\
+ & PO089 & P200 & \gls{CYSig} & Sigma lead(II) chromate \\
+ & PO095 & P700 & \acrshort{Eo1} & Sigma eosin Y \\
+ & PO099 & P800 & \acrshort{Rev-Eo-1A} & Custom-made eosin \\
+ \bottomrule[0.4mm]
+\end{tabular}
+\footnotesize{\\ \textsuperscript{a} An explanation of code paints is given in Appendix \ref{app:ch4_code-paint}.}
+\label{tab:rp_info_samples}
+\end{table*}
+
+
+\subsection{Methodology}
+
+The stereo-MFT, configured in the co-axial mode\sidenote{See Chapter 3, section \ref{sec:stereo-MFT} for more information on the co-axial mode.}, was used to expose the samples to a high-power xenon light source at various light intensities. A description of the set-up is shown in Figure \ref{fig:rp_MFT-setup_2D} and the experimental parameters are described in Tables \ref{tab:rp_params-MFT} and \ref{tab:rp_params-filters}. A \gls{UV}/\gls{IR} cut-off filter was applied in front of the microscope binocular in combination with four different neutral density filters used to attenuate the power of the fading light source (Table \ref{tab:rp_params-filters}). To obtain a similar light exposure dose of about 10 \unit{\mega\joule\per\square\metre}(roughly equal to 0.75 \unit{\mega\lux\hour}), the duration of exposure increased as the intensity of the light source decreased. For each round mentioned in Table \ref{tab:rp_params-filters}, three microfading analyses were performed, resulting in a total of 15 analyses per sample. Reflectance data were processed with the Colour Science Python package \citep{mansencal_colour_2022} inside a Jupyter notebook environment \citep{harris_array_2020, hunter_matplotlib_2007, kluyver_jupyter_2016, mckinney_data_2010} in order to obtain the CIE $L^*a^*b^*$ and the \dEOO values \citep{luo_development_2001}. This latter colour difference equation was chosen because it is widely used among researchers studying colour change phenomena and is currently recommended by the \gls{CIE} \citep{cie_technical_committee_1-55_recommended_2016}.\\
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/stereoMFT_2D.png}
+\caption[\hspace{0.3cm}2D representation of the stereo-MFT]{2D representation of the stereo-MFT in the co-axial configuration.}
+\label{fig:rp_MFT-setup_2D}
+\end{figure*}
+
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Reciprocity failure experiments - Parameters of the stereo-MFT set-up.]{Reciprocity failure experiments - Parameters of the stereo-MFT set-up.}
+\begin{tabular}{L{6cm}L{6.5cm}}
+\toprule[0.4mm]
+\textbf{Parameters} &  \\\cline{0-0}
+Fading light source & Ocean Optics HPX-2000-HP-DUV (HPX1) \\
+Colour measurement light source & Ocean Optics HL-2000-FHSA-LL (HAL3) \\
+Operational mode & Co-axial \\
+Zoom & 4.0x \\
+Illumination distance (\unit{\milli\metre}) & 25 \\
+Collection distance (\unit{\milli\metre}) & 23 \\
+Fading optical fibre (left binocular) & Avantes, UVIR400-ME-2 \\
+Collection optical fibre (right binocular) & Avantes, UVIR600-ME-1 \\
+Colour measurement optical fibre & Avantes, UVIR600-ME-2 \\
+\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:rp_params-MFT}
+\end{table*}
+
+\vspace{1cm}
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Reciprocity failure experiments - Light exposure parameters.]{Reciprocity failure experiments - Light exposure parameters.}
+\begin{tabular}{L{3cm}C{1.8cm}C{2cm}C{2cm}C{2cm}C{2cm}}
+\toprule[0.4mm]
+\textbf{Parameters} & \textbf{Round 1} & \textbf{Round 2} & \textbf{Round 3} & \textbf{Round 4} & \textbf{Round 5} \\\midrule
+UV/IR filter & \multicolumn{5}{c}{Linos Calflex\textsuperscript{TM}-C Heat protection (VIS-25-01)} \\
+ND filter & none & Hoya ND-70 Edmund Optics \#63-460 (ND-25-03) & Hoya ND-50 Edmund Optics \#46-212 (ND-25-02) & Hoya ND-25 Edmund Optics \#48-089 (ND-25-01) & Linos G37 1142 000 (ND-22.4-05) \\
+OD (supplier info) & none & 0.1 & 0.3 & 0.5 & 1 \\
+Transmission (\%)\textsuperscript{a} & 100 & 79 & 51 & 32 & 10 \\
+Irradiance (\unit{\watt\per\square\metre}) & 6818 $\pm$ 190 & 5275 $\pm$ 350 & 3441 $\pm$ 178 & 2145 $\pm$ 52 & 452 $\pm$ 30 \\
+Illuminance (\unit{\kilo\lux}) & 1847 $\pm$ 52 & 1423 $\pm$ 91 & 929 $\pm$ 49 & 579 $\pm$ 15 & 122 $\pm$ 8 \\
+Duration (min) & 47 & 60 & 80 & 200 & 505 \\
+Measurement interval (sec) & \multicolumn{4}{c}{20} & 60  \\
+ \bottomrule[0.4mm]
+\end{tabular}
+\footnotesize{\\ \textsuperscript{a} Calculated value based on the optical density (OD), where transmission $= 10^{–OD} \times 100$.}
+\label{tab:rp_params-filters}
+\end{table*}
+
+\newpage
+\subsection{Results}
+
+This section presents three different ways of looking at the data. Due to the large number of figures, the results for each sample will not be displayed in this section, but can be found in Appendices \ref{app:ch3_rp_results_irr-time}–\ref{app:ch3_rp_results_colour-change-rate}. The two first representations are the most intuitive and enable the viewer to visualise quickly whether a sample follows the reciprocity principle. However, they can only display the result of a single sample per figure therefore they are not sufficiently adequate for rigorous quantification of the amount of deviation.\\  
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=14cm]{Chapters/Chapter3_MFT_Advances/Figures/Irr-Time_BW1-CYL2b_Log.png}
+\caption[\hspace{0.3cm}Irradiance-Time plots]{Irradiance-Time plots: (a) BW1 and (b) CYL2b\footnote{Log scales have been used in Figure \ref{fig:rp_irr-time} to enhance visibility of the results.}.}
+\label{fig:rp_irr-time}
+\end{figure*}
+
+The first consists of plotting the irradiance or the illuminance against the exposure duration, as shown on Figure \ref{fig:rp_irr-time}\sidenote{The Irradiance-Time plots for each sample are available in Appendix \ref{app:ch3_rp_results_irr-time}.}. This graph shows that exposing a sample to a high intensity for a short period induces a similar amount of colour change compared to when exposing the sample to a low intensity over a long period. Reciprocity holds when the \dE curves are parallel to the isocurves of energy doses. This type of graph is particularly useful for assessing the influence of \dE values or irradiance levels on the principle. For some samples, it can be seen that as the irradiance increases, the energy dose required to induce a constant \dE value decreases. In other words, the stronger the intensity of the fading lamp, the less total light dose energy is required to reach a constant colour change. For example, to obtain a change of one \dEOO on sample PO088, a dose of about 4 \unit{\mega\joule\per\square\metre} is necessary when the irradiance is high (5200 \unit{\watt\per\square\metre}), while a dose of 8 \unit{\mega\joule\per\square\metre} will induce a similar amount of colour change with a lower irradiance (340 \unit{\watt\per\square\metre}) (Figure \ref{fig:rp_irr-time} - b). For many samples, the results when the irradiance is about 1500 \unit{\watt\per\square\metre} represents a pivot position between two opposite colour change behaviours (as shown on Figure \ref{fig:rp_irr-time} - a). This suggests that at certain irradiance values located between 300 and 1500 \unit{\watt\per\square\metre}, a shift in the colour change behaviour of the sample occurs. Unfortunately, we lack experimental data with irradiance values between 300 and 1500 \unit{\watt\per\square\metre}.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/Dose-dE_BW1-CYL2b-Eo_subplots.png}
+\caption[\hspace{0.3cm}Dose - \dEOO curves]{Microfading results representing \dEOO curves (a, b, c) and CIE $L^*$ curve (d).}
+\label{fig:rp_dose-dE00}
+\end{figure*}
+
+Similar outcomes can be deduced when looking at the second type of graphs (‘Dose-$\Delta E$’ charts), where the energy dose is plotted against a unit of colour change (\dEOO, \dEab, \dR, etc.) (Figure \ref{fig:rp_dose-dE00})\sidenote{The Dose-\dE plots for each sample are available in Appendix \ref{app:ch3_rp_results_dose-dE}.}. In this case, reciprocity holds when the curves align on top of each other. The main advantage of this type of graph is the possibility to compare the behaviour of colour change over light exposure. For example, Figure \ref{fig:rp_dose-dE00}-a shows how the shape of the curves changes from a logarithmic function to a linear function as the irradiance decreases. Another way of looking at it is to plot the first derivative of each curve, which indicates the rate of change (Figure \ref{fig:rp_fading-rates})\sidenote{The colour change rate plots for each sample are available in Appendix \ref{app:ch3_rp_results_colour-change-rate}.}. The results of the colour change rates reveal that in most cases, the rates related to different irradiance values tend to converge to a unique value, specific to each material\sidenote{Though over the long term, the rate converge to zero, as the amount of colour change has a limit.}. Additionally, the results show that the higher the irradiance of the fading beam, the stronger the colour change at the very beginning of microfading analyses and the faster the colour change rate decreases. This suggests that, in some cases, the high amount of energy inside the fading beam slows down the ability of the beam to induce colour change on the sample. Indeed for a few samples, the curve at the lowest irradiance maintains a slightly higher fading rate so that over time, the colour change is more pronounced with a low irradiance illumination source than with an intense light source. This is particularly obvious for the BW1 sample (Figure 3.34 a). Moreover, the Dose-\dE charts are also useful to define a threshold for the dose above or below which the reciprocity is no more valid. For example, Figure \ref{fig:rp_dose-dE00}-a demonstrates that above 4 \unit{\mega\joule\per\square\metre}, the curve with an irradiance of 0.3 \unit{\kilo\watt\per\square\metre} significantly deviates from the others. In contrast, sample PO088 seems to follow an opposite trend, where the curve with an irradiance of 0.3 \unit{\kilo\watt\per\square\metre} only approaches the other curves after a radiant energy of 4 \unit{\mega\joule\per\square\metre} (Figure \ref{fig:rp_dose-dE00} - b). In some cases, \dE values can even be misleading since two colours can have a similar magnitude of change, but in opposite directions. For example, sample PO099 presents \dEOO curves that are relatively close one to another (Figure \ref{fig:rp_dose-dE00} - c), however comparison of the $L^*$ values reveals discrepancies between measurements at various irradiance levels (Figure \ref{fig:rp_dose-dE00} - d). This sample demonstrates that, in some rare cases, microfading analyses do not predict changes accurately. In this example, the microfading analyses darken the paint-outs while, under normal exposure conditions, they get lighter. Reducing the results of analyses to a single value helps to quickly compare several measurements but as a general principle, it is important to look at the data in a more detailed way. \\
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/sMFT_BW1-CYL2b-eosin_wbg_subplots-rate-dE00.png}
+\caption[\hspace{0.3cm}Fitted fading rates]{Fitted fading rates for three samples: BW1 (a); PO088 (b and d); PO099 (c).}
+\label{fig:rp_fading-rates}
+\end{figure*}
+
+
+As mentioned earlier, the two first types of charts are not really suitable to quantify how far a given sample deviates from the principle. For that purpose, several graphical possibilities can be found in \citet[Figures 2 and 3]{martin_reciprocity_2003} and \citet[Figure 6]{del_hoyo-melendez_investigation_2011}. The approach used here combines ideas from both authors in order to design a new graphical representation, where for a defined and fixed radiant exposure (in \unit{\mega\joule\per\square\metre}), the irradiance values ($x$-axis) are plotted against the colour change values ($y$-axis), either with \dEOO or \dRvis (Figure \ref{fig:rp_graph-representation}). When a sample strictly follows the reciprocity principle, then a horizontal line should be obtained, which means that the irradiance values do not influence the amount of change (Figure \ref{fig:rp_graph-representation}, sample 1). Conversely, the further the data points are from the horizontal line – \ie the greater the $d$ value in Figure \ref{fig:rp_graph-representation} – the further the sample deviates from the principle. From a mathematical perspective, the objective then consists of characterising the non-linearity behaviour of such \textit{reciprocity lines}. To that end, a first approach can aim to calculate (relative) standard deviation, where the smaller the deviation the more the sample follows the reciprocity principle. In theory, it should also be possible to estimate the equation of the line that follows the points from sample 2 in Figure \ref{fig:rp_graph-representation} in order to determine the extent to which microfading data deviate from the principle given an irradiance value. Ultimately, it could allow the correction of microfading data in order to satisfy the reciprocity principle, as well as the implementation of a threshold above which the sample is said to disobey the principle. This third type of chart has been applied to our results and can be seen in Figure \ref{fig:rp_lines}. Although none of the samples present a rigorous horizontal line, it is still noticeable that samples which are less light sensitive than BW1 tend to follow a horizontal line more than light-sensitive samples (Figure \ref{fig:rp_lines}). This suggests that the reciprocity is more likely to hold for materials that are less light sensitive than BW1, as previously stated by \citet[61]{del_hoyo-melendez_investigation_2011}. Furthermore, the use of \dRvis as an alternative metric does not seem to reduce deviations from the principle. Calculation of the standard deviation for each reciprocity line in Figure \ref{fig:rp_lines} did not reveal lower values when the \dRvis was used (See Appendix \ref{app:ch3_rp_results_rp-lines_std}).
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/reciprocity_lines_irr_dE00-dR.png}
+\caption[\hspace{0.3cm}Reciprocity lines]{Reciprocity lines for all samples using (a) \dEOO and (b) \dRvis.}
+\label{fig:rp_lines}
+\end{figure*}
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.95\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/reciprocity_principle_graph_2.png}
+\caption[\hspace{0.3cm}Assessing the validity of the reciprocity principle.]{Graphical representation to assess the validity of the reciprocity principle.}
+\label{fig:rp_graph-representation}
+\end{figure*}
+
+
+
+
+
+\newpage
+\subsection{Interpretation}
+
+Several remarks can be made from observations of the results:
+\begin{itemize}
+    \item The colour change rate data suggest that even if the sample does not follow the reciprocity principle when exposed to high intensity levels, hypothetically it would be possible to use the rate of colour change as a more reliable metric when applying the results of microfading analyses to long-term colour change predictions of works of art. In other words, using the rate of colour change as a metric might be an adequate solution to bypass the failure of the reciprocity principle. The results obtained on sample PO089 represent a good illustration of this possibility (Figure \ref{fig:rp_PO089}). Indeed, although the principle fails at the beginning of the analyses, \ie between 0 and 4 \unit{\mega\joule\per\square\metre}, it can be seen on sample PO089 that after 4 \unit{\mega\joule\per\square\metre}, an equivalent amount of light energy induces a similar amount of change, hence a parallelism between the curves (Figure \ref{fig:rp_PO089} - a) and the rate of change for all curves converges (Figure \ref{fig:rp_PO089} - b). 
+\end{itemize}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter3_MFT_Advances/Figures/CYSig_fading-rate.png}
+\caption[\hspace{0.3cm}Results of the reciprocity failure experiments on sample PO089]{Results of the reciprocity failure experiments on sample PO089: (a) \dEOO curves and (b) colour change rate.}
+\label{fig:rp_PO089}
+\end{figure*}
+
+\begin{itemize}
+    \item The energy shock caused by the interaction between the fading beam and the material creates entropy within the material and thus disrupts the thermodynamic equilibrium. Furthermore, if we assume that the reciprocity principle is more likely to hold under reversible conditions, \ie under conditions where the physico-chemical changes are gradual, then we can deduce that any action that disrupts the thermodynamic equilibrium will likely invalidate the reciprocity principle. In accelerated light-ageing tests, are there conditions under which a microfading analysis minimises the energy shock so that it does not disturb the thermodynamic equilibrium? And if so, what are these conditions?
+    \item The results show that the higher the irradiance of the fading beam, the greater the colour change at the very beginning of microfading analyses. To minimise the energy shock caused by the fading beam, could we start microfading analyses at low irradiance values and gradually increase the power of the fading beam? 
+    \item The three types of visualisations outline a division in the results. On the one hand, the analyses with an irradiance ranging from 1.5 to 5 \unit{\kilo\watt\per\square\metre} present similar trends, although with some differences in absolute values. On the other hand, the analysis with the lowest irradiance, around 0.35 \unit{\kilo\watt\per\square\metre}, often shows results that contrast with the other analyses. This is clearly illustrated by the results from the BW1 sample (Figures \ref{fig:rp_dose-dE00}-a and \ref{fig:rp_fading-rates}-a), where the curves included in the first group correspond to class I, in regards to the light-fading rate classes defined by \citet{giles_observations_1968}\sidenote{\citet{cristea_improving_2006} adopted these classes to the context of colour change where the \dE value is used for the $y$-axis.}, while the other curve tends to behave like class III. However, experiments conducted in Chapter 4 on blue wool samples show that if the orange-dashed line in Figure \ref{fig:rp_dose-dE00}-a were to continue, it would eventually decrease and behave like class I\sidenote{Long-term exposure experiments on blue wools and paint-out samples are described in Chapter 4 and the full results for the blue wool samples are available in Appendix \ref{app:ch4_DL_BW1_dEOO}}. Does this mean that microfading analyses aged samples via different chemical mechanisms? Or can we say that the ageing mechanisms at a molecular level remain similar, but that microfading analyses simply influence the kinetics of the reactions, fostering or slowing them down? 
+\end{itemize}
+
+
+\subsection{Conclusion}
+
+This section investigated failures of the reciprocity principle on eight samples using microfadeometry and, more precisely, a new system called stereo-MFT. Several graphical representations that enable us to assess the validity of the reciprocity principle have been reviewed and applied to our data. The results showed that none of the samples followed the reciprocity principle rigorously, however, five presented low deviations from the principle that might be considered acceptable. These five samples are more light-stable than the BW1 sample, confirming the results of previous research \citep{del_hoyo-melendez_investigation_2011}. However, a more accurate assessment of the principle requires data obtained under museum exposure conditions, the topic of Chapter \ref{ch:ch4_light-ageing}. Indeed, the lowest irradiance value used in our reciprocity failure experiments, \ie about 300 \unit{\watt\per\square\metre}, is still far above the value used in museums which is usually below 2 \unit{\watt\per\square\metre}. Additionally, new technical suggestions for performing microfading analyses as well as new directions for research have been put forward. \\
+
+Our understanding of the reciprocity failure is still very limited, which prevents us from accurately defining a set of conditions for which the reciprocity principle holds. This might not even be possible, as the principle holds only when several conditions are met, which is rarely the case \citep[506]{lojewski_spectroscopy_2019}. The influence of each of these conditions on the validity of the principle will require considerable more research, as well as adequate research tools and methodology.
