@@ -1,0 +1,928 @@
+% !TEX root = main.tex
+
+%%%% Title Page
+
+\newgeometry{top=2.170cm,
+            bottom=3.510cm,
+            inner=2.1835cm,
+            outer=2.1835cm,
+            ignoremp}
+            
+\pagecolor{mygray}
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{3cm}
+       {\fontsize{40pt}{46pt}\selectfont \textbf{Chapter 2}}\\       
+       \vspace*{3cm}
+       {\fontsize{30pt}{36pt}\selectfont \textbf{Introduction} \\[1cm]
+        \fontsize{30pt}{36pt}\selectfont \textbf{to} \\[1cm]
+        \fontsize{30pt}{36pt}\selectfont \textbf{microfadeometry}} \\          
+   \end{center}
+\end{titlepage}
+
+
+\pagecolor{white}
+\restoregeometry
+
+%%%% Main text
+
+\chapter{ Introduction to microfadeometry}
+\label{ch:ch2_MFT}
+
+
+
+%%%%%%% Theory of colour change phenomena %%%%%%%
+
+\section{Theory of colour change phenomena}
+
+The purpose of this section is to establish the basic theoretical foundations necessary to understand colour change phenomena from a chemical and physical perspective. Ultimately, fundamental knowledge of the processes involved in colour change phenomena leads to a better comprehension and interpretation of microfading data.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/light_matter_observer.png}
+\caption[\hspace{0.3cm}Overview of colour change phenomenon]{Overview of colour change phenomenon (adapted from \copyright Alamy Stock Photo).}
+\label{fig:light_matter_observer}
+\end{figure*}
+
+Colour change phenomena includes all processes related to the colour change of materials, ranging from the interaction between electromagnetic radiation and matter to the perception and interpretation of colour change by an observer (Figure \ref{fig:light_matter_observer})\sidenote{Although this research focuses on light-induced colour change, there are other factors influencing colour change phenomena, such as temperature, relative humidity, pollutants, dirt, etc.}. These processes can be grouped into two main categories, wherein the first consists of processes inducing colour change which mainly considers photochemical reactions due to interaction between light and matter (Figure \ref{fig:colour_change_steps}, dashed red line), whereas the second group concerns processes related to the assessment and perception of colour change (Figure \ref{fig:colour_change_steps}, dashed blue line). Three general statements can be deduced from Figures \ref{fig:light_matter_observer} and \ref{fig:colour_change_steps}:
+
+\begin{itemize}
+    \item Because it involves various fields of knowledge, the study of colour change is inherently multidisciplinary, especially when applied to the context of colour change on cultural heritage objects.
+    \item Colour change of materials is the optical consequence of chemical changes within materials, initially induced by interactions between electromagnetic radiation and matter. In theory, it implies that early stages of colour change could be detected by looking at chemical changes.
+    \item Physical changes of colour lie at the intersection between the photochemical process and the assessment process. This central position is our entry point into the phenomenon of colour change, and that is why this research is structured around this step.
+\end{itemize}
+
+\begin{figure*} %[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Phenomenon_general_pathways.png}
+\caption[\hspace{0.3cm}Overall steps of colour change phenomenon]{Overall steps of colour change phenomenon.}
+\label{fig:colour_change_steps}
+\end{figure*}
+
+
+\marginpar{
+\captionsetup{type=figure}
+\includegraphics[width=4cm]{Chapters/Chapter2_Microfadeometry/Figures/MFT_general_processes.png}
+\caption[\hspace{0.3cm}Processes involved during microfading analyses]{Processes involved during microfading analyses.}
+\label{fig:MFT_processes}
+}
+
+
+
+This PhD research focuses on the development and application of microfadeometry which belongs to the field of colour change phenomena. However, it will only cover a portion of the whole process shown in Figure \ref{fig:colour_change_steps} (black dashed rectangle). As a conservation scientist with a background in paper conservation, to me the materiality of the artwork is a crucial element, and therefore, impacts the choice of the scope for this PhD research. The scope includes similar steps to those involved in microfading analysis, which consists of two main technical operations – a light-fading process and a surface colour measurement process. The first operation entails irradiation of the surface of an object with an intense light beam (Figure \ref{fig:MFT_processes}, red arrow) and the second involves monitoring of the colour change induced by the same light beam (Figure \ref{fig:MFT_processes}, blue arrow). Although the interaction between light and matter can lead to colour change, it also constitutes the basis of spectroscopy, which, ironically, is used in this PhD project to study light-induced colour change phenomena. It should be noted that these two technical steps are comparable to the two colour change phenomena categories previously mentioned, and both will be reviewed separately in the following sections (\ref{sec:interaction_light-matter} and \ref{sec:interaction_light-matter}).\\
+
+
+
+\subsection{Interaction between light and matter}
+\label{sec:interaction_light-matter}
+
+The interaction between light and matter has been the subject of numerous studies and experiments since the 19\textsuperscript{th} century, thanks to which our knowledge of this subject has deepened and become more specialised. A description of how light and matter interact involves complex processes and can only be given once the notions of light and matter are separately defined\sidenote{Overviews of light–matter interaction can be found in \citet[Chapter 1]{berns_billmeyer_2019}, \citet[Chapter 2]{suppan_chemistry_1994} and \citet[Chapter 1]{tilley_colour_2011}.}. This section introduces in a simplified way the main notions on this subject, avoiding as much as possible the complexity of mathematics and physics\sidenote{For a more physical and mathematical approach on the topic of light–matter interaction see \citet{stenzel_lightmatter_2022} ; \citet{nemova_field_2022}; \citet{tokmakoff_7_2020}.}. An analogy can be drawn between light–matter interaction and the production of a theatre piece. In both cases, there are actors interacting with each other according to defined rules in a known setting (Figure \ref{fig:actors_rules}). The following sections briefly describe the actors, the rules, and the interactions between them – the play.\\
+
+\begin{figure*} %[!h]
+\centering
+\includegraphics[width=0.75\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Actors_rules.png}
+\caption[\hspace{0.3cm}Actors and rules in play during colour change phenomena]{Actors and rules in play during colour change phenomena.}
+\label{fig:actors_rules}
+\end{figure*}
+
+\subsubsection{Actors}
+
+This subsection describes the two types of actors that are involved in light–matter interaction. The first includes the different types of \gls{EMR}, while the second consists of the components of the matter onto which the radiation is projected (Figure \ref{fig:actors_rules}). \\
+
+\gls{EMR} can be viewed as some kind of energy that has an electric and a magnetic field. Each type of \gls{EMR} is defined and classified by a specific range of frequency ($v$) and wavelength ($\lambda$), all \gls{EMR} being encompassed within the electromagnetic spectrum (Figure \ref{fig:EM_spectrum}). In the context of colour change measurements, only the portion ranging from \gls{UV} to \gls{IR} is relevant. Light is defined as the portion of the electromagnetic spectrum that is visible to the human eye. As a consequence, the term 'visible' light is redundant and \gls{UV} light/\gls{IR} light is incorrect, as by definition, both ultraviolet and infrared are not visible to the human eye.\\
+
+\begin{figure} %[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Electromagnetic_Spectrum.jpg}
+\caption[\hspace{0.3cm}The electromagnetic spectrum]{The electromagnetic spectrum (\copyright Sapling Learning).}
+\label{fig:EM_spectrum}
+\end{figure}
+
+There are numerous parameters that can be used to characterise \gls{EMR}. However, in the framework of colour change, the list can be reduced to a few core criteria\sidenote{For a more detail definition of the following terms, see \citet{braslavsky_glossary_2007}.}:
+
+\begin{itemize}
+    \item \textbf{Spectral power distribution} (SPD, unit: \unit{\watt\per\square\metre\per\nm}): describes the power per unit area per unit wavelength of a light source.
+    \item \textbf{Radiant power} ($\Phi_E$, unit: \unit{\watt}): also designated as radiant flux, it corresponds to the amount of radiant energy (in \unit{\joule}) emitted, transmitted or received, per unit time. 
+    \item\textbf{Luminous intensity} ($\Phi_v$, unit: \unit{\lumen}): equivalent to the radiant power but given in units adjusted to the sensitivity of the human eye.
+    \item \textbf{Irradiance} ($E\textsubscript{e}$, unit: \unit{\watt\per\square\metre}): a radiometric measurement that corresponds to the amount of power received on a surface per unit area. In contrast to the radiance, the irradiance is distance dependent according to the inverse square law. The further away a surface is from the light source, the lower the amount of power per unit area, where $E_e$ is proportional to the square of the distance. Estimating the irradiance levels inside a beam of light is equivalent to characterise the power density distribution within the beam.
+    \item \textbf{Illuminance} ($E\textsubscript{v}$, unit: \unit{\lux} or (\unit{\lumen\per\square\metre})): a photometric measurement that corresponds to the amount of power emitted by a light source on a known surface area. It is equivalent to the irradiance but given in units adjusted to the sensitivity of the human eye.
+    \item \textbf{Radiant exposure} ($H\textsubscript{e}$, unit: \unit{\joule\per\square\metre}): radiometric light energy dose. It corresponds to the irradiance integrated over the time of irradiation.
+    \item \textbf{Luminous exposure} ($H\textsubscript{v}$, unit: \unit{\lux\second} or \unit{\lux\hour}): photometric light energy dose. It is equivalent to the radiant exposure but given in units adjusted to the sensitivity of the human eye. 
+    \item \textbf{Radiance} ($L\textsubscript{e}$, unit: \unit{\watt\per\square\metre\per\steradian}): a radiometric measurement that corresponds to the amount of power transmitted, reflected, or emitted by a surface per unit area per unit solid angle.   
+    \item \textbf{Correlated colour temperature} (CCT, unit: \unit{\kelvin}): describes the colour of a light source ranging from warm reddish (down to 1000 \unit{\kelvin}) to cool bluish light sources (up to 10 000 \unit{\kelvin})\sidenote{ They are usually shown in the \gls{CIE} 1931 $x$, $y$ chromaticity space (Figure \ref{fig:CIE_1931}).}. It only has a meaning if the light source in question is relatively close to the radiation of a Planckian radiator.
+    \item \textbf{Exposure duration}: duration in unit time during which the light source is projected onto the object’s surface.    
+\end{itemize}
+
+The second actor, designated as matter, encompasses any type of material in its broader meaning. In physics, it consists of anything that has a mass, a volume, and is made of molecules and atoms which can be charged positively or negatively. In the context of museum objects, it is constrained to the materials of works of art which can be characterised by a set of five parameters. Well-defined characterisation of the matter is often more difficult than for the electromagnetic radiation:
+
+\begin{itemize}
+    \item \textbf{Components concentration}: the ratio between identified components in the irradiated material. For example, in the case of a paint layer, four types of components are usually found: (1) one or several colourants, (2) a binding media, (3) a substrate, (4) various additives.
+    \item \textbf{Reflectance factor} ($R$, dimensionless): ‘The reflectance factor is the ratio of the radiant flux reflected by a surface to that reflected into the same reflected-beam geometry and wavelength range by an ideal (lossless) and diffuse (Lambertian) standard surface, irradiated under the same conditions’ \citep[29]{schaepman-strub_reflectance_2006}. In colourimetry, the reflectance factor is used to calculate the colourimetric coordinates of the sample. 
+    \item \textbf{$K$ and $S$ values}: absorption ($K$) and scattering ($S$) coefficients from the Kubelka-Munk theory that characterise the optical properties of a material. 
+    \item \textbf{Particle size} (unit: \unit{\mm} or \unit{\um}): dimensions of the components present in materials.
+    \item \textbf{Thickness} (unit: \unit{\mm} or \unit{\um}) of the material and its layers if any. 
+\end{itemize}
+
+
+\subsubsection{Rules}
+
+
+The previously mentioned parameters are integral parts of several rules governing the interactions between electromagnetic radiation and matter which will be reviewed briefly in the following paragraphs.\\
+
+\newpage
+[A] \underline{Snell-Descartes Laws}
+
+The Snell-Descartes laws, discovered by Willebrord Snell (1580–1626) and René Descartes (1596–1650) in the 17\textsuperscript{th} century, describe the behaviour of waves, such as light, when passing through a boundary between two isotropic media of different refractive indices. Each medium is characterised by its refractive index $n$, defined by the following equation:
+
+\begin{equation}
+    n = \frac{c}{v}
+\end{equation}
+\myequations{\hspace{0.7cm}Refractive index equation}
+
+where $c$ is the speed of light in a vacuum and $v$ is the speed of light in the medium.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.85\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Snell_Descartes_laws.png}
+\caption[\hspace{0.3cm}Snell-Descartes reflection and refraction laws.]{Snell-Descartes reflection (a) and refraction (b) laws.}
+\label{fig:Laws_snell-descartes}
+\end{figure*}
+
+There are two Snell-Descartes laws, one for reflection and another for refraction. Both predict the trajectory of waves crossing an interface between two media. The reflection law stipulates two conditions (Figure \ref{fig:Laws_snell-descartes} - a):
+\begin{enumerate}
+    \item The incident and reflected beams are both contained in the same media.
+    \item The incident and reflective angles are equal in absolute value:
+    \begin{equation}
+        \lvert\theta\textsubscript1\rvert = \lvert\theta\textsubscript2\rvert
+    \label{eq:reflection}
+    \end{equation}
+    \myequations{\hspace{0.7cm}Snell-Descartes reflection equation}
+\end{enumerate}
+
+
+Similarly, the refraction law postulates two conditions (Figure \ref{fig:Laws_snell-descartes} - b):
+\begin{enumerate}
+    \item The incident and refracted beams are located on each side of a normal.
+    \item The refractive index of each media ($n\textsubscript{1}$ and $n\textsubscript{2}$) as well as the angles of incident ($\theta\textsubscript{1}$) and refraction ($\theta\textsubscript{2}$) are linked by the following equation: 
+    \begin{equation}
+        n\textsubscript{1}\sin{\theta\textsubscript{1}} = n\textsubscript{2}\sin{\theta\textsubscript{2}}
+    \label{eq:refraction}
+    \end{equation}   
+    \myequations{\hspace{0.7cm}Snell-Descartes refraction equation}
+\end{enumerate}
+
+Although the Snell-Descartes laws are not used directly in the context of microfading analyses, it is important to realise that colours partly derive from the reflected portion of light that is being projected onto the object's surface.\\
+
+\vspace{0.3cm}
+
+[B] \underline{Fresnel equations}
+
+The Fresnel equations, formulated by Augustin-Jean Fresnel (1788–1827), characterise the reflection and transmission of light when incident on an interface between two isotropic media of different refractive indices. The Fresnel equations are helpful to estimate the amount of light that is being reflected at the interface, where the reflectivity $R$ represents the fraction of incident light reflected at the surface. In other words, it allows us to quantify the reflected beam mentioned in the Snell-Descartes laws. This amount depends on the angle of incidence, the wavelength and the polarisation of the incident light, either parallel or perpendicular to the plane of the material \citep[5-6]{berns_billmeyer_2019}. In the simplest case, the incident ray arrives perpendicular to the surface and the reflected radiation can be estimated by one of the Fresnel equation given below (\ref{eq:fresnel}). Information about more complex cases can be found in \citet[6]{berns_billmeyer_2019} or online\sidenote{The following video explains in detail the Fresnel equations: \url{https://www.youtube.com/watch?v=ayxFyRF-SrM} (accessed 23/03/2023).}.
+
+\begin{equation}
+    R = \left(\frac{n\textsubscript{2} - n\textsubscript{1}}{n\textsubscript{2} + n\textsubscript{1}}\right)\textsuperscript{2}
+\label{eq:fresnel}
+\end{equation}
+\myequations{\hspace{0.7cm}Fresnel equations}
+
+where $n\textsubscript{2}$ is the reflective index of the material and $n\textsubscript{1}$ the reflective index of air usually.\\
+
+
+\newpage
+[C] \underline{Grotthus-Draper law}
+
+The Grotthus-Draper law, also known as the principle of photochemical activation, was postulated independently in 1817 by Theodore von Grotthus (1785–1822) and in 1841 by J.W. Draper (1811–1882). It states that only the photons absorbed by a material can induce photochemical reactions within the system. However, the meaning of this law should not be taken literally, as Feller \citep[45]{feller_accelerated_1994} reported, since reflected photons can also indirectly cause photochemical changes. Indeed, photons reflected by a colourant particle inside a paint layer can be absorbed by other components which can then emit and pass on their energy to the aforementioned colourant particle, inducing a chemical change. This phenomenon is called photosensitised fading or indirect fading. The components or groups absorbing the photons are sometimes described as chromophoric groups or initiators because the absorbed photons will initiate a chain of reactions leading to chemical changes in the system.\\
+
+
+[D] \underline{Stark-Einstein law}
+
+The Stark-Einstein law, also known as the law of photo-equivalence, was formulated independently between 1908 and 1913 by Johannes Stark (1874–1957) and Albert Einstein (1879–1955). The law specifies that each absorbed photon can only initiate, or activate, one molecule, causing a primary chemical reaction\sidenote{ Primary chemical reactions, as opposed to secondary processes, are considered as direct interactions between a photon and a molecule \citep[49–51]{feller_accelerated_1994}.}. The activation process requires an amount of energy at least equal to or superior to the bond energy between the atoms of the molecule. The energy of each photon can be calculated by the Planck-Einstein equation:
+
+\begin{equation}
+  E = hv =\frac{hc}{\lambda}  
+\end{equation}
+\myequations{\hspace{0.7cm}Planck-Einstein equation}
+
+where $h$ is Planck’s constant, $v$ is the frequency of the electromagnetic energy, $c$ is the speed of light in vacuum, and $\lambda$ the wavelength.\\
+
+The Stark-Einstein law allows us to predict the quantum yield, or quantum efficiency, of a photochemical reaction. If each absorbed photon induces a primary chemical reaction, the quantum yield - a dimensionless quantity - is equal to one. However, due to the complexity of the system, the quantum yield of a paint layer is typically far lower than one \citep[50]{feller_accelerated_1994}. In other words, only a small proportion of the absorbed photons will induce primary chemical reactions.\\
+
+
+[E] \underline{Bouguer-Beer-Lambert laws}
+
+The \gls{BBL} encompass several laws that have been observed and formulated by a number of scientists from the 18\textsuperscript{th} century to the beginning of the 20\textsuperscript{th} century. In his \textit{Essai d’optique sur la gradation de la lumière} \citeyearpar{bouguer_essai_1729}, Pierre Bouguer (1698–1758) described the relationship between the intensity of a light source passing through a solution and the thickness of that solution (Figure \ref{fig:Laws_BBL}). His work was taken up in 1760 by the mathematician Jean-Henri Lambert (1728–1777), who stipulated that the absorbance of a solution is directly proportional to the thickness of the medium through which it passes. While there seems to be different opinions on the contribution of August Beer (1825–1863) to the \gls{BBL} laws, most sources seem to agree that the modern formulation of the \gls{BBL} laws appeared for the first time in an article written by Luther and Nikolopulos in \citeyear{luther_uber_1913}. \\
+
+The \gls{BBL} laws establish a proportional relationship between the absorbance and the concentration of the various elements responsible for the absorption of the electromagnetic radiation passing through the material:
+\begin{equation}
+    A = log\textsubscript{10}\left(\frac{I\textsubscript{0}}{I}\right) = \epsilon c l
+\end{equation}
+\myequations{\hspace{0.7cm}Absorbance}
+where $A$ is the absorbance, $I$ is the intensity of the optical radiation, $l$ is the path length of the solution (\unit{\cm}), $I_0$ the incident intensity, $\epsilon$ the wavelength-dependent molar absorptivity coefficient (\unit{\liter\per\mole\per\cm}), and $c$ the concentration of the solution (\unit{\mole\per\liter}).\\
+
+The \gls{BBL} laws have been postulated for samples in the form of solutions and their linear property is limited in several cases:
+\begin{itemize}
+    \item When the concentration of the solution is greater than 0.01 M.
+    \item When the solution emits fluorescence or phosphorescence.
+    \item When the light source is non-monochromatic. 
+    \item When scattering of the light source occurs due to particles in the solution.
+    \item When there are shifts in chemical equilibria as a function of concentration. 
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Beer_lambert_law.png}
+\caption[\hspace{0.3cm}Transmission of radiation through matter]{Transmission of radiation through matter.}
+\label{fig:Laws_BBL}
+\end{figure}
+
+
+In principle, the theory cannot be applied to solid samples, but there is still ongoing debate about this issue. Nevertheless, it seems straightforward to state that when a light beam passes through a material, whether liquid or solid, some of its energy is dissipated or absorbed by the material, so that the intensity of the beam passing through the sample decreases over the length of the sample. In the case of paint layers, it implies that the top layers receive more light energy than the deeper layers. If we assume that the more light a sample receives, the more it changes colour, then characterising the penetration of light through a sample could help us to estimate the amount of colour change as a function of depth, \ie the fading depth. For example, if a sample totally absorbs incident radiation when the thickness of the sample is greater than 100 \unit{\um}, we could assume that the layers deeply located, \ie below 100 \unit{\um}, are not exposed to light and are therefore not altered by optical radiation. Expressing the \gls{BBL} laws as given in equation (\ref{eq:BBL}) \citep[56, eq. 5.8]{feller_accelerated_1994} should allow us to estimate the light intensity at various depths in the sample. \\
+
+\begin{equation}
+    I = I\textsubscript{0}e^{-\alpha x}
+\label{eq:BBL}
+\end{equation}
+\myequations{\hspace{0.7cm}Bouguer-Beert-Lambert laws}
+where $I\textsubscript{0}$ is the incident intensity, $I$ the intensity at depth $x$, and $\alpha$ the absorption coefficient of the material.\\
+
+In the context of light-fading phenomena, the \gls{BBL} laws can be applied to estimate the depth of fading in materials \citep[56]{feller_accelerated_1994} which ultimately could be useful for digital reconstructions of faded colours. The work of \citet{johnston-feller_reflections_1986} on the fading of alizarin lakes partly investigated the fading depth of illuminated samples. Her results showed that photochemical damage occurs mainly at the surface, specifically in the top 4–40 \unit{\um} of the material \citep[39]{johnston-feller_reflections_1986} and that the depth of fading increases as the \gls{PVC} of the scattering pigment, titanium white, decreases \citep[39-40]{johnston-feller_reflections_1986}.\\
+
+
+[F] \underline{The reciprocity principle}
+
+In the second half of the 19\textsuperscript{th} century, Robert Bunsen and Henry Roscoe worked on the photoresponse of materials as a function of radiant flux. In other words, they studied the effect of optical radiation on materials for which their results led them to conclude that photochemical reactions depend only on the total energy received by materials \citep{bunsen_photochemische_1859}. This hypothesis, currently known as the \textit{reciprocity principle}\sidenote{Although the literature might state the contrary, it is not a law but a principle. Unlike a law, a principle describes a relationship that is subjected to change according to the parameters of the system.}, stipulates that the product of the radiant intensity ($I$) and the time of exposure ($t$) is a constant (\ref{eq:reciprocity}) \citep[293]{martin_reciprocity_2003}.
+
+\begin{equation}
+    It = constant
+\label{eq:reciprocity}
+\end{equation}
+\myequations{\hspace{0.7cm}Reciprocity principle - Bunsen and Roscoe}
+
+
+In the context of light-induced colour change phenomena, this principle means that the amount of colour change, expressed in terms of $\Delta E$ values\sidenote{ More information about $\Delta E$ values is given later on in this chapter (section \ref{sec:colour_diff_eq}).
+} does not depend on the intensity – expressed in \unit{\lux} or \unit{\watt\per\square\metre} – or on the duration of exposure but on their product, which corresponds to the exposure dose, usually given in \unit{\lux\hour} or in \unit{\joule\per\square\metre}. The principle holds when $\Delta E$ values are similar for different illuminance and time values as long as the exposure dose $H$ remains constant, i.e. $\Delta E\textsubscript{1} = \Delta E\textsubscript{2}$ for $H_1 = H_2$. In practice, this means that exposing a work of art to 1000 lux over 10 hours should result in a similar level of change as 100 lux exposure over 100 hours. Soon after Bunsen and Roscoe published their results, deviations from the principle were frequently observed, especially at either very low or very high radiant fluxes\sidenote{ A review of reciprocity failure experiments has been published by \citet{martin_reciprocity_2003}.
+}. As a result, an astronomer, named Karl Schwarzschild, proposed a modification of the principle by adding a coefficient $p$ to the intensity value (\ref{eq:reciprocity_schwarzschild}) \citep[293]{martin_reciprocity_2003}\sidenote{Prof. Robert Erdmann pointed out that the Schwarzschild law (\ref{eq:reciprocity_schwarzschild}) contradicts the principle of dimensional homogeneity since the exponential function $t^p$ is not dimensionless (personal communication, 02/06/2022).}.
+
+\begin{equation}
+    It\textsuperscript{p} = constant
+\label{eq:reciprocity_schwarzschild}
+\end{equation}
+\myequations{\hspace{0.7cm}Reciprocity principle - Schwarzschild law}
+
+
+[G] \underline{Kubelka-Munk theory}
+
+The Kubelka-Munk theory is a mathematical model that relates the pigment concentration to the reflectance spectrum of a mixed paint layer by the calculated absorption ($K$) and scattering ($S$) optical properties. The theory, presented in 1931 by Kubelka and Munk \citep{kubelka_beitrag_1931}, was based on the ideas developed by Arthur Schuster in 1905, hence it is also called the Schuster-Kubelka-Munk theory. In the 1950s, the complicated mathematical calculation was simplified \citep{atherton_relation_1955} allowing an efficient use of the theory to predict the colour of mixed pigment materials \citep{allen_fluorescent_1964, allen_basic_1974}. Originally used in the paint film industry, it has also been applied for colour-match prediction of printing inks \citep{hoffenberg_automated_1972, nobbs_colour-match_1997}. Detailed explanation of the theory can be found in several books and articles \citep{berns_billmeyer_2019, nobbs_kubelka-munk_1985, nobbs_colour-match_1997, zhao_image_2008}. At the dawn of the 21\textsuperscript{st} century, the theory started to be applied in the cultural heritage conservation field mainly for pigment identification based on spectral estimation \citep{berns_use_2002}. Thereafter, its application has continually expanded, ranging from image segmentation and pigment mapping of paintings \citep{zhao_image_2008, zhao_improvement_2005} to digital reconstruction of faded objects \citep{berns_rejuvenating_2006, geldof_reconstructing_2018, kirchner_digitally_2017}. \\
+
+
+\subsubsection{Play}
+
+Taking into account the above information on light and matter, it can be established that the interaction between light and matter is that between the electromagnetic field associated with light and the charged particles associated with the matter. When electromagnetic radiation hits the surface of a material, five mechanisms can take place, simultaneously or consecutively (Figure \ref{fig:light_matter_interactions}, 1–5). Each can happen either at the surface or within the material. Amongst the most influential parameters, the size of the particles that make up the material is probably one of the most important, impacting all five mechanisms.
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.9\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/The_play.png}
+\caption[\hspace{0.3cm}Light–matter interactions]{Light–matter interactions.}
+\label{fig:light_matter_interactions}
+\end{figure*}
+
+
+
+\begin{enumerate}
+    \item \textbf{Transmission}.  Radiation passing through a medium. When almost 100\% of the incident radiation is transmitted, the material is colourless and said to be transparent, \ie glass (Figure \ref{fig:ligth_interactions} - a). According to the refractive index of each medium, the transmitted radiation will be refracted, or not (Figure \ref{fig:light_matter_interactions}, 1).
+
+    \item \textbf{Reflection}. Radiation that is reflected at the interface between two different media (Figure \ref{fig:light_matter_interactions}, 2). There are several types of reflection, specular and diffuse being the two main types\sidenote{Two other types of reflection among many include retroreflection, which is used in the microfading device (see section \ref{sec:retroreflective_MFT}), and multiple reflection.}. In specular reflection, the ray of light is reflected in a single direction according to the Snell-Descartes law of reflection (\ref{eq:reflection} and Figure \ref{fig:Laws_snell-descartes} - a). It occurs mainly when the surface is very smooth, such as a mirror. In diffuse reflection, due to the roughness and irregularity of the surface, the incident radiation is reflected in multiple directions. When most of the incident radiation is reflected at all angles, the object appears white and the material is said to be a perfect reflecting diffuser. Such a material does not exist in reality, although pressed BaSO\textsubscript{4} or pressed poly(tetrafluoroethylene) (Halon G-50) are close to achieving this effect \citep[11]{johnston-feller_color_2001}.
+
+    The fraction of reflected radiation, \ie the reflectivity $R$, is a function of the refractive index $n$ of each material. The larger the difference in refractive index between two media the higher the amount of reflected radiation, which can be calculated with Fresnel equations. A general description of light reflection from surfaces is provided by the \gls{BRDF}. Developed in the 1960s and 70s \citep{nicodemus_directional_1965, nicodemus_geometrical_1977}, the theory is a fundamental concept of radiometry that is used in diverse applications ranging from computer vision to light modelling in spatial engineering. 
+
+    \item \textbf{Scattering}. Like diffuse reflection, scattering is a phenomenon where incident radiation is reflected in multiple directions (Figure \ref{fig:light_matter_interactions}, 3). However, scattering is induced by the wave nature of the matter, the radiation first being absorbed and then re-emitted in multiple directions. There are numerous cases of scattering which depend mainly on two factors: (i) the size of the particles within the matter, and (ii) the wavelength of the incident radiation. Scattering of light is an important phenomenon that constitutes the main process in which light interacts with matter, but it involves complex mechanisms that fall outside the scope of this dissertation. Detailed information about scattering processes can be found in \citet{stover_optical_1995} and \citet{huang_1_2018}.
+
+    \item \textbf{Refraction}. Deviation of the incident radiation beam when passing through the interface between two different media (Figure \ref{fig:light_matter_interactions}, 4). The trajectory of the refracted beam can be calculated using the Snell-Descartes laws and is dependent on the wavelength of the incident beam as well as on the refractive indices of the two media.
+
+    \item \textbf{Absorption}. Lastly, part of the radiation is absorbed by individual components of the material (Figure \ref{fig:light_matter_interactions}, 5). When all radiation is absorbed regardless of the angle of the incident beam and its wavelength, the object is black and is called a black body (Figure \ref{fig:ligth_interactions} - c). A better understanding of absorption phenomena and their impact on colour change is provided by the Grotthus-Draper law, the Stark-Einstein law and Bouger-Beer-Lambert laws.
+\end{enumerate}
+
+\begin{table*}
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Phenomena and laws]{Relationship between phenomena and laws.}
+\begin{tabular}{C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1cm}}
+\toprule[0.4mm]
+& Snell-Descartes laws & Fresnel equations & \acrshort{BRDF} - \acrshort{BTDF} & Grotthus-Draper law & Stark-Einstein law & \gls{BBL} \\\midrule
+\textbf{Transmission} & & & x & & & x \\
+\textbf{Reflection} & x & x & x & & & \\
+\textbf{Scattering} & & & x & & & \\
+\textbf{Refraction} & x & & x & & & \\
+\textbf{Absorption} & & & & x & x & x \\
+\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:Lid_laws}
+\end{table*}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Interaction_mechanisms_1.png}
+\caption[\hspace{0.3cm}Interactions between radiation and objects]{Interactions between radiation and objects.}
+\label{fig:ligth_interactions}
+\end{figure*}
+
+
+The absorption of wavelengths within the incident light implies that those not absorbed will either be reflected or transmitted, thus allowing an observer to perceive the colour of a material. In other words, the perceived colour is a result of a combination of all three phenomena in which only the transmitted and reflected radiation can reach the observer (Figure \ref{fig:ligth_interactions} - d). However, behind this simple view of the formation of colour lies a variety of complex mechanisms\sidenote{The framework of this thesis does not allow us to expand on the production of colour in materials. For more information see \citep{christie_colour_2001} ; \citep{nassau_physics_2003} ; \citep{orna_chemical_2013} ; \citep{zollinger_color_1999}}; \citet{nassau_physics_2003} described 15 different origins of colours while Zollinger and Christie categorised colour effects into five different groups (\citealp[50]{zollinger_color_2003}; \citealp[17]{christie_colour_2001}). Colour change can thus be viewed as the consequence of a change in the absorption properties of materials, which is itself the aftermath effect of a series of chemical processes that modified the structure of the material due to light exposure (Figure \ref{fig:process_struc_prop}). This light-induced process changing the colour of materials often falls under the generic term 'photochemical degradation'.
+
+
+\marginpar{
+\captionsetup{type=figure}
+\includegraphics[width=4cm]{Chapters/Chapter2_Microfadeometry/Figures/process_structure_properties.png}
+\caption[\hspace{0.3cm}Process-structure-properties relationship]{Process-structure-properties relationship.}
+\label{fig:process_struc_prop}
+}
+
+
+\underline{Photochemical degradation}
+
+Photo(chemical)degradation is formally defined as a ‘photochemical transformation of a molecule into lower molecular weight fragments, usually in an oxidation process’ \citep[389]{braslavsky_glossary_2007}. In simpler terms, it can be viewed as the transformation of chemical structures due to the absorption by materials of \gls{EMR} ranging from \gls{UV} to \gls{IR}. In the field of cultural heritage, the effect of light on most materials that constitute works of art has been investigated and reviews on these studies have been published \citep{desai_photodegradation_1968, havermans_photo_1997, miliani_photochemistry_2018, romani_photochemistry_2011}\sidenote{For more information on photochemistry see \citet{bowen_light_1950, egerton_photochemistry_1970, egerton_photochemistry_1970-1, coyle_introduction_1991, ramamurthy_organic_2006, klan_photochemistry_2009}}.\\
+
+As mentioned for the Grotthus-Draper law, only the radiation that is absorbed by the material can directly lead to its chemical and physical modification. When a molecule absorbs electromagnetic radiation, several photochemical reactions can occur\sidenote{See \citet[389]{braslavsky_glossary_2007} for a definition of photochemical reactions.}. First, the electrons located in the molecular orbitals of the atoms can be excited from their lowest energy state, also called the ground state, to an excited state (Figure \ref{fig:photochemical_processes}, 1) (\citealp[18]{christie_colour_2001}; \citealp[176]{van_beek_light-induced_1983})\sidenote{The article by \citet{van_beek_light-induced_1983} describes these processes in more detail.}. Following absorption, a series of processes can occur, as outlined below (Figure \ref{fig:photochemical_processes}, 2–6) (\citealp[6]{schaeffer_effects_2001}; \citealp[49]{feller_accelerated_1994}). These mechanisms only describe photochemical degradation in a general way. When examined in detail, the degradation pathways are in fact much more complex, are specific to each material, and depend strongly on environmental conditions. \\
+
+
+
+\begin{itemize}
+    \item \textbf{Photolysis}: This process occurs when the amount of incident energy is equal to or greater than the dissociation energy\sidenote{ ‘The bond dissociation energy is defined as the amount of energy which is required to homolytically fracture a chemical bond. Homolytic cleavage usually produces radical species. Shorthand notation for this energy is BDE, D 0, or DH$^\circ$’ \citep{helmenstine_bond_2019} (\href{https://www.thoughtco.com/bond-dissociation-energy-definition-602118;}{website Thoughtco.com}, accessed on 11/02/2019).}, allowing a bond rupture to occur within the molecule. However, the amount of energy contained in the visible and \gls{IR} regions is usually insufficient to break most organic chemical bonds. Figure \ref{fig:photochemical_processes} shows how light does not have enough energy to break C-O, C-C and C-H bonds. Moreover, in the event that the incident radiation energy is sufficient, the quantum yield is often extremely low (Figure \ref{fig:photochemical_processes}, process n$^\circ$4, narrow arrow). Therefore, when light is projected onto a surface, photolysis is a rarely observed phenomenon (\citealp[51]{feller_accelerated_1994}; \citealp[178]{brill_light_1980}).
+
+    In the following processes, the incident energy is smaller than the dissociation energy and therefore the excited electron returns to its ground state and the molecule loses the absorbed energy by the following mechanisms.\\
+
+    \item \textbf{Energy emission}: The molecule emits the absorbed energy in the form of visible wavelengths (photoluminescence) (Figure \ref{fig:photochemical_processes}, 2). 
+    
+    \item \textbf{Heat release}: The molecule releases the absorbed energy as heat. This process is often encountered when light interacts with matter (Figure \ref{fig:photochemical_processes}, 3).
+
+    \item \textbf{Chemical change}: The molecule undergoes a chemical change, such as the formation of radicals or isomerisation (Figure \ref{fig:photochemical_processes}, 5 and 6. 
+    
+    \item \textbf{Energy transfer}: The molecule passes its energy to a surrounding atom or molecule.
+\end{itemize}
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.95\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Absorption_processes.png}
+\caption[\hspace{0.3cm}Photochemical processes - Absorption phenomena]{Photochemical processes induced by the absorption of optical radiation\footnote{The figure is based on that in the article by \citet[178, Figure 1]{van_beek_light-induced_1983}. The bond dissociation energy values are from \citet[373, Table 8.4]{zumdahl_chemistry_2000}}.}
+\label{fig:photochemical_processes}
+\end{figure*}
+
+
+
+When light interacts with matter, photolysis and chemical changes have a low quantum yield \citep[47–8]{feller_accelerated_1994}. Their occurrence is rare enough that they are not the main reasons behind photochemical degradation of materials. Although energy emission is a more frequent phenomenon, which influences the colour perception of materials, the visible radiation emitted does not induce degradation. Similarly, increases in temperature via heat release do not initiate photochemical reactions, though they can accelerate degradation processes. By deduction, the transfer of energy to surrounding elements seems to be the primary cause of photochemical degradation \citep[51]{feller_accelerated_1994}. In the context of paint layers, the colourant is often light stable, but an initially colourless binding media tends to yellow over time. Similarly, the substrate and additives present are very diverse and some can be light sensitive. Their degradation, due to direct absorption of photons or secondary processes, produces components that react with colourants affecting the conjugated bonds system of the colourant \citep[180]{van_beek_light-induced_1983}. Such a phenomenon is called photosensitisation and is believed to be the main reason for the discolouration of most paint layers.
+
+\subsection{Colour measurement}
+\label{sec:colour_measurement}
+
+This section reviews the basic concepts of colourimetry. For a more thorough discussion, see: \cite{berns_billmeyer_2019}; \citet{johnston-feller_color_2001}; \citet{minolta_precise_2007}; \citet{schanda_colorimetry_2007}; \citet{wyszecki_color_1982}.\\
+
+Colour perception and colour measurement are both the result of a combination of three elements: a light source, an object, and a sensor. The schematic in Figure \ref{fig:colour_perception-meas} applies equally to the observation of colour in everyday objects with the naked eye, as it does to perform colour measurements with a spectrophotometer. In the first case, the light source is the sun and the sensor the eyes of the observer in connection with his/her brain (Figure \ref{fig:colour_perception-meas} - a) whereas in the second case, an artificial light source and a photodetector replaces the sun and observer respectively (Figure \ref{fig:colour_perception-meas} - b). The artificial light source used inside spectrophotometers is usually a tungsten-halogen or xenon flash-tube lamp\sidenote{More recently, \gls{LED}s have been used in spectrophotometers as illumination light sources.}, while the detector can be a silicon photodiode, a photomultiplier tube or more often a \gls{CCD} or a \gls{CMOS}\sidenote{A more detailed description of spectrophotometers is given by \citet[6-11]{johnston-feller_color_2001}.}.
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/colour_perception_chain2.png}
+\caption[\hspace{0.3cm}Colour perception and colour measurements]{(a) Colour perception and (b) colour measurement processes (adapted from \url{https://freerangestock.com/}).}
+\label{fig:colour_perception-meas}
+\end{figure*}
+
+Unlike studies on human perception, the field of colourimetry does not attempt to fully describe the mechanisms of human colour vision. As defined by \citet{wyszecki_color_1982}, colourimetry is a ‘branch of color science concerned with specifying numerically the color of a physically defined visual stimulus’\sidenote{However, this definition can vary according to the field of research. For example, in analytical chemistry, it refers to the determination of concentrations in coloured solutions \citep[63]{zollinger_color_1999}.}. Numerical description of colours has to be performed within the context of a colorimetric system. Such a system can be seen as a ‘mathematical language’ in which each colour is quantified by a unique set of numerical values. Amongst the variety of colourimetric systems developed since the 19\textsuperscript{th} century, the \gls{CIE} system stands out as the internationally recognised language for which a thorough description has been written by \citet{schanda_colorimetry_2007}. This section will therefore focus on colour measurement using the methods developed by the \gls{CIE} in terms of colour spaces and colour difference equations.\\
+
+\subsubsection{Colour spaces}
+
+Roughly speaking, the retina of the human eye contains two types of photosensitive cells: the rods and the cones. The former are used mainly at low light levels (scotopic vision) while the latter are more active at high light levels (photopic vision). Cones are categorised into three different sizes – large (L), medium (M), and small (S) – that are sensitive to different wavelengths, allowing the perception of colour (Figure \ref{fig:SML_cones}). When electromagnetic radiation enters the eye and hits the retina, it stimulates the three cones beyond which the light is converted to a neural signal that is sent to the brain, resulting in the perception of colour by an observer. Surprisingly, radiation with different spectral distributions can result in similar stimuli of the cones so that observers perceive identical colours, which is a phenomenon called metamerism \citep[Chapter 6]{hunt_measuring_2011}.\\
+
+\marginpar{
+\captionsetup{type=figure}
+\includegraphics[width=4cm]{Chapters/Chapter2_Microfadeometry/Figures/cones_eyes.png}
+\caption[\hspace{0.3cm}Light sensitivity of the three cones (S, M and L)]{Light sensitivity of the three cones (S, M and L) (after the Colour Science package \citep{mansencal_colour_2022}).}
+\label{fig:SML_cones}
+}
+
+
+This trichromatic process in the retina, related to the presence of three different types of cone, implies that a colourimetric system needs to be three-dimensional to reproduce as accurately as possible the colour perceived by an observer. In 1931, \citet{wright_re-determination_1929} and \citet{guild_colorimetric_1931} conducted colour-matching function experiments based on the use of three monochromatic light sources, called primaries: a red (700 nm), a green (546.1 nm), and a blue (435.8 nm). Based on their results, the \gls{CIE} developed the 1931 method whereby each colour is characterised by a set of three numbers ($X$, $Y$, $Z$), called the tristimulus values. To calculate these values, the \gls{CIE} developed a set of equations (\ref{eq:CIE_X}–\ref{eq:CIE_Z}) which combine the spectral power distribution $S(\lambda)$ of three standard light sources – called illuminants A, B and C\sidenote{Detailed information aboout the \gls{CIE} standard illuminants can be found on \url{https://en.wikipedia.org/wiki/Standard_illuminant} (accessed on 17/06/2023).} – the reflectance spectrum of the coloured surface $R(\lambda)$ and the colour matching functions ($\bar{x}$, $\bar{y}$, $\bar{z}$)\sidenote{The \gls{CMFs} $\bar{x}$, $\bar{y}$, $\bar{z}$, from 1931 were calculated from the $\bar{r}(\lambda)$, $\bar{g}(\lambda)$, $\bar{b}(\lambda)$ \gls{CMFs} obtained by \citeauthor{wright_re-determination_1929} and \citeauthor{guild_colorimetric_1931} according to a 2$^\circ$ field of view (Detailed information about the \gls{CMFs} can be found on \url{https://en.wikipedia.org/wiki/CIE_1931_color_space} (accessed on 17/06/2023).}. Looking back at Figure \ref{fig:colour_perception-meas}-a, we can see that the information deduced from each component (light source, object and sensor) is entered into the tristimulus equations.  \\
+
+\begin{equation}
+    X = k\int_{0}^{\infty} S(\lambda) R(\lambda) \bar{x}(\lambda) \,d\lambda \\
+\label{eq:CIE_X}
+\end{equation}  
+\myequations{\hspace{0.7cm}CIE $X$}
+
+\begin{equation}
+    Y = k\int_{0}^{\infty} S(\lambda) R(\lambda) \bar{y}(\lambda) \,d\lambda \\
+\label{eq:CIE_Y}
+\end{equation} 
+\myequations{\hspace{0.7cm}CIE $Y$}
+
+\begin{equation}
+    Z = k\int_{0}^{\infty} S(\lambda) R(\lambda) \bar{z}(\lambda) \,d\lambda
+\label{eq:CIE_Z}
+\end{equation}
+\myequations{\hspace{0.7cm}CIE $Z$}
+where $k$ is a normalising factor that sets the value of $Y$ to 100 when measured on a white reference standard such as the previoudly mentioned perfect reflecting diffuser.\\
+
+In addition, the \gls{CIE} 1931 method created a chromaticity chart by converting the tristimulus values ($X$, $Y$, $Z$) into chromaticity coordinates ($x$, $y$,$z$) according to the following equations:
+
+\begin{equation}
+    x = \frac{X}{X+Y+Z}
+\label{eq:CIE_x}
+\end{equation}
+\myequations{\hspace{0.7cm}CIE $x$}
+
+\begin{equation}
+    y = \frac{Y}{X+Y+Z}
+\label{eq:CIE_y}
+\end{equation}
+\myequations{\hspace{0.7cm}CIE $y$}
+
+\begin{equation}
+    z = \frac{Z}{X+Y+Z}
+\label{eq:CIE_z}
+\end{equation}
+\myequations{\hspace{0.7cm}CIE $z$}
+
+\begin{equation}
+    x+y+z = 1
+\label{eq:CIE_sum_xyz}
+\end{equation}
+\myequations{\hspace{0.7cm}CIE sum of $xyz$}
+
+These equations provide for a system with only two free variables, usually $x$ and $y$, therefore allowing a representation of the \gls{CIE} 1931 method in a 2D colour space (Figure \ref{fig:CIE_1931}) where the $z$ coordinate (deduced from $x$ and $y$) and the lightness $Y$ are left out of the chromaticity chart. For example, the chromaticity coordinates ($x$, $y$) of sample A on Figure \ref{fig:CIE_1931} are 0.5327 and 0.3955 respectively, which means that the stimulus of sample A corresponds to 53.27\% of $X$, 39,55\% of $Y$ and 7.18\% of $Z$. \\
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/CIE1931_chromaticity-diagram_Gamut.png}
+\caption[\hspace{0.3cm}The CIE 1931 chromaticity diagram.]{The \gls{CIE} 1931 chromaticity diagram (adapted from the Colour Science package \citep{mansencal_colour_2022}).}
+\label{fig:CIE_1931}
+\end{figure}
+
+The horseshoe shape of the chart appears when plotting the chromaticity coordinates $x$, $y$ for each wavelength and represents the gamut of human vision, \ie all the colours that can be perceived by a human eye. The edge of the gamut, called spectral locus, shows monochromatic light where each point is a saturated colour of a single wavelength between 450 and 700 nm. The bottom straight line, called the line of purples, are not spectral colours. The colour gamut of a specific system can be determined via the chromaticity coordinates of the three primaries of the system, as illustrated on Figure \ref{fig:CIE_1931}.\\
+
+Nevertheless, the \gls{CIE} 1931 colour space presented some limitations that led the \gls{CIE} to develop a second colour space in 1976, known as CIE(1976) $L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*}$ or CIELAB. One of the main drawbacks of \gls{CIE} 1931 concerned its lack of uniformity which has been revealed by MacAdam’s experiments in the 1940s where he demonstrated that a normal observer would be more sensitive to colour differences in the blue than the green region of the colour space (Figure \ref{fig:MacAdam_ellipses}) \citep{macadam_graphical_1943, macadam_specification_1943}\sidenote{Each ellipse on Figure \ref{fig:MacAdam_ellipses} represents the just noticeable difference area. In other words, within each ellipse a normal observer perceives a single colour.}. In practical terms, it means that two equal distances in the graph do not correspond to the same amount of visual stimuli perceived by an observer. Moreover, CIE 1931 is based on a 2$^\circ$ field of view which often proved to be inadequate for visual assessment, as most of the time, a larger field of view is used by the human eye. Thus, a second set of colour matching functions with a 10$^\circ$ field of view, based on the experiments of \citet{stiles_npl_1959} was implemented in 1964\sidenote{For information on the difference between a 2$^\circ$ and a 10$^\circ$ field of view, see: \url{https://www.konicaminolta.com/instruments/knowledge/color/part4/01.html} (accessed 25/09/2019).}. As such, the 10$^\circ$ is no better than the 2$^\circ$ field of view, but according to the context it should be used as the suitable field of view for the experiment \citep{cie_technical_committee_1-57_colorimetry_2007}. Lastly, \citet{vos_colorimetric_1978} reported and corrected some irregularities of the \gls{CIE} 1931 method in the short wavelength region.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.6\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/MacAdam_ellipses.jpg}
+\caption[\hspace{0.3cm}MacAdam ellipses]{MacAdam ellipses plotted in the CIE 1931 chromaticity diagram (after \cite[Fig. 24.7]{schubert_light-emitting_2018}}
+\label{fig:MacAdam_ellipses}
+\end{figure*}
+
+
+The CIELAB colour space is a 3D space that contains three axes: a vertical one characterising the brightness $L\textsuperscript{*}$ and two horizontal axes, $a\textsuperscript{*}$ and $b\textsuperscript{*}$, defining the chromaticity of the sample (Figure \ref{fig:CIELAB} - a). The $a\textsuperscript{*}$ values range from green to red, while the $b\textsuperscript{*}$ values range from blue to yellow. Although the colour space is 3D, a 2D representation of $a\textsuperscript{*}$ and $b\textsuperscript{*}$ at a fixed brightness is commonly used (Figure \ref{fig:CIELAB} - b). In this colour system, each colour is defined by a set of three values, $L^*a^*b^*$ or $L^*C^*h$, corresponding to the brightness ($L\textsuperscript{*}$) and two chromaticity coordinates ($a\textsuperscript{*}$ and $b\textsuperscript{*}$ or $C\textsuperscript{*}$ and $h$). The $L^*a^*b^*$ - calculated from the tristimulus values\sidenote{See \citet[61-62]{schanda_colorimetry_2007} or \citet{cie_technical_committee_1-57_colorimetry_2007} for a description of the calculation.} - and $L^*C^*h$ values define the same point in the CIELAB colour space, but the first one uses Cartesian coordinates while the second uses polar coordinates\sidenote{Most users prefer the $L^*C^*h$ coordinates because the concept of chroma ($C\textsuperscript{*}$) and hue ($h$) relates better to visual experience.}.
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/CIELAB_space.png}
+\caption[\hspace{0.3cm}CIELAB colour space]{CIELAB colour space: (a) 3D representation (image taken from \url{https://sensing.konicaminolta.asia/what-is-cie-1976-lab-color-space/}, accessed on 28/06/2023) ; (b) 2D representation (image taken from \url{http://meterglobal.com/info-1.html}, accessed on 28/06/2023).}
+\label{fig:CIELAB}
+\end{figure*}
+
+
+\subsubsection{Colour differences equations}
+\label{sec:colour_diff_eq}
+
+Colour difference equations provide standardised methods, based on stimulus differences, to estimate the perceived colour difference between two coloured materials. The comparison can either be done in space (assess two different spots on the same object) or in time (monitor the colour change of a single spot). The idea is to quantify colour differences by using numerical values where the greater the number, the bigger the perceived colour difference. In the \gls{CIE} system, such a value is designated by the term $\Delta E$\sidenote{The letter $E$ refers to the German word \textit{Empfindung} meaning 'sensation'.}.\\
+
+Since the implementation of the first \gls{CIE} colour difference equation in 1976, referred to as $\Delta E^*_{76}$ or \dEab, several improvements have been achieved which led to the development of new sets of equations, CIE94 and CIEDE2000 among others\sidenote{For a history of their developments see \citet[Chapter 6]{kuehni_color_2003} and \citet[Chapter 4]{schanda_colorimetry_2007}.}. The \dEab equation calculates the Euclidean distance between two points ($x$ and $y$) in the CIELAB colour space (\ref{eq:dE76}). Although anomalies were reported soon after its release \citep{kuehni_color-tolerance_1976, mclaren_cielab_1980}, this equation is still widely used, especially in the field of cultural heritage, mainly due to its ease of understanding and implementation.\\
+
+\begin{equation}
+    \Delta E^*_{ab} = \sqrt{(\Delta L)^2 + (\Delta a)^2 + (\Delta b)^2}
+\label{eq:dE76}
+\end{equation}
+\myequations{\hspace{0.7cm}CIE $\Delta E^*_{ab}$}
+where $\Delta L = L^*_x - L^*_y$, $\Delta a = a^*_x - a^*_y$, and $\Delta b = b^*_x - b^*_y$.\\
+
+The CIE94 equation, often written as $\Delta E^*_{94}$, is defined with the $L^*C^*h$ values and also calculates an Euclidean distance within the colour space but weighting factors $K$ and $S$ have been added in front of each coordinate to correct for inhomogeneities in the neutral region \citep{luo_development_2001}. Depending on the application (textile or graphical art objects), the equation can be adapted slightly by changing some of the coefficients\sidenote{\url{http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE94.html}, accessed on 10/06/2023.}. In 2001, the \gls{CIE} released the CIEDE2000 equation (\dEOO) within which a hue rotation term called $R_T$ has been added to the$\Delta E^*_{94}$ equation to correct the irregularities in the blue region of the colour space \citep{sharma_ciede2000_2005, cie_technical_committee_1-47_improvement_2001}\sidenote{The CIEDE2000 equation can be found on the following website: \url{http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE2000.html}, accessed on 10/06/2023.}. This last equation is supposed to better reflect the reality of colour difference visualisations, especially in the low saturated and blue regions of the colour space, where human colour perception tends to be more precise than in other regions. Since this equation is currently recommended by \gls{CIE} \citep{cie_technical_committee_1-55_recommended_2016}, it was decided to use it throughout this PhD dissertation.\\
+
+Most microfading studies pay little attention to reflectance spectra, although they contain information that could be useful for our understanding of colour change phenomena. A careful examination of reflectance spectra could be helpful to identify changes outside the visible region that might be a harbinger of future visible change. Additionally, looking at the kinetics of changes at different wavelengths can help us to see whether changes occur simultaneously across the whole spectrum, or at different moments in time. \citet[p.2]{liang_development_2011} defined $\Delta R$ as the sum of differences in reflectance at each wavelength averaged over the wavelength range. In our research, we took up the idea of calculating $\Delta R$ values but with slight differences. On the one hand, the absolute differences between reflectance values were used to avoid positive and negative changes cancelling each other out. On the other hand, different definitions of $\Delta R$ have been implemented according to the wavelength range \citep{american_national_standards_institute_aimm_1996}. While $\Delta R$ averages differences over the whole spectrum (\ref{eq:dR}), $\Delta R_{\textrm{vis}}$ only calculated differences between 400 and 780nm (\ref{eq:dR_vis}). $\Delta R$ as well as $\Delta E$ are quantitative metrics, in other words they tells how much variations there are, but there is no information regarding the direction of these changes. Two samples can present similar amount of total change but in different directions, hence the need for qualitative metrics, such differences in the $L^*a^*b^*$ values or differences in specific and narrow bands of the spectrum.
+
+
+\begin{equation}
+    \Delta R = \frac{\displaystyle\sum_{\lambda=350}^{1000} |R_\lambda(t) - R_\lambda(0)|}{n}
+\label{eq:dR}
+\end{equation}
+\myequations{\hspace{0.7cm}$\Delta R$}
+
+\begin{equation}
+    \Delta R_{\textrm{vis}} = \frac{\displaystyle\sum_{\lambda=400}^{780} |R_\lambda(t) - R_\lambda(0)|}{n}
+\label{eq:dR_vis}
+\end{equation}
+\myequations{\hspace{0.7cm}$\Delta R_{\textrm{vis}}$}
+where $n$ is the number of wavelengths and $t$ the time.
+
+
+\subsubsection{Uncertainties in colour measurements}
+
+When performing colour measurements, there is always a range of uncertainties associated with the data for which \citet{gardner_uncertainties_2006} reviewed possible causes. Ultimately, uncertainties can affect the final assessment of the colour, which is why it is important to evaluate the ability of the device to perform colour measurements. Assessing the colour measurement performance of devices mainly involves of characterising uncertainties by means of statistical operations on spectral values and colourimetric coordinates, which can be rather complex. This section leaves out mathematical complexities in the process\sidenote{Mathematical statistics on colour measurement errors can be found in \citet[42-66 and 255-62]{volz_industrial_2002}.} and focuses instead on introducing the topic of uncertainties in colour measurements.\\
+
+\vspace{1cm}
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.75\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/uncertainties.png}
+\caption[\hspace{0.3cm}Uncertainties concepts]{Uncertainties concepts (adapted from \citet[128-129]{berns_billmeyer_2019}.}
+\label{fig:color_uncertainties}
+\end{figure*}
+
+On a general level, the \citet{joint_committee_for_guides_in_metrology_uncertainty_2008} produced standard definitions of uncertainties which have been used as a basis for the study of uncertainties in colour measurements \citep{early_uncertainty_2004}. Uncertainties can be divided into two main categories: precision and accuracy. Intuitively, precision tells us how consistent the device is: when performing repeated measurements on a sample, can we characterise the degree of variability between each measurement? On a deeper level, the notion of precision is composed of three concepts: repeatability, reproducibility and inter-reproducibility (Figure \ref{fig:color_uncertainties}). Accuracy measures the degree of variability between a measured value and a reference value provided by a metrological institution, such as the National Institute of Standards and Technology (NIST) in the \gls{USA} or the National Physical Laboratory (NPL) in the \gls{UK}. This indicates how well the system is performing colour measurement. In the context of microfadeometry, repeatability is the most relevant parameter and is detailed in the following paragraphs.\\
+
+Repeatability is defined as the ‘closeness of the agreement between the results of successive measurements of the same measurand carried out under the same conditions of measurement’ \citep[35, B2.15]{joint_committee_for_guides_in_metrology_uncertainty_2008}. In other words, it reveals how well an instrument can repeat identical measurements. On a practical level, repeatability can be measured on a lightfast sample by taking $n$ successive measurements\sidenote{ The number of measurements has to be at least 10, although the \citet{astm_e1345-98_practice_2019} recommends a number of 30 measurements.} over a few seconds (short), hours (medium), days or weeks (long) \citep[125]{berns_billmeyer_2019}. The most straightforward way to assess repeatability is based on the central-limit theorem, where it is assumed that a series of reflectance values at each wavelength will form a normal (Gaussian) distribution. Hence the possibility of calculating the mean reflectance spectrum along with the standard deviation at each wavelength to quantify the repeatability: the lower the standard deviation, the better the precision of the device. A second approach, aiming to relate precision with visual tolerances, relies on the \gls{MCDM} metric, which can be calculated for any colour difference equations ($\Delta E^*_{ab}$, $\Delta E^*_{94}$, \dEOO, etc.) (\ref{eq:MCDM}) \citep{billmeyer_assessment_1981}.
+
+\begin{equation}
+    MCDM = \frac{\displaystyle\sum_{i=1}^{n} \Delta E^*_{00}([L^*_i,a^*_i,b^*_i],[L^*_{mean},a^*_{mean},b^*_{mean}])}{n}
+\label{eq:MCDM}
+\end{equation}
+\myequations{\hspace{0.7cm}Mean colour difference from the mean}
+Highly precise devices usually have a \gls{MCDM} value for short-term repeatability below a \dEOO of 0.10 \citep[98]{berns_billmeyer_2000}. In addition, the colour difference can also be calculated from the first measurement, which is particularly useful to outline thermochromism phenomena. The \gls{RMS} can also be calculated, whether from the mean or the first value. It is conceptually comparable to the \gls{MCDM} but applied to the reflectance spectrum at each wavelength.
+
+\begin{equation}
+    RMS = \frac{1}{m} \displaystyle\sum_{\lambda=1}^{m} \sqrt{\frac{1}{n}\displaystyle\sum_{i=1}^{n}(R_{\lambda,i}-R_x)^2}
+\end{equation}
+\myequations{\hspace{0.7cm}Root mean square}
+where $m$ is the number of dimensions (\ie wavelengths) and $n$ the number of measurements. Usually $m$ is equal to 401 ($\lambda$ ranging from 380 to 780 nm). A few more methods (multivariate and univariate) exists, but these are more complex and rarely used in the field of cultural heritage \citep{clarke_recipe_2006, gardner_uncertainties_2006, wyble_evaluation_2007}.\\
+
+
+\newpage
+\section{History of microfadeometry}
+
+Microfadeometry can be defined as an analytical technique that assesses the lightfastness properties of objects. In this section, the history of microfadeometry is approached from the history of microfading devices. Four main categories of instrument have been developed since the implementation of the first devices in the late 1990s. The first group is based on the Oriel device that was developed by Paul Whitmore and his colleagues in the \gls{USA} \citep{whitmore_predicting_1999}. The second type of device was developed in the late 2000s in the \gls{UK} and is referred to as the \textit{Tate device} \citep{lerwill_versatile_2007}, which was technically upgraded a few years later and became known as a retroreflective device \citep{liang_development_2011}. In the 2010s, the Preventive Conservation group from the GCI conservation science department made up of leader Jim Druzik with Christel Pesme, Vincent Beltran, and Andrew Lerwill worked on developing a smaller and less expensive set-up named the ball lens portable device to promote use of the instrument in conservation labs and by conservators to support lighting policy formulation \citep{pesme_development_2016}. Finally, the last generation of instruments has been created by a Polish firm called Fotonowy. While different types of device were developed, they all have in common the inclusion of three elements:
+\begin{enumerate}
+    \item An artificial light-ageing system, usually a high-power xenon light source, though recently \gls{LED} light sources have also been used.
+    \item A spectrometer that collects reflectance spectra in order to assess colour change.
+    \item Connectors, usually composed of a series of lenses, filters and fibre optics. 
+\end{enumerate}
+
+
+\subsection{The emergence of a new analytical tool}
+
+In the 1990s, two different microfading devices were developed simultaneously on each side of the Atlantic. The first device was created under the auspices of Paul Whitmore at the Art Conservation Research Center at Carnegie Mellon University in Pittsburgh from 1996 to 1999 \citep{whitmore_predicting_1999}\sidenote{A detailed description of the system has been published by \citet[103–16]{del_hoyo-melendez_study_2010}.}. The second device was implemented at the Victoria and Albert Museum in London under the supervision of Boris Pretzel (\citeyear{pretzel_determining_2000}).\\
+
+Before the 1990s, artificial light-ageing devices and spectrometers had been developed separately. Paul Whitmore had the idea of combining them, leading to the origin of the Oriel device (Figure \ref{fig:MFT_oriel}). The device, meant to be relatively simple and affordable, was sold by a company called Newport and manufactured by Oriel Instruments, which is part of Newport corporation brand\sidenote{The Newport Oriel company is now owned by MKS Instruments.} \citep[52–4]{del_hoyo-melendez_study_2010}.\\
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.7\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Oriel_device.png}
+\caption[\hspace{0.3cm}The Oriel MFT]{Schematic representation of the Oriel MFT (adapted from \citet[Fig. 1]{whitmore_predicting_1999}).}
+\label{fig:MFT_oriel}
+\end{figure*}
+
+
+It uses a high xenon light source positioned inside a metallic lamp housing with a rear reflector on its inner wall to reflect the xenon light beams into the optic fibre and to increase its output (Table \ref{tab:MFT_oriel}). The mirror, as well as the position of the xenon light bulb, can be modified using controls on the outside of the lamp housing. The intensity controller, as its name indicates, limits the intensity fluctuation of the xenon light source, while slightly lowering the intensity as a downside effect.\\
+
+The illumination probe projects onto the object's surface an intense and vertical light beam through a pair of achromatic lenses connected by an optical fibre to the xenon light source. The collection head, positioned at a 45$^\circ$ angle from the normal, monitors at regular time intervals the colour of the illuminated spot (Figure \ref{fig:MFT_oriel}). This geometry, designated as (0$^\circ$ / 45$^\circ$), is suited to analyse the diffusely reflected light, providing colour information on the sample \citep[398]{whitmore_predicting_1999}. It can be noted that a single light source, \ie, the high-power xenon lamp, is used both for the fading and colour measurement processes. Both probes can also be adjusted manually with knobs or by using a translation stage system. The system is easy to use and quite flexible, which enables slight modifications to the original system according to the needs of each user. However, manual adjustment of the position of each part can be rather time-consuming and difficult to reproduce.\\
+
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Parameters of the Oriel MFT]{Parameters of the Oriel MFT (data obtained from \citet{whitmore_predicting_1999}).}
+\begin{tabular}{R{5.5cm}L{7cm}}
+\toprule[0.4mm]
+\textbf{Parameter} &  \\\midrule
+Light source & 75W xenon short arc lamp combined with an intensity controller\\
+Luminous power (\unit{\lumen}) & 0.5-0.95\\
+Illumination (\unit{\mega\lux}) & 4–7.6\\
+Geometry (Illumination/Collection) & (0$^\circ$ / 45$^\circ$) \\
+Filter & UVIR cut-off filter \\
+Beam diameter (\unit{\mm}) & $\approx$ 0.4\\
+Optic fibre core diameter (\unit{\um}) & 200 (illumination); 600 (collection) \\ \bottomrule[0.4mm]
+\end{tabular}
+\label{tab:MFT_oriel}
+\end{table*}
+
+
+\subsection{The development of microfading devices}
+
+
+\subsubsection{The Tate device}
+
+This device was implemented between 2008 and 2011 by Andrew Lerwill during his PhD research at Nottingham Trent University\sidenote{Thorough descriptions of this device can be found in Lerwill’s thesis (\citeyear{lerwill_micro-fading_2011}) and in \citet{lerwill_portable_2008}.}. In comparison with the Oriel MFT device, several improvements were made, such as the use of a more stable light source, a motorised XYZ stage to achieve a better alignment of the spots and, the facility to focus the device remotely \citep[25-6]{lerwill_micro-fading_2011}. The apparatus is also more compact, which facilitates its transport. Although the geometry remains similar to the Oriel device, the use of different confocal optics with achromatic lenses reduces the beam diameter and therefore increases the illuminance value (Figure \ref{fig:MFT_Tate} and Table \ref{tab:MFT_Tate}). In combination with linear variable filters, the system can filter the spectrum of the fading light source in order to investigate wavelength dependence of fading \citep{lerwill_micro-fading_2015}.
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Tate_device_figure.png}
+\caption[\hspace{0.3cm}The Tate microfading device]{Schematic representation of the Tate microfading device (image obtained from \citet[23]{lerwill_micro-fading_2011}).}
+\label{fig:MFT_Tate}
+\end{figure*}
+
+\begin{table*}
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Parameters of the Tate device]{Parameters of the Tate device (data obtained from \citet[22-9]{lerwill_micro-fading_2011}).}
+\begin{tabular}{R{5.5cm}L{7cm}}
+\toprule[0.4mm]
+\textbf{Parameter} &  \\\midrule
+Light source & High-powered continuous-wave xenon light source (Ocean Optics HPX2000) or Cold white LED (Thorlabs MCWHF1, CCT 5600 K)\\
+Radiant power (\unit{\milli\watt}) & 2.59 (max) \\
+Luminous power (\unit{\lumen}) & 0.59 (max) \\
+Illumination (\unit{\mega\lux}) & 17.0 (max) \\
+Geometry (Illumination/Collection) & (0$^\circ$ / 45$^\circ$) \\
+Filter & UVIR cut-off filter \\
+Beam diameter (\unit{\mm}) & $\approx$ 0.25\\
+Optic fibre core diameter (\unit{\um}) & 600 (illumination); 600 (collection) \\ 
+\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:MFT_Tate}
+\end{table*}
+
+
+
+\subsubsection{The retroreflective device}
+\label{sec:retroreflective_MFT}
+
+The retroreflective device seems to be an improvement of the Tate system that was developed under the leadership of Haida Liang at Nottingham Trent University \citep{liang_development_2011}\sidenote{For a demonstration of the application of the retroreflective system see the video produced by the National Archives in the UK: \href{https://blog.nationalarchives.gov.uk/a-quick-guide-to-microfading/}{link video} (accessed on 20/03/2023).}. The system innovates by implementing a new geometry relying on the use of a beam splitter, which solves, in an elegant way, the alignment of the beams. \\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.75\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Retroreflective_MFT_video_Archives-UK.png}
+\caption[\hspace{0.3cm}The retroreflective device]{Photograph and schematic representation of the retroreflective device (\copyright National Archives, \gls{UK}).}
+\label{fig:MFT_retroreflective}
+\end{figure*}
+
+
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Parameters of the retroreflective device]{Parameters of the retroreflective device (data obtained from \cite{liang_development_2011}).}
+\begin{tabular}{R{5.5cm}L{7cm}}
+\toprule[0.4mm]
+\textbf{Parameter} &  \\\midrule
+Light source & High-powered continuous-wave xenon light source (Ocean Optics HPX2000)\\
+Radiant power (\unit{\milli\watt}) & $\approx$ 2.0 \\
+Irradiance (\unit{\watt\per\square\metre}) & $\approx$ 7000 \\
+Geometry (Illumination/Collection) & (45$^\circ$ / 45$^\circ$) \\
+Filter & UV/IR cut-off filter \\
+Beam diameter (\unit{\mm}) & $\approx$ 0.46 x 0.76 (ellipse)\\
+\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:MFT_retroreflective}
+\end{table*}
+
+
+
+
+\subsubsection{The ball lens portable device}
+
+The device was developed in the 2010s by the Preventive Conservation group from the GCI conservation science department \citep{pesme_development_2016} based on an original design by Andrew Lerwill. The system differs from previous set-ups in several aspects. Firstly, it projects light and collects reflected radiation through the use of a ball lens (Figure \ref{fig:MFT_ball_lens}) with a geometry of 0$^\circ$/8$^\circ$. The fading process still occurs vertically, but the colour measurement process now takes place at an 8$^\circ$ angle from the normal. Although the ball lens needs to be in contact with the surface of the object, it directly focuses the system which avoids the need to manually align the fading and collecting beams. Secondly, the system can be extremely compact due to use of a small \gls{LED} light source and a bifurcated optical fibre instead of two distinct fibres (Table \ref{tab:MFT_ball-lens}).\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.6\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/Pesme_2016_ball_lens_device.png}
+\caption[\hspace{0.3cm}The ball lens portable MFT]{Schematic representation of the ball lens portable MFT (from \citet[121]{pesme_development_2016}), based on original design from Andrew Lerwill.}
+\label{fig:MFT_ball_lens}
+\end{figure*}
+
+Comparisons with benchmark devices have shown similar results in terms of \gls{BWSE}, confirming the ability of this device to assess the light sensitivity of coloured surfaces \citep[124]{pesme_development_2016}. Although the colourimetric values of the samples differ with this device \citep[125-6]{pesme_development_2016}, probably due to the use of a different geometry and a \gls{LED} light source, it does not affect the comparison of spectral changes in time. The development of the ball lens device demonstrates the possibility of performing microfading analyses in a different way.\\
+
+\begin{table*}
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Parameters of the ball lens portable device]{Parameters of the ball lens portable device (data obtained from \cite[120]{pesme_development_2016}).}
+\begin{tabular}{R{5.5cm}L{7cm}}
+\toprule[0.4mm]
+\textbf{Parameter} &  \\\midrule
+Light source (2 options) & High-powered continuous-wave xenon light source (Ocean Optics HPX2000) or cold white LED (Thorlabs MCWHF1) \\
+Luminous power (\unit{\lumen}) & $\approx$ 1.2 \\
+Illuminance (\unit{\mega\lux}) & $\approx$ 6.12 \\
+Geometry (Illumination/Collection) & (0$^\circ$ / 8$^\circ$) \\
+Filter & UV/IR cut-off filter (when the xenon lamp is used) \\
+Beam diameter (\unit{\mm}) & $\approx$ 0.5\\
+Optic fibre core diameter (\unit{\um}) & Bifurcated optical fibre: 400 (illumination); 400 (collection) \\
+\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:MFT_ball-lens}
+\end{table*}
+
+
+\subsubsection{The Fotonowy device}
+
+This device is the last generation of MFT currently available on the market (Figure \ref{fig:MFT_fotonowy} and Table \ref{tab:MFT_fotonowy}). It was developed by Jacob Thomas and Thomas \L ojewski and fabricated by the Polish company Fotonowy\sidenote{For more information, see \url{https://www.fotonowy.pl/products/micro-fading-tester/?lang=en}, accessed 15/10/2021.}. Unlike previous devices, the system has been designed from the user's perspective ; the full automatic functions and the user-friendliness of the software facilitate easy use of the device allowing a broad audience to perform microfading analyses\sidenote{It is the first microfading system that can be operated on a Linux OS.}. It has recently been applied on several paintings from Edward Munch held by the Munch Museum in Oslo \citep{chan_microfade_2022}. The fading process is induced by a high-power LED light source from which the user can choose between different \gls{CCT} values, ranging from cool white (2700\unit{\kelvin}) to cold white LED (5700\unit{\kelvin})\sidenote{Personal communication with Piotr Chomiuk from Fotonowy, 25/04/2023.}. The power of the light source can be precisely adjusted and the exposure dose delivered during each analysis is automatically calculated by the software\sidenote{This feature requires the use of a calibrator which is provided by the company.}. Just like the ball lens device, this system is easy to carry which facilitates on-site measurements. \\
+
+
+While bringing numerous technological advances, the development of the Fotonowy device also represents a fundamental paradigm shift from a conceptual point of view. Until now, the technique was mainly developed by academic or cultural institutions where economic interests were subordinated to other interests. With Fotonowy, this is the first time that a private industrial partner has developed its own system. As the company has an economic interest in the sale of this device, it cannot afford to reveal all the information relating to the manufacture and operation of the device\sidenote{In our discussions, the company was always open to answering our practical and technical questions about the device.}. As a consequent, the device seems like an inaccessible ‘black box’, meaning that any possibility of adapting the device according to the individual needs of users will be difficult and that any maintenance services will have to be arranged through the company\sidenote{However, parts of the device can easily be opened so that one can attempt to gain a better understanding of the way the system is built and works.}. \\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.6\textwidth]{Chapters/Chapter2_Microfadeometry/Figures/Fotonowy_MFT.png}
+\caption[\hspace{0.3cm}The Fotonowy device]{Photograph the Fotonowy device (\copyright Fotonowy).}
+\label{fig:MFT_fotonowy}
+\end{figure}
+
+\vspace{0.3cm}
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Parameters of the Fotonowy device]{Parameters of the Fotonowy device\textsuperscript{a}.}
+\begin{tabular}{R{5.5cm}L{7cm}}
+\toprule[0.4mm]
+\textbf{Parameter} &  \\\midrule
+Light source  & white \gls{LED} ranging from 2700 to 5700\unit{\kelvin}  \\
+Radiant power (\unit{\milli\watt}) & 4.0 (max) \\
+Illuminance (\unit{\mega\lux}) & 8.0 (max) \\
+Geometry (Illumination/Collection) & (0$^\circ$ / 45$^\circ$) \\
+Beam diameter (\unit{\mm}) & $\approx$ 0.5\\
+\bottomrule[0.4mm]
+\end{tabular}
+\footnotesize{\\ \textsuperscript{a} Values found on the Fotonowy website: \url{https://www.fotonowy.pl/products/micro-fading-tester/?lang=en} (accessed on 15/10/2021).}
+\label{tab:MFT_fotonowy}
+\end{table*}
+
+
+\newpage
+\section{Microfadeometry: an overview}
+
+\subsection{Literature overview}
+
+This subsection aims to provide the reader with a list of bibliographical references on specific issues related to microfadeometry. These lists are not exhaustive but can serve as a starting point for collecting information\sidenote{Bruce Ford’s website has a comprehensive bibliography section which is updated regularly: \url{https://www.microfading.com/resources.html} (accessed on 20/03/2023).}. A thorough state-of-the-art review on microfadeometry has been published by \citet{ford_microfading_2013} and in 2018, the Getty Conservation Institute (GCI) organised an expert meeting. The report of the meeting \citep{beltran_advancing_2019}, which provides a good summary of the field, was followed by a more complete document containing technical information and descriptions of microfading devices and analysis procedures (pre-processing and post-processing steps) as well as connections with conservation activities in the framework of lighting policies \citep{beltran_microfading_2021}. \\
+
+For my overview, I have divided the field of microfadeometry into four main areas covering different topics, with a corresponding list of references provided:
+\begin{itemize}
+	\item Research and fundamental aspects (Table \ref{tab:MFT_ref_research})
+    \item Measurement aspects (Table \ref{tab:MFT_ref_meas})    
+    \item Technical aspects (Table \ref{tab:MFT_ref_technique})
+    \item Conservation-related aspects (Table \ref{tab:MFT_ref_conservation})
+\end{itemize}
+
+\vspace{0.7cm}
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Bibliographic references - Research \& fundamental aspects]{Bibliographic references: Research and fundamental aspects.}
+\begin{tabular}{L{4cm}L{9cm}}
+\toprule[0.4mm]
+\textbf{Topics} & \textbf{References} \\ \midrule
+Reciprocity principle & \citep{del_hoyo-melendez_investigation_2011,whitmore_predicting_1999} \\
+Surface temperature & \citep{whitmore_predicting_1999} \\
+Wavelength dependency & \citep{lerwill_micro-fading_2015} \\
+Data processing & \citep{prestel_classification_2017} \\
+Thermochromism & \citep{del_hoyo-melendez_study_2010} \\
+\bottomrule[0.4mm]
+\end{tabular}
+\label{tab:MFT_ref_research}
+\end{table*}
+
+
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption{\hspace{0.3cm}Bibliographic references - Measurement aspects}
+\begin{tabular}{C{1.5cm}L{3cm}L{8cm}}
+\toprule[0.5mm]
+ \multicolumn{2}{c}{\textbf{References}} & \textbf{References}  \\\midrule
+\multirow{9}*{Materials} & Dye & \citep{zweifel_exploring_2015}\\
+& Ethnographic objects & \citep{daher_colored_2020, troalen_multi-analytical_2016,ford_lighting_2011, pearlstein_evaluating_2010, del_hoyo-melendez_survey_2010} \\
+& Inks & \citep{smith_17_2020} \\
+& Paintings & \citep{fieberg_paintings_2017} \\
+& Paints & \citep{sobeck_shedding_2022} \\
+& Papers & \citep{haddad_realizing_2023} \\ 
+& Photographs & \citep{barro_exhibition_2020, freeman_monitoring_2014, columbia_application_2013} \\
+& Rock paintings & \citep{carrion-ruiz_color_2021, del_hoyo-melendez_document_2015} \\
+& Textiles & \citep{vannucci_micro_2023} \\
+& Watercolours & \citep{pullano_microfading_2018} \\
+& Woods & \citep{tse_study_2018} \\\hline
+\multicolumn{2}{c}{Measurements under anoxia} & \citep{beltran_examination_2014} \\\hline
+\multicolumn{2}{c}{Measurements through glass} & \citep{vannucci_micro_2023, prestel_microfading_2021, del_hoyo-melendez_measuring_2018} \\\hline
+\multicolumn{2}{c}{Robin rounds} & \citep{druzik_comparison_2010} \\ \bottomrule[0.5mm]
+\end{tabular}
+\label{tab:MFT_ref_meas}
+\vspace*{0.5cm}
+\end{table*}
+
+
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Bibliographic references - Technical aspects]{Bibliographic references - Technical aspects.}
+\begin{tabular}{L{4cm}L{9cm}}
+\toprule[0.4mm]
+\textbf{Topics} & \textbf{References} \\ \midrule
+Device development & \citep{patin_enhanced_2022, pesme_development_2016, liang_development_2011, lojewski_note_2011, lavedrine_development_2011, tao_development_2010, lerwill_portable_2008, pretzel_determining_2000, whitmore_predicting_1999} \\
+Device characterisation & \citep{swit_beam_2021} \\ \bottomrule[0.4mm]
+\end{tabular}
+\label{tab:MFT_ref_technique}
+\vspace*{0.5cm}
+\end{table*}
+
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Bibliographic references - Conservation related aspects]{Bibliographic references - Conservation related aspects.}
+\begin{tabular}{L{3.5cm}L{9cm}}
+\toprule[0.4mm]
+\textbf{Topics} & \textbf{References} \\ \midrule
+Lighting policies - Preservation target & \citep{beltran_microfading_2021, ford_reality_2017, pesme_presentation_2016, ford_lighting_2011, ford_development_2011} \\ \bottomrule[0.4mm]
+\end{tabular}
+\label{tab:MFT_ref_conservation}
+\end{table*}
+
+\newpage
+
+\subsection{Microfadeometry in the field of cultural heritage}
+\label{sec:MFT_heritage_field}
+
+Over the last two decades, the use of microfading devices has grown consistently within cultural heritage institutions\sidenote{A recent survey undertaken at the Getty Conservation Institute under the leadership of Vincent Beltran identified 74 cultural heritage institutions that currently possess a microfading device \citep{beltran_microfading_2021}.}, up to a point where microfadeometry is currently fast becoming a key element when making decisions on light-fading risk assessment. In the light of such a development, it is important to understand to what extent microfadeometry can contribute to informing decisions about the lighting conditions of cultural objects. This can be accomplished in two steps, by defining the position and relationship of microfadeometry within the lighting policy framework previously reviewed (Chapter 1, section \ref{sec:lighting policy framework}) and by pointing out the consequences of microfadeometry for conservation practice, as discussed further below.\\
+
+Chapter 1 demonstrated that a lighting policy can consist of a methodological framework in which a risk management approach can be applied. Within the characterising and understanding step of this methodology, one aspect deals with the vulnerability of objects which can be distinguished by two different methods: literature review or microfadeometry. Information on the light sensitivity of objects influences the prediction phase, which ultimately impacts the decisions taken in the prevention stage (see Figure \ref{fig:lighting_policy_framework}). Microfading data can be used as input for colour change prediction images of objects \citep{morris_virtual_2007} or colour patches \citep[Figure 4]{pesme_presentation_2016}\sidenote{This topic was previously discussed in Chapter 1, section \ref{sec:predict}.}. These digital visualisations can subsequently support institutions to define preservation targets for their collections which leads to a lighting budget that can be used to regulate the exposure of objects. Although microfadeometry only represents a small piece within a bigger puzzle, \ie the lighting policy framework, the information that it provides can be valuable and have repercussions for final decisions and actions taken. \\
+
+
+The implementation of microfadeometry in cultural institutions has impacted conservation practice in several ways. Firstly, it has increased the awareness of professionals such as conservators and curators for light damage so that the topic is discussed more frequently in museums, which are more willing to dedicate the necessary time and energy to deal with it. Additionally, it has also influenced the balance of power between conservators, who have acquired new expertise, and curators, who most of the time have the last word regarding exhibition decisions. Though this influence on the interactions between conservators and curators may vary in amplitude and qualitatively from one institution to another, one can notice that over the past decades more and more curators now make decisions taking into consideration the recommendations of conservators based on microfading results\sidenote{Kirsten Dunne, National Galleries of Scotland, personal communication, 04/10/2019.}. Finally, it has allowed greater flexibility when applying the recommendations that stem from the lighting policy. As an example, an object previously considered as highly sensitive can now be exhibited longer or with a higher intensity if the results of a microfading analysis confirm the relative stability of the colours. A study by \citet[163-4]{ford_protecting_2010}  showed that in a majority of cases (52\%), microfadeometry permitted an extension of the exhibition duration. \\
+
+
+\newpage
+\section{Limitations}
+
+\subsection{Reciprocity principle failure}
+\label{sec:RP_failure}
+
+In the context of colour change on cultural objects, failure of the reciprocity principle occurs when for similar exposure doses, \ie $D_1 \approx D_2$, the amount of respective colour changes differs, \ie  $\Delta E_1 \neq \Delta E_2$. Firstly, this failure not only contradicts the idea that light damage is cumulative but also means that the results of accelerated light-ageing experiments cannot be correlated to natural light ageing obtained under normal environmental conditions, such as a museum exhibition environment. In other words, the colour change monitored during microfading analyses does not always correspond to reality.\\
+
+A summary of past studies on the topic of reciprocity failure, across all fields of research, has been published by \citet{martin_reciprocity_2003}. Focusing on the field of cultural heritage science, researchers mostly tested the validity of light-ageing tests on photographs and paintings. In the field of photograph conservation, an extensive amount of work has been done by \citet[Chapters 2 and 3]{wilhelm_permanence_2003} which has led to standardised light-ageing test procedures and reporting methods. A few years earlier, a series of light-ageing experiments using halogen lamps on diverse pigments was conducted at the National Gallery in London which confirmed that most samples followed the principle \citep[89]{saunders_light-induced_1996}. Three studies tested the reciprocity principle on microfading data. When comparing microfading data against conventional fading tests data on \gls{BWS} and gouache samples, the results of \citet{whitmore_predicting_1999} showed that microfading data tended to reach slightly lower \dEab values. Since the differences in \dEab values were relatively small and the lightfastness rankings were similar from one ageing method to another, the authors concluded that reciprocity seems to hold for microfading analyses \citep[404]{whitmore_predicting_1999}. A decade later, \citet{del_hoyo-melendez_investigation_2011} found that reciprocity failures occur for light-sensitive objects rated as BW1 and when using illuminance levels above one \unit{\mega\lux}. Failure of the reciprocity principle was also observed by \citet{liang_development_2011} in their microfading analyses on orpiment paint-outs.\\ 
+
+In the context of microfadeometry, failure of the reciprocity principle is one of the main drawbacks that limits the reliable interpretation of data acquired and application of the technique. As a consequence, dose-response prediction of colour changes obtained by microfadeometry lacks reliability. Comparing microfading data of objects against microfading measurements on blue wool standards under similar conditions is one solution that is currently adopted in order to bypass this problem. However, it is rather time consuming and these blue wool standards also have their own limitations. Overcoming this issue will need decades of fundamental research in order to gain a better understanding of the failings of the reciprocity principle. Another crucial requirement is the obtention of fading reference curves for materials providing solid ground truth against which microfading data can be compared.\\
+
+
+\subsection{Dosimeter and lightfastness ranking system}
+\label{sec:dosimeter}
+
+A clear distinction between the terms dosimeter and lightfastness ranking system has to be made. A dosimeter relates a specific amount of change to a dose value, either in terms of photometric (\unit{\lux\hour}) or radiometric units (\unit{\joule\per\square\metre}). For example, a specific amount of colour change on an ink exposed to light could correspond to a certain amount of energy received at the surface of the sample. On the other hand, a lightfastness ranking system provides a standardised scale within which the results of lightfastness on objects or samples can be compared. It is a classification system that helps us to easily identify and compare the lightfastness of several materials. These two functions are not mutually exclusive. For example the blue wool standards are used as a lightfastness scale in which the dose response of each grade has been characterised \citep{michalski_light_2018}.\\
+
+Blue wool standards consist of eight different sets of dyed wool ranging from the most to the least light sensitive, BW1–BW8. The lightfastness degree between each subsequent set has a ratio of approximately 2:3. For instance, BW2 is two times more lightfast than BW1; therefore, under similar lighting conditions, one hour of exposure on a BW1 sample will result in comparable colour difference values with two hours of exposure on a BW2 sample. Analyses on \gls{BWS}, usually performed prior to analyses on objects, allow us to translate the final $\Delta E$ values into \gls{BWSE} values.\\
+
+
+The works of Robert L. Feller and Ruth Johnston-Feller, conducted in the 1970s, aimed to introduce the use of ISO blue wool standards (British Standards BS1006:1971) in order to monitor and assess the light-fading behaviour of cultural heritage objects \citep{feller_further_1978, feller_use_1978, feller_continued_1981}. In the 1990s, blue wool standards – commonly used in cultural institutions \citep{bullock_measurement_1999, derbyshire_proposed_1999} – were chosen as a lightfastness ranking system for the microfading tester created by Paul Whitmore \citep[400-401]{whitmore_predicting_1999}. Although blue wool standards are useful in other aspects of conservation practice, their application in microfadeometry presents some drawbacks for which concerns are often raised in conferences and expert meetings (\citealp[13]{beltran_microfading_2021}; \citealp{del_hoyo-melendez_limitations_2016}). The main reason is the occurrence of differences in the data between measurements of similar standard level. This specific issue comes from the structure of the textile in itself. The intertwining of perpendicular threads, chaining and filling threads, creates an uneven surface alternating between bump and hollow spaces with dimensions comparable to the diameter of the fading beam. Depending on the location of the beam spot on the blue wool sample – bump, hollow or in between – the $L^*a^*b^*$ and $\Delta E$ values will differ \citep{prestel_alternative_2016}\sidenote{In the framework of an internship at the Rathgen Forschungslabor in Berlin, I faded 40 BW1 samples and also noticed differences in $L^*a^*b^*$ values before and after analysis (unpublished work).}. These inconsistencies when analysing BW1 samples have been reported by \citet[Figure 4]{mecklenburg_development_2012}, who developed a mathematical model to explain these variations. Moreover, an inconsistent behaviour of BW2 has been noted. To my knowledge, no other studies on the inconsistency of BW2 have been carried out, but it is a phenomenon that is occasionally observed by MFT users. Lastly, failure of the reciprocity principle for blue wool standards has been demonstrated in a study conducted by \cite{del_hoyo-melendez_investigation_2011}. They found a deviation from the reciprocity principle for BW1 when the illuminance value was greater than one \unit{\mega\lux}. Knowing that typical microfading analyses vary between 3 and 8 \unit{\mega\lux}, a correlation between real-time fading and microfading analyses cannot be made for blue wool standard samples.\\
+
+In general, the use of \gls{BWS} allows a rough assessment of light sensitivity, which is sufficient for most users, but prevents more accurate and reliable assessments. Any further development of the technique will require better lightfastness ranking systems and dosimeters.\\
+
+\newpage
+\subsection{Spots alignment}
+
+As stated previously, a microfading analysis consists of two processes: light exposure and colour measurement. Each process runs through its own optic fibre projecting a light beam onto the surface for the light fading (illumination fibre) and collecting of spectral reflectance information for the colour measurement (collection fibre). It is important to ensure that the spots of both fibres are aligned, meaning that their respective surfaces overlap each other so that the colour measurement is performed at exactly the same location where the fading process occurs.\\
+
+There are two concerns regarding the alignment of the illumination and collection beam spots and solutions for both have been implemented in recent developments of the technique.
+
+\begin{enumerate}
+    \item Spots surface difference. Due to the 0$^\circ$:45$^\circ$ geometry of most microfading devices, the fading beam spot consists of a circle (Figure \ref{fig:MFT_spots_size}, continuous lines) whereas the colour measurement beam spot has an elliptic shape (Figure \ref{fig:MFT_spots_size}, dashed lines). As a consequence, the colour measurement beam spot may be too big, thus including unfaded area (Figure \ref{fig:MFT_spots_size} - a), or the fading spot may be larger than the colour measurement beam spot, resulting in unmeasured faded areas (Figure \ref{fig:MFT_spots_size} - b). Although this issue does not prevent microfading analyses, it certainly influences the results. In the first case (Figure \ref{fig:MFT_spots_size} - a), the measurements on the unfaded area will tend to minimise the results, meaning that a lower $\Delta E$ value can be expected. Unless the fading beam is evenly distributed, the opposite option (Figure \ref{fig:MFT_spots_size} - b) will perform measurements where the power density of the beam is the highest\sidenote{The power density in the centre of the fading beam is higher than in the edges.}. This issue was solved when implementing devices with a different geometry. For example, the ball lens portable device uses a 0$^\circ$:8$^\circ$ geometry \citep[120-121]{pesme_development_2016} and the retro-reflective device has a 45$^\circ$:4$^\circ$ geometry \citep[11]{beltran_advancing_2019}.
+    \item Spots alignment. In the Oriel device, the alignment of the fading and colour measurement spots had to be done manually. It was assumed to be reached when the highest curve of the xenon light source spectrum would be measured with the spectrometer. Although such an operation could only be done once in weeks or months, aligning the spots was usually quite time-consuming and lacked repeatability. The devices developed after the Oriel set-up implemented a fixed mounting system for both probes, fading and colour measurement, thereby solving this issue \citep{lerwill_portable_2008, lojewski_note_2011}. In addition, the Tate and the Fotonowy devices use a remotely focused system which is controlled by the software.\\
+\end{enumerate}
+
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.55\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/spot_size_geometry.png}
+\caption[\hspace{0.3cm}Spots size surface comparison]{Spots size surface comparison.}
+\label{fig:MFT_spots_size}
+\end{figure*}
+
+
+
+
+\subsection{Temperature-related issues}
+\label{sec:temperature_issues}
+
+There are two issues related to the temperature when performing microfading analyses: the first concerns the potential degradation occurring at the surface due to temperature rise while the second deals with the thermochromic effect of paint layers.
+
+The high amount of energy projected onto the surface during a microfading analysis inherently induces a rise of temperature. Past results show large variations from one study to another (Table \ref{tab:Temp_past_data}). While \citet[405]{whitmore_predicting_1999} reported an increase of 29\unit{\degreeCelsius} maximum, other researchers measured an increase of temperature around 5.5\unit{\degreeCelsius} above room temperature. Nonetheless, \citet[55]{ford_non-destructive_2011} pointed out that these latter results might underestimate the heating effect due to differences in thermal conductivity and emissions to real samples. While most studies used thermocouple devices coated with diverse paint materials, \citet{lerwill_micro-fading_2011} assessed the temperature with an additional thermometer made of thermochromic liquid crystals and \citet{whitmore_predicting_1999} used temperature indicating wax crayons. So far, infrared technology has not been used to measure surface temperature during microfading analyses. \\
+
+\begin{table*}[!h]
+\centering % instead of \begin{center}
+\caption[\hspace{0.3cm}Past data on temperature increase during MFT analyses]{Results of past studies on temperature increase during microfading analyses.}
+\begin{tabular}{L{4.6cm}L{2.7cm}L{4.7cm}}
+\toprule[0.4mm]
+\textbf{Study} & \textbf{T$^\circ$ rise above room T$^\circ$} & \textbf{Description} \\ \midrule
+\citep[405]{whitmore_predicting_1999} & 29\unit{\degreeCelsius} (max) & black, blue, green, and red paints \\
+\citep[143]{del_hoyo-melendez_study_2010} & smaller than 2\unit{\degreeCelsius} & red and orange ceramic tiles \\
+\citep[37]{lerwill_micro-fading_2011} & 3 - 4\unit{\degreeCelsius} & diverse paint materials \\
+\citep[55]{ford_non-destructive_2011} & 5 - 5.5\unit{\degreeCelsius} & black paint \\
+\citep[122]{pesme_development_2016} & 1\unit{\degreeCelsius} ; 4\unit{\degreeCelsius} & black paint (\gls{LED} ; xenon) \\ \bottomrule[0.4mm]
+\end{tabular}
+\label{tab:Temp_past_data}
+\end{table*}
+
+Microfadeometry is fundamentally related to the degradation of materials at a local scale, which constitutes the basis on which to estimate the light sensitivity of materials. The small dimension of microfading spots as well as the possibility to stop analyses before it reaches a certain $\Delta E$ value prevents the spot from being visible to the naked eye. Although no studies have been carried out to estimate the impact of microfading analyses on the chemical and physical structure of materials due to temperature rise, it is likely that the risks induced by the light beam are relatively minimal for most materials. However, there is a risk for low-melting materials as mentioned by \citet[405]{whitmore_predicting_1999}. The main question regarding this issue is not really to quantify the risk of such analyses but to define if the results obtained are worth more than the damage that might be caused.\\
+
+
+
+
+A material is defined as photochromic when its colour varies according to its temperature. As mentioned previously, the surface temperature of materials may rise during microfading analyses which ultimately influences the colour of photochromic materials, especially for warm colour materials (orange and red) \citep[93]{malkin_bcranpl_1997}. For example, \citep[141-4]{del_hoyo-melendez_study_2010} has demonstrated that the $L^*$ and $a^*$ coordinates on orange and red ceramic tiles remain constant over time, while the $b^*$ value decreases during a microfading analysis. As a consequence, it becomes difficult to distinguish between the colour change due to the light-induced degradation of the colourant or to the thermochromic properties of the material. Careful interpretation of the results is therefore required.\\
+
+
+\subsection{Colour difference equations}
+
+As mentioned earlier, since 1976, the \gls{CIE} has developed three distinct colour difference equations: CIELAB, CIE94 and CIEDE2000. As these equations are different, the calculated value for similar pairs of $L^*a^*b^*$ differs from one equation to another. The issue is that the relationship between these equations is not linear. In other words, it is not possible to multiply the output of one equation by a constant k in order to estimate the output of another equation (\ref{eq:dE_inequality}). Consequently, the choice of the colour difference equation can noticeably influence the assessment of the data and ultimately interpretation of the results. For example, the \gls{BWSE} calculated by \citet[23, Table 3]{druzik_comparison_2010} on 17 samples showed that in general, the use of the \dEOO formula tends to give lower \gls{BWSE} values.
+
+\begin{equation}
+    \Delta E^*_{00} \neq k \Delta E^*_{ab}
+\label{eq:dE_inequality}
+\end{equation}
+\myequations{\hspace{0.7cm}Inequality between $\Delta E_{ab}$ and \dEOO}
+
+\newpage
+\subsection{Imaging}
+
+The use of imaging systems integrated with microfading devices appeared a few years after the implementation of the Oriel device. It consisted of a pen camera (also called an endoscope camera), positioned at a \ang{45} angle to the normal (Figure \ref{fig:MFT_RF}, 5). Such a system enables the positioning of the fading spot on the object, but further has limited use. Later, \citet{lojewski_note_2011} introduced a higher-quality camera in their microfading system but without expanding its use outside of the common practice of recording the analysis position. With the development of image-based data in the field of cultural heritage, there are potentially interesting advances that could provide useful supplementary information on colour change and microfading measurements.\\
+
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=0.8\linewidth]{Chapters/Chapter2_Microfadeometry/Figures/MFT_set_up_head_RF.png}
+\caption[\hspace{0.3cm}Details of an Oriel microfading system]{Details of an Oriel microfading system (courtesy of the Rathgen Forschungslabor, Berlin).}
+\label{fig:MFT_RF}
+\end{figure*}
