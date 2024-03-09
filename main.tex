@@ -148,6 +148,7 @@
 \DeclareUnicodeCharacter{0313}{\"{U}}
 
 
+
 %%%%%%%% NEW COMMANDS %%%%%%%%
 
 % text
@@ -189,16 +190,27 @@
 \definecolor{mygray}{gray}{0.9}
 
 
+%% margin sidenotes
+\NewCommandCopy{\oldmarginpar}{\marginpar}
+\RenewDocumentCommand{\marginpar}{om}{%
+  \IfNoValueTF{#1}
+    {\oldmarginpar{\mymparsetup #2}}
+    {\oldmarginpar[\mymparsetup #1]{\mymparsetup #2}}}
+
+\newcommand{\mymparsetup}{\small}  % to make italic add \itshape
+
+
 %%%%%%%% CREATE DOCUMENT STRUCTURE %%%%%%%%
   
             
 \begin{document}
 
 %% Front cover
-\includepdf[pages=1]{Covers/cover-front.pdf}
+\includepdf[pages=1]{Covers/cover-front_3.pdf}
 
 %% Preambule pages
 \input{pre}
+
 
 %% TOC - Figures - Tables - Equations - Acronyms
 \newpage
@@ -207,12 +219,14 @@
 \listoffigures
 \newpage
 \listoftables
+\newpage
 \listofmyequations
-\afterpage{\blankpage}
+%\afterpage{\blankpage}
 \printglossary[style=long, title=Acronyms]
+\newpage
 
 \include{abstract}
-\afterpage{\blankpage}
+
 
 
 %\newgeometry{top=2.170cm,
@@ -226,6 +240,7 @@
 %% Chapters
 
 \newpage
+
 \include{Chapters/Chapter1_General_Introduction/ch1_general-introduction}
 \include{Chapters/Chapter2_Microfadeometry/ch2_microfadeometry}
 \include{Chapters/Chapter3_MFT_Advances/ch3_MFT-advances}
@@ -267,7 +282,6 @@
 %% Back cover
 \afterpage{\blankpage}
 \includepdf[pages=1]{Covers/cover-back.pdf}
-
 
 \end{document}         
             
